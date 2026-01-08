@@ -30,6 +30,20 @@ import {
 import Link from "next/link";
 import SpotlightCard from "@/components/SpotlightCard";
 
+const skills = [
+  { icon: <SiNextdotjs />, name: "Next.js", hex: "#ffffff" },
+  { icon: <SiReact />, name: "React", hex: "#61DAFB" },
+  { icon: <SiLaravel />, name: "Laravel", hex: "#FF2D20" },
+  { icon: <SiTailwindcss />, name: "Tailwind", hex: "#06B6D4" },
+  { icon: <SiTypescript />, name: "TypeScript", hex: "#3178C6" },
+  { icon: <SiPhp />, name: "PHP", hex: "#777BB4" },
+  { icon: <SiMysql />, name: "MySQL", hex: "#4479A1" },
+  { icon: <SiPostgresql />, name: "PostgreSQL", hex: "#336791" },
+  { icon: <SiFigma />, name: "Figma", hex: "#F24E1E" },
+  { icon: <SiGithub />, name: "Git", hex: "#ffffff" },
+  { icon: <SiNodedotjs />, name: "Node.js", hex: "#339933" },
+];
+
 export default function Home() {
   const { t } = useLanguage();
 
@@ -150,21 +164,47 @@ export default function Home() {
             {/* Box 3: Tech Stack */}
             <SpotlightCard className="flex-1 min-h-[130px] flex flex-col justify-center cursor-default hover:border-white/20 rounded-2xl p-5">
               <div className="relative z-10">
-                <div className="flex justify-between items-start mb-2">
-                  <FiCpu className="text-gray-400 text-2xl" />
-                  <div className="flex -space-x-2 opacity-50">
-                    <div className="w-6 h-6 rounded-full bg-gray-700 border border-[#1E1E1E] flex items-center justify-center text-[10px] text-white">
-                      <SiWordpress />
-                    </div>
-                    <div className="w-6 h-6 rounded-full bg-gray-700 border border-[#1E1E1E] flex items-center justify-center text-[10px] text-white">
-                      <SiReact />
-                    </div>
-                    <div className="w-6 h-6 rounded-full bg-gray-700 border border-[#1E1E1E] flex items-center justify-center text-[10px] text-white">
-                      <SiNextdotjs />
-                    </div>
-                    <div className="w-6 h-6 rounded-full bg-gray-700 border border-[#1E1E1E] flex items-center justify-center text-[10px] text-white">
-                      <SiLaravel />
-                    </div>
+                <div className="flex justify-between items-start mb-2 relative z-10">
+                  <div className="p-2 bg-white/5 rounded-lg text-gray-400 group-hover:text-primary group-hover:bg-primary/10 transition-colors duration-300">
+                    <FiCpu size={24} />
+                  </div>
+
+                  <div className="flex items-center">
+                    {[
+                      { Icon: SiWordpress, color: "text-[#21759B]" },
+                      { Icon: SiReact, color: "text-[#61DAFB]" },
+                      { Icon: SiNextdotjs, color: "text-white" },
+                      { Icon: SiLaravel, color: "text-[#FF2D20]" },
+                    ].map((item, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ width: 0, opacity: 0, scale: 0 }}
+                        whileInView={{ width: "auto", opacity: 1, scale: 1 }}
+                        className="relative -ml-2 first:ml-0"
+                      >
+                        <div
+                          className={`
+            w-8 h-8 rounded-full 
+            bg-[#121212] border border-white/10 
+            flex items-center justify-center 
+            text-xs text-gray-500
+            transition-all duration-300
+            
+            /* HOVER EFFECTS */
+            group-hover:border-white/30
+            group-hover:scale-110
+            group-hover:-translate-y-1
+            group-hover:shadow-[0_0_10px_rgba(0,0,0,0.5)]
+            group-hover:${item.color}
+          `}
+                          style={{
+                            transitionDelay: `${index * 50}ms`,
+                          }}
+                        >
+                          <item.Icon />
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
                 <h4 className="font-bold text-white">
@@ -204,7 +244,7 @@ export default function Home() {
             <Link href="/contact" className="absolute inset-0 z-20" />
             <div className="relative z-10 w-full h-full flex flex-col justify-between">
               <div className="flex justify-between items-start">
-                <FiMail className="text-gray-400 text-2xl group-hover:text-green-400 transition-colors" />
+                <FiMail className="text-gray-400 text-2xl group-hover:text-primary transition-colors" />
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
               </div>
               <div className="mt-4">
@@ -237,41 +277,43 @@ export default function Home() {
         </div>
 
         <div className="flex flex-wrap gap-3">
-          {[
-            { icon: <SiNextdotjs />, name: "Next.js", color: "text-white" },
-            { icon: <SiReact />, name: "React", color: "text-[#61DAFB]" },
-            { icon: <SiLaravel />, name: "Laravel", color: "text-[#FF2D20]" },
-            {
-              icon: <SiTailwindcss />,
-              name: "Tailwind",
-              color: "text-[#06B6D4]",
-            },
-            {
-              icon: <SiTypescript />,
-              name: "TypeScript",
-              color: "text-[#3178C6]",
-            },
-            { icon: <SiPhp />, name: "PHP", color: "text-[#777BB4]" },
-            { icon: <SiMysql />, name: "MySQL", color: "text-[#4479A1]" },
-            {
-              icon: <SiPostgresql />,
-              name: "PostgreSQL",
-              color: "text-[#336791]",
-            },
-            { icon: <SiFigma />, name: "Figma", color: "text-[#F24E1E]" },
-            { icon: <SiGithub />, name: "Git", color: "text-white" },
-            { icon: <SiNodedotjs />, name: "Node.js", color: "text-[#339933]" },
-          ].map((skill, index) => (
+          {skills.map((skill, index) => (
             <motion.div
               key={index}
               variants={fadeInUp}
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E1E1E] border border-white/5 hover:bg-white/5 transition-all cursor-default"
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
+              className="relative flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E1E1E] border border-white/5 cursor-default overflow-hidden group"
             >
-              <span className={`text-lg ${skill.color}`}>{skill.icon}</span>
-              <span className="text-gray-300 text-sm font-medium">
+              <motion.div
+                variants={{
+                  rest: { opacity: 0 },
+                  hover: { opacity: 0.15 },
+                }}
+                className="absolute inset-0"
+                style={{ backgroundColor: skill.hex }}
+              />
+
+              {/* Icon & Text */}
+              <motion.span
+                className="text-lg relative z-10"
+                style={{ color: skill.hex }} // Warna Icon selalu nyala
+              >
+                {skill.icon}
+              </motion.span>
+              <span className="text-gray-300 text-sm font-medium relative z-10 group-hover:text-white transition-colors">
                 {skill.name}
               </span>
+
+              {/* Border Glow Effect */}
+              <motion.div
+                className="absolute inset-0 rounded-full border-2"
+                variants={{
+                  rest: { opacity: 0, borderColor: "transparent" },
+                  hover: { opacity: 1, borderColor: skill.hex },
+                }}
+              />
             </motion.div>
           ))}
         </div>

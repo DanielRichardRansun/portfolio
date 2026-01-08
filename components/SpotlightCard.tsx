@@ -41,8 +41,8 @@ export default function SpotlightCard({
         style={{
           background: useMotionTemplate`
             radial-gradient(
-              400px circle at ${mouseX}px ${mouseY}px,
-              rgba(255, 255, 255, 0.07),
+              500px circle at ${mouseX}px ${mouseY}px,
+              rgba(255, 255, 255, 0.1),
               transparent 100%
             )
           `,

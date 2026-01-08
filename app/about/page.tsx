@@ -93,7 +93,7 @@ export default function About() {
                 </h3>
                 <div className="flex justify-between items-end mt-4">
                   <div>
-                    <p className="text-xs text-gray-400 mb-1">Issued by</p>
+                  <p className="text-xs text-gray-400 mb-1">{t.about.certifications.issued}</p>
                     <p className="text-xs font-medium text-white">
                       {cert.issuer}
                     </p>

@@ -12,12 +12,11 @@ import {
   FiCheckCircle,
   FiArrowRight,
 } from "react-icons/fi";
-import { SiGmail, SiInstagram, SiLinkedin, SiTiktok } from "react-icons/si";
+import { SiGmail, SiInstagram, SiLinkedin, SiGithub } from "react-icons/si";
 
 export default function Contact() {
   const { t } = useLanguage();
 
-  // State untuk data form & status pengiriman
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -74,7 +73,6 @@ export default function Contact() {
 
   return (
     <div className="w-full min-h-screen p-6 md:p-10 pb-20 space-y-12">
-      {/* --- HEADER --- */}
       <motion.section
         initial="hidden"
         animate="visible"
@@ -92,10 +90,8 @@ export default function Contact() {
         </div>
       </motion.section>
 
-      {/* DIVIDER */}
       <div className="w-full h-px bg-white/5" />
 
-      {/* --- SOCIAL MEDIA GRID --- */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -103,7 +99,6 @@ export default function Contact() {
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
         className="grid grid-cols-1 md:grid-cols-2 gap-4"
       >
-        {/* 1. GMAIL CARD */}
         <motion.a
           href="mailto:richardgtwp@gmail.com"
           variants={fadeInUp}
@@ -129,7 +124,6 @@ export default function Contact() {
           </div>
         </motion.a>
 
-        {/* 2. INSTAGRAM CARD */}
         <motion.a
           href="https://instagram.com/danielrichard"
           target="_blank"
@@ -156,7 +150,6 @@ export default function Contact() {
           </div>
         </motion.a>
 
-        {/* 3. LINKEDIN CARD */}
         <motion.a
           href="https://linkedin.com/in/danielrichard"
           target="_blank"
@@ -183,27 +176,26 @@ export default function Contact() {
           </div>
         </motion.a>
 
-        {/* 4. TIKTOK CARD */}
         <motion.a
-          href="https://tiktok.com/@danielrichard"
+          href="https://github.com/@danielrichard"
           target="_blank"
           variants={fadeInUp}
           whileHover={{ y: -5 }}
           className="group relative overflow-hidden bg-gradient-to-br from-[#333333] to-[#000000] rounded-2xl p-6 min-h-[160px] flex flex-col justify-between border border-white/10"
         >
           <div className="absolute right-4 top-4 opacity-20 group-hover:opacity-40 transition-opacity text-white">
-            <SiTiktok size={80} />
+            <SiGithub size={80} />
           </div>
           <div>
             <h3 className="text-xl font-bold text-white mb-1">
-              {t.contact.socials.tiktok.title}
+              {t.contact.socials.github.title}
             </h3>
             <p className="text-white/60 text-xs">
-              {t.contact.socials.tiktok.desc}
+              {t.contact.socials.github.desc}
             </p>
           </div>
           <div className="mt-4 inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-4 py-2 rounded-lg w-fit transition-colors">
-            {t.contact.socials.tiktok.btn}{" "}
+            {t.contact.socials.github.btn}{" "}
             <span className="group-hover:translate-x-1 transition-transform">
               ↗
             </span>
@@ -211,7 +203,6 @@ export default function Contact() {
         </motion.a>
       </motion.div>
 
-      {/* --- CONTACT FORM --- */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -222,7 +213,6 @@ export default function Contact() {
           {t.contact.form.title}
         </h2>
 
-        {/* Tampilan Jika Sukses Terkirim */}
         {status === "success" ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -247,9 +237,7 @@ export default function Contact() {
             </button>
           </motion.div>
         ) : (
-          /* Tampilan Form Normal */
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Row 1: Name & Email */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="text-xs text-gray-400 ml-1">
@@ -289,7 +277,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Row 2: Message */}
             <div className="space-y-2">
               <label className="text-xs text-gray-400 ml-1">
                 {t.contact.form.message}
@@ -309,7 +296,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Submit Button & Error Message */}
             <button
               type="submit"
               disabled={status === "submitting"}
@@ -324,17 +310,14 @@ export default function Contact() {
   "
             >
               {status === "submitting" ? (
-                /* --- STATE LOADING (Spinner) --- */
                 <div className="flex items-center gap-2">
                   <FiLoader className="animate-spin" size={16} />
                   <span>Sending...</span>
                 </div>
               ) : (
-                /* --- STATE NORMAL (Animasi Reveal) --- */
                 <div className="flex items-center gap-2 transition-transform duration-300 group-hover:-translate-x-1">
                   <span>{t.contact.form.btn}</span>
 
-                  {/* Icon Send yang sembunyi (w-0 opacity-0) dan muncul saat hover */}
                   <FiArrowRight className="w-0 opacity-0 -translate-x-2 transition-all duration-300 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0" />
                 </div>
               )}

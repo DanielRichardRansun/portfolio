@@ -6,7 +6,7 @@ export const en = {
     projects: "Projects",
     contact: "Contact",
     download: "Download CV",
-    footer: "© 2026 Daniel R.",
+    footer: "© 2026 Daniel Richard R.",
   },
   home: {
     hero: {
@@ -44,6 +44,7 @@ export const en = {
     certifications: {
       title: "Certifications",
       subtitle: "Professional accreditations and badges.",
+      issued: "Issued by",
       items: [
         {
           name: "AWS Cloud Practitioner",
@@ -89,12 +90,14 @@ export const en = {
   career: {
     title: "Career Path",
     subtitle: "My professional journey, roles, and impacts.",
+    responsibilities: "Responsibilities",
+    impacts: "Impacts & Achievements",
     items: [
       {
         role: "Website & Technology Specialist",
         company: "PT Muda Karya Kriya",
         date: "Feb 2025 - Present",
-        type: "Full-time", // atau Contract/Part-time
+        type: "Full-time",
         desc: "Leading the digital infrastructure and technical operations.",
         responsibilities: [
           "Develop and maintain company and client websites (hosting, domain, database, email).",
@@ -126,7 +129,7 @@ export const en = {
       },
       {
         role: "Assistant Lecturer - Native Mobile Programming",
-        company: "Universitas Dinamika Bangsa", // Asumsi kampus Anda
+        company: "Universitas Dinamika Bangsa",
         date: "Sep 2024 - Dec 2024",
         type: "Part-time",
         desc: "Mentoring students in Android Development.",
@@ -175,6 +178,7 @@ export const en = {
         title: "Ransite | Web Dev Service",
         category: "Service Website",
         image: "/images/porto/porto1.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["HTML", "CSS", "JavaScript"],
         desc: "My personal freelance website creation service to help companies create websites.",
         features: [
@@ -193,6 +197,7 @@ export const en = {
         title: "Akusila | Online Shop",
         category: "E-Commerce",
         image: "/images/porto/porto2.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Wordpress", "WooCommerce", "Elementor"],
         desc: "Online Shop Website developed using Wordpress and WooCommerce.",
         features: [
@@ -211,6 +216,7 @@ export const en = {
         title: "Mocraft 3D Printing",
         category: "Company Profile",
         image: "/images/porto/porto3.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Wordpress", "Elementor"],
         desc: "Company profile website used to introduce 3D printing services.",
         features: [
@@ -229,6 +235,7 @@ export const en = {
         title: "ICIA Competition PWA",
         category: "Web App",
         image: "/images/porto/porto4.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Laravel", "PWA", "MySQL"],
         desc: "Progressive Web App for innovation competition management and attendance.",
         features: [
@@ -247,6 +254,7 @@ export const en = {
         title: "YesCamp Profile",
         category: "Company Profile",
         image: "/images/porto/porto5.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Wordpress", "Elementor"],
         desc: "Website owned by Crabiz Factory from South Korea to introduce YesCamp program.",
         features: [
@@ -265,6 +273,7 @@ export const en = {
         title: "ICIA Global",
         category: "Company Profile",
         image: "/images/porto/porto6.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Wordpress", "Elementor"],
         desc: "Official website for ICIA Global, a subsidiary of Krya Global.",
         features: [
@@ -283,6 +292,7 @@ export const en = {
         title: "HoopTourney",
         category: "Management System",
         image: "/images/porto/porto7.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Laravel", "Bootstrap", "PHP"],
         desc: "Basketball tournament management website.",
         features: [
@@ -301,6 +311,7 @@ export const en = {
         title: "ICIA Admin & Judging",
         category: "Admin Dashboard",
         image: "/images/porto/porto8.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Laravel", "Bootstrap", "MySQL"],
         desc: "System used by PT Muda Karya Kriya for Administration and Judging.",
         features: [
@@ -319,6 +330,7 @@ export const en = {
         title: "Krya Global",
         category: "Company Profile",
         image: "/images/porto/porto9.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Wordpress", "Elementor"],
         desc: "Corporate website owned by PT Muda Karya Kriya.",
         features: [
@@ -337,6 +349,7 @@ export const en = {
         title: "GYIS Admin System",
         category: "Web App",
         image: "/images/porto/porto10.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Laravel", "Bootstrap", "PHP"],
         desc: "Competition Administration & Judging system for GYIS Competition.",
         features: ["Dashboard Juri", "Login Aman", "Penilaian Real-time"],
@@ -351,6 +364,7 @@ export const en = {
         title: "Juice Shop Website",
         category: "Landing Page",
         image: "/images/porto/porto11.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["HTML", "CSS", "JavaScript"],
         desc: "Ransun Juice sales and store introduction website.",
         features: ["Fresh Visual Design", "Product Grid", "Mobile Responsive"],
@@ -365,6 +379,7 @@ export const en = {
         title: "KampusKita",
         category: "Web App",
         image: "/images/porto/porto12.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["React", "Tailwind", "Node.js"],
         desc: "Campus introduction website created using React Framework.",
         features: [
@@ -383,6 +398,7 @@ export const en = {
         title: "Catering Website",
         category: "SME Website",
         image: "/images/porto/porto13.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Wordpress", "Elementor"],
         desc: "Ransun Catering store website with intuitive UX.",
         features: ["Galeri Menu", "Info Pemesanan", "Layout Makanan Elegan"],
@@ -397,6 +413,7 @@ export const en = {
         title: "Personal Portfolio v1",
         category: "Portofolio",
         image: "/images/porto/porto14.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["HTML", "CSS", "JavaScript"],
         desc: "Previous version of portfolio website with stylish design.",
         features: ["Animasi Custom", "Mode Gelap", "Form Kontak"],
@@ -411,6 +428,7 @@ export const en = {
         title: "Responsive Blog App",
         category: "Blog Platform",
         image: "/images/porto/porto15.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["PHP", "MySQL", "Bootstrap"],
         desc: "Blog App with CRUD database and admin features.",
         features: [
@@ -445,10 +463,10 @@ export const en = {
         desc: "Connect with me professionally.",
         btn: "Go to LinkedIn",
       },
-      tiktok: {
-        title: "Join the Fun",
-        desc: "Watch engaging and fun content.",
-        btn: "Go to TikTok",
+      github: {
+        title: "Explore the Code",
+        desc: "Explore my open-source work.",
+        btn: "Go to Github",
       },
     },
     form: {
@@ -469,7 +487,7 @@ export const id = {
     projects: "Proyek",
     contact: "Kontak",
     download: "Unduh CV",
-    footer: "© 2026 Daniel R.",
+    footer: "© 2026 Daniel Richard R.",
   },
   home: {
     hero: {
@@ -507,6 +525,7 @@ export const id = {
     certifications: {
       title: "Sertifikasi",
       subtitle: "Akreditasi dan lencana profesional.",
+      issued: "Dikeluarkan oleh",
       items: [
         {
           name: "AWS Cloud Practitioner",
@@ -553,12 +572,14 @@ export const id = {
     title: "Perjalanan Karir",
     subtitle:
       "Perjalanan profesional, tanggung jawab, dan dampak yang saya berikan.",
+    responsibilities: "Tanggung jawab",
+    impacts: "Dampak & Pencapaian",
     items: [
       {
         role: "Website & Technology Specialist",
         company: "PT Muda Karya Kriya",
         date: "Feb 2025 - Sekarang",
-        type: "Full-time",
+        type: "Penuh waktu",
         desc: "Memimpin infrastruktur digital dan operasional teknis.",
         responsibilities: [
           "Mengembangkan & memelihara website (hosting, domain, database, email).",
@@ -640,6 +661,7 @@ export const id = {
         category: "Layanan Website",
         image: "/images/porto/porto1.jpg",
         tech: ["HTML", "CSS", "JavaScript"],
+        liveUrl: "https://ransite.com",
         desc: "Layanan pembuatan website freelance saya untuk membantu perusahaan membuat website.",
         features: [
           "Landing Page Responsif",
@@ -657,6 +679,7 @@ export const id = {
         title: "Akusila | Toko Online",
         category: "E-Commerce",
         image: "/images/porto/porto2.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Wordpress", "WooCommerce", "Elementor"],
         desc: "Website Toko Online yang dikembangkan menggunakan Wordpress dan WooCommerce.",
         features: [
@@ -675,6 +698,7 @@ export const id = {
         title: "Mocraft 3D Printing",
         category: "Profil Perusahaan",
         image: "/images/porto/porto3.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Wordpress", "Elementor"],
         desc: "Website profil perusahaan untuk memperkenalkan layanan pencetakan 3D.",
         features: ["Galeri Model 3D", "Tabel Harga Layanan", "Peta Interaktif"],
@@ -689,6 +713,7 @@ export const id = {
         title: "Kompetisi ICIA PWA",
         category: "Aplikasi Web",
         image: "/images/porto/porto4.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Laravel", "PWA", "MySQL"],
         desc: "Progressive Web App untuk manajemen kompetisi inovasi dan absensi.",
         features: [
@@ -707,6 +732,7 @@ export const id = {
         title: "Profil YesCamp",
         category: "Profil Perusahaan",
         image: "/images/porto/porto5.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Wordpress", "Elementor"],
         desc: "Website milik Crabiz Factory dari Korea Selatan untuk memperkenalkan program YesCamp.",
         features: [
@@ -725,6 +751,7 @@ export const id = {
         title: "ICIA Global",
         category: "Profil Perusahaan",
         image: "/images/porto/porto6.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Wordpress", "Elementor"],
         desc: "Website resmi untuk ICIA Global, anak perusahaan Krya Global.",
         features: [
@@ -743,6 +770,7 @@ export const id = {
         title: "HoopTourney",
         category: "Sistem Manajemen",
         image: "/images/porto/porto7.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Laravel", "Bootstrap", "PHP"],
         desc: "Website manajemen turnamen bola basket.",
         features: [
@@ -761,6 +789,7 @@ export const id = {
         title: "Admin & Penjurian ICIA",
         category: "Dashboard Admin",
         image: "/images/porto/porto8.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Laravel", "Bootstrap", "MySQL"],
         desc: "Sistem yang digunakan PT Muda Karya Kriya untuk Administrasi dan Penjurian.",
         features: [
@@ -779,6 +808,7 @@ export const id = {
         title: "Krya Global",
         category: "Profil Perusahaan",
         image: "/images/porto/porto9.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Wordpress", "Elementor"],
         desc: "Website korporat milik PT Muda Karya Kriya.",
         features: [
@@ -797,6 +827,7 @@ export const id = {
         title: "Sistem Admin GYIS",
         category: "Aplikasi Web",
         image: "/images/porto/porto10.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Laravel", "Bootstrap", "PHP"],
         desc: "Sistem Administrasi Kompetisi & Penjurian untuk Kompetisi GYIS.",
         features: ["Dashboard Juri", "Login Aman", "Penilaian Real-time"],
@@ -811,6 +842,7 @@ export const id = {
         title: "Website Toko Jus",
         category: "Landing Page",
         image: "/images/porto/porto11.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["HTML", "CSS", "JavaScript"],
         desc: "Website penjualan dan pengenalan toko Ransun Juice.",
         features: ["Desain Visual Segar", "Grid Produk", "Responsif Mobile"],
@@ -825,6 +857,7 @@ export const id = {
         title: "KampusKita",
         category: "Aplikasi Web",
         image: "/images/porto/porto12.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["React", "Tailwind", "Node.js"],
         desc: "Website pengenalan kampus yang dibuat menggunakan React Framework.",
         features: [
@@ -843,6 +876,7 @@ export const id = {
         title: "Website Katering",
         category: "Website UMKM",
         image: "/images/porto/porto13.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["Wordpress", "Elementor"],
         desc: "Website toko Ransun Catering dengan UX yang intuitif.",
         features: ["Galeri Menu", "Info Pemesanan", "Layout Makanan Elegan"],
@@ -857,6 +891,7 @@ export const id = {
         title: "Portofolio Personal v1",
         category: "Portofolio",
         image: "/images/porto/porto14.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["HTML", "CSS", "JavaScript"],
         desc: "Versi sebelumnya dari website portofolio dengan desain stylish.",
         features: ["Animasi Custom", "Mode Gelap", "Form Kontak"],
@@ -871,6 +906,7 @@ export const id = {
         title: "Aplikasi Blog Responsif",
         category: "Platform Blog",
         image: "/images/porto/porto15.jpg",
+        liveUrl: "https://ransite.com",
         tech: ["PHP", "MySQL", "Bootstrap"],
         desc: "Aplikasi Blog dengan database CRUD dan fitur admin.",
         features: [
@@ -905,10 +941,10 @@ export const id = {
         desc: "Terhubung secara profesional.",
         btn: "Buka LinkedIn",
       },
-      tiktok: {
-        title: "Ikuti Keseruan",
-        desc: "Tonton konten seru dan menarik.",
-        btn: "Buka TikTok",
+      github: {
+        title: "Jelajahi Kode",
+        desc: "Jelajahi Kode Lihat karya open-source saya.",
+        btn: "Buka Github",
       },
     },
     form: {

@@ -11,6 +11,7 @@ import {
   FiCheckCircle,
   FiZap,
   FiLayout,
+  FiExternalLink,
 } from "react-icons/fi";
 import {
   SiLaravel,
@@ -109,7 +110,7 @@ export default function Projects() {
       <div className="w-full h-px bg-white/5" />
 
       {/* --- PROJECTS GRID --- */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         {t.projects.items.map((project: Project) => (
           <motion.div
             key={project.id}
@@ -117,7 +118,6 @@ export default function Projects() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-          
             onClick={() => setSelectedId(project.id)}
             className="group relative bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:border-white/20 transition-all shadow-lg"
           >
@@ -152,7 +152,7 @@ export default function Projects() {
                 src={project.image}
                 alt={project.title}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent opacity-80" />
             </div>
@@ -208,7 +208,6 @@ export default function Projects() {
               </button>
 
               <div className="overflow-y-auto custom-scrollbar">
-                {/* Header Image */}
                 <div className="relative w-full aspect-video bg-gray-900">
                   <Image
                     src={selectedProject.image}
@@ -216,15 +215,40 @@ export default function Projects() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent" />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-90" />
 
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <span className="px-3 py-1 bg-white text-black text-xs font-bold rounded-full mb-3 inline-block">
-                      {selectedProject.category}
-                    </span>
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                      {selectedProject.title}
-                    </h2>
+                  {/* Content Container (Title & Button) */}
+                  <div className="absolute bottom-6 left-6 right-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    {/* Judul & Kategori (Kiri) */}
+                    <div>
+                      <span className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold rounded-full mb-3 inline-block">
+                        {selectedProject.category}
+                      </span>
+                      <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                        {selectedProject.title}
+                      </h2>
+                    </div>
+
+                    {/* BUTTON LIVE VIEW (Kanan) */}
+                    {/* Hanya muncul jika liveUrl ada di dictionary */}
+                    {selectedProject.liveUrl && (
+                      <a
+                        href={selectedProject.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="
+          group flex items-center gap-2 px-5 py-3 
+          bg-white text-black rounded-full 
+          font-bold text-sm shadow-lg shadow-white/10
+          transition-all duration-300
+          hover:scale-105 hover:bg-primary hover:text-white
+        "
+                      >
+                        <span>Live View</span>
+                        <FiExternalLink className="transition-transform group-hover:rotate-45" />
+                      </a>
+                    )}
                   </div>
                 </div>
 
