@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import SpotlightCard from "@/components/SpotlightCard";
 import {
   FiBriefcase,
@@ -10,31 +10,21 @@ import {
   FiCheckCircle,
   FiTarget,
   FiActivity,
-  FiArrowDown,
 } from "react-icons/fi";
 
 // --- SUB-COMPONENT: CAREER ITEM ---
-const CareerItem = ({ job, index, t }: { job: any; index: number; t: any }) => {
+// Kita pisahkan ini agar setiap kartu punya "sensor" scroll sendiri
+const CareerItem = ({ job, index }: { job: any; index: number }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-30% 0px -30% 0px", amount: 0.3 });
-  const [isHovered, setIsHovered] = useState(false);
+  
+  // useInView: Mendeteksi apakah elemen ini ada di layar.
+  // margin: "-40% 0px -40% 0px" artinya sensor hanya aktif jika kartu berada di 
+  // TENGAH layar (memotong 40% atas dan 40% bawah viewport).
+  const isInView = useInView(ref, { margin: "-40% 0px -40% 0px", amount: 0.3 });
 
-  // Varian untuk animasi staggered (berurutan)
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.2 },
-    },
-  };
-
-  const itemVariants = {
+  const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
@@ -43,161 +33,95 @@ const CareerItem = ({ job, index, t }: { job: any; index: number; t: any }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      variants={containerVariants}
-      className="relative pl-8 md:pl-12 group/item"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      variants={fadeInUp}
+      className="relative pl-8 md:pl-12"
     >
-      {/* --- INTERACTIVE TIMELINE DOT --- */}
-      {/* Dot akan berdenyut Primary saat aktif atau di-hover */}
-      <div className="absolute -left-[5px] top-0 z-20">
-        <motion.div
-          animate={{
-            scale: isInView || isHovered ? 1.2 : 1,
-            backgroundColor:
-              isInView || isHovered ? "var(--primary)" : "#121212",
-            borderColor: isInView || isHovered ? "var(--primary)" : "#333",
-          }}
-          className="relative flex items-center justify-center w-3 h-3 rounded-full border-2 transition-colors duration-300 bg-[#121212]"
-        >
-          {(isInView || isHovered) && (
-            <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping"></span>
-          )}
-        </motion.div>
-        {/* Garis konektor yang menyala saat aktif */}
-        <motion.div
-          animate={{
-            background:
-              isInView || isHovered
-                ? "linear-gradient(to bottom, var(--primary), transparent)"
-                : "linear-gradient(to bottom, #333, transparent)",
-          }}
-          className="absolute top-3 left-1/2 -translate-x-1/2 w-px h-full -z-10 transition-all duration-500"
-          style={{ height: "calc(100% + 64px)" }}
-        />
-      </div>
+      {/* --- TIMELINE DOT (ANIMATED) --- */}
+      {/* Logika: Jika isInView (aktif), warnanya jadi Primary + ada efek Glow (Ring).
+         Jika tidak, kembali jadi putih biasa.
+      */}
+      <div
+        className={`absolute -left-[5px] top-0 w-3 h-3 rounded-full border-2 transition-all duration-500 ease-in-out z-10
+          ${
+            isInView
+              ? "bg-primary border-primary ring-4 ring-primary/20 scale-125" // Active State
+              : "bg-[#121212] border-white ring-4 ring-[#121212]" // Inactive State
+          }
+        `}
+      ></div>
 
-      {/* --- CARD WITH HOVER GLOW --- */}
+      {/* --- CARD --- */}
+      {/* Logika: Kita tambahkan border yang lebih terang jika isInView
+      */}
       <SpotlightCard
-        className={`p-6 md:p-8 rounded-2xl transition-all duration-500 border relative overflow-hidden
-            
+        className={`p-6 md:p-8 rounded-2xl transition-colors duration-500 
+          ${isInView ? "border-white/30 bg-[#1E1E1E]/80" : "border-white/5"} 
         `}
       >
-        {/* Efek Cahaya Halus saat Hover (Mouse Follow) */}
-        <div className="absolute inset-0 opacity-0 group-hover/item:opacity-20 transition-opacity duration-500 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
-
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-6 relative z-10"
-        >
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-6">
           <div>
+            {/* Title berubah jadi Primary saat discroll */}
             <h3
               className={`text-xl font-bold transition-colors duration-500 
-                ${isInView || isHovered ? "text-primary" : "text-white"}
+                ${isInView ? "text-primary" : "text-white group-hover:text-primary"}
               `}
             >
               {job.role}
             </h3>
-            <p
-              className={`font-medium text-sm mt-1 transition-colors duration-500 ${
-                isInView ? "text-gray-300" : "text-gray-500"
-              }`}
-            >
+            <p className="text-gray-400 font-medium text-sm mt-1">
               {job.company}
             </p>
           </div>
-
-          {/* MAGNETIC DATE BADGE */}
-          <motion.div
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex flex-col items-start md:items-end gap-1 cursor-default"
-          >
-            <div
-              className={`flex items-center gap-2 text-xs px-3 py-1 rounded-full border transition-all duration-500
-                ${
-                  isInView
-                    ? "bg-primary/10 border-primary/20 text-primary"
-                    : "bg-black/20 border-white/5 text-gray-600 group-hover/item:border-primary/20 group-hover/item:text-gray-400"
-                }
-            `}
-            >
+          <div className="flex flex-col items-start md:items-end gap-1">
+            <div className="flex items-center gap-2 text-xs text-gray-500 bg-black/20 px-3 py-1 rounded-full border border-white/5">
               <FiCalendar /> {job.date}
             </div>
             <span className="text-xs text-gray-600 font-medium">
               {job.type}
             </span>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.p
-          variants={itemVariants}
-          className="text-gray-400 leading-relaxed text-sm mb-8 border-b border-white/5 pb-6 relative z-10"
-        >
+        {/* Deskripsi */}
+        <p className="text-gray-300 text-sm mb-8 border-b border-white/5 pb-6">
           {job.desc}
-        </motion.p>
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
-          {/* Responsibilities */}
-          <motion.div variants={itemVariants}>
+        {/* Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
             <div className="flex items-center gap-2 mb-4">
-              <FiActivity
-                className={`${
-                  isInView ? "text-primary" : "text-gray-600"
-                } transition-colors`}
-              />
-              <h4 className="text-sm font-bold text-white uppercase tracking-wider opacity-80">
-                {t.career.responsibilities}
+              <FiActivity className="text-gray-500" />
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+                Responsibilities
               </h4>
             </div>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {job.responsibilities.map((res: string, i: number) => (
-                <motion.li
-                  key={i}
-                  variants={itemVariants}
-                  whileHover={{ x: 5 }}
-                  className="group/list flex items-start gap-3 text-sm text-gray-400 p-2 rounded-lg hover:bg-white/5 transition-all"
-                >
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-600 group-hover/list:bg-primary transition-colors flex-shrink-0"></span>
-                  <span className="leading-relaxed group-hover/list:text-gray-200 transition-colors">
-                    {res}
-                  </span>
-                </motion.li>
+                <li key={i} className="flex items-start gap-3 text-sm text-gray-400">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-600 flex-shrink-0"></span>
+                  <span className="leading-relaxed">{res}</span>
+                </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          {/* Impact */}
-          <motion.div variants={itemVariants}>
+          <div>
             <div className="flex items-center gap-2 mb-4">
-              <FiTarget
-                className={`${
-                  isInView ? "text-primary" : "text-gray-600"
-                } transition-colors`}
-              />
-              <h4 className="text-sm font-bold text-white uppercase tracking-wider opacity-80">
-                {t.career.impacts}
+              <FiTarget className="text-primary" />
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+                Impact & Achievements
               </h4>
             </div>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {job.impacts.map((imp: string, i: number) => (
-                <motion.li
-                  key={i}
-                  variants={itemVariants}
-                  whileHover={{ x: 5 }}
-                  className="group/list flex items-start gap-3 text-sm text-gray-400 p-2 rounded-lg hover:bg-white/5 transition-all"
-                >
-                  <FiCheckCircle
-                    className="mt-0.5 text-gray-600 group-hover/list:text-primary transition-colors flex-shrink-0"
-                    size={14}
-                  />
-                  <span className="leading-relaxed group-hover/list:text-gray-200 transition-colors">
-                    {imp}
-                  </span>
-                </motion.li>
+                <li key={i} className="flex items-start gap-3 text-sm text-gray-300">
+                  <FiCheckCircle className="mt-0.5 text-primary/70 flex-shrink-0" size={14} />
+                  <span className="leading-relaxed">{imp}</span>
+                </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         </div>
       </SpotlightCard>
     </motion.div>
@@ -207,81 +131,39 @@ const CareerItem = ({ job, index, t }: { job: any; index: number; t: any }) => {
 // --- MAIN COMPONENT ---
 export default function Career() {
   const { t } = useLanguage();
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  // Animasi garis timeline utama yang terisi seiring scroll
-  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
-    <div
-      ref={containerRef}
-      className="w-full min-h-screen p-6 md:p-10 pb-20 space-y-12 relative overflow-hidden bg-[#0a0a0a]"
-    >
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-[0.03] pointer-events-none mix-blend-overlay"></div>
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none translate-x-1/2 translate-y-1/2" />
-
+    <div className="w-full min-h-screen p-6 md:p-10 pb-20 space-y-12">
       {/* HEADER */}
       <motion.section
         initial="hidden"
         animate="visible"
         variants={fadeInUp}
-        className="max-w-4xl pt-4 relative z-10 flex justify-between items-end"
+        className="max-w-4xl pt-4"
       >
-        <div className="flex items-center gap-4 mb-4">
-          <div className="p-4 bg-primary/10 border border-primary/20 rounded-2xl text-primary backdrop-blur-sm shadow-[0_0_20px_-5px_var(--primary)]">
-            <FiBriefcase size={28} />
+        <div className="flex items-center gap-3 mb-4">
+          <div className="p-3 bg-[#1E1E1E] border border-white/10 rounded-full text-white">
+            <FiBriefcase size={20} />
           </div>
           <div>
-            <h1 className="text-4xl font-bold text-white tracking-tight mb-2">
-              {t.career.title}
-            </h1>
-            <p className="text-gray-400 text-base max-w-md">
-              {t.career.subtitle}
-            </p>
+            <h1 className="text-2xl font-bold text-white">{t.career.title}</h1>
+            <p className="text-gray-500 text-sm">{t.career.subtitle}</p>
           </div>
         </div>
-
-        {/* Scroll Indicator Kecil */}
-        <motion.div
-          animate={{ y: [0, 5, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="hidden md:flex flex-col items-center text-gray-500 text-sm"
-        >
-          <span className="mb-1">Scroll</span>
-          <FiArrowDown />
-        </motion.div>
       </motion.section>
 
-      <div className="w-full h-px bg-gradient-to-r from-primary/20 via-white/5 to-transparent" />
+      <div className="w-full h-px bg-white/5" />
 
       {/* TIMELINE CONTAINER */}
-      <div className="relative ml-3 md:ml-6 space-y-16 pb-10">
-        {/* Garis Vertikal Latar Belakang (Gelap) */}
-        <div className="absolute left-0 top-2 bottom-0 w-px bg-[#333]"></div>
-
-        {/* Garis Vertikal Progress (Primary - Terisi saat scroll) */}
-        <motion.div
-          style={{ scaleY, originY: 0 }}
-          className="absolute left-0 top-2 bottom-0 w-px bg-gradient-to-b from-primary via-primary to-transparent shadow-[0_0_10px_var(--primary)]"
-        ></motion.div>
-
+      <div className="relative border-l border-white/10 ml-3 md:ml-6 space-y-12 pb-10">
         {t.career.items.map((job: any, index: number) => (
-          <CareerItem key={index} job={job} index={index} t={t} />
+          // Memanggil komponen CareerItem yang sudah kita buat di atas
+          <CareerItem key={index} job={job} index={index} />
         ))}
       </div>
     </div>
