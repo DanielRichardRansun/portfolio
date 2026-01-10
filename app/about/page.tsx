@@ -44,7 +44,6 @@ export default function About() {
         </div>
       </motion.section>
 
-      {/* DIVIDER */}
       <div className="w-full h-px bg-white/5" />
 
       {/* --- SECTION 2: CERTIFICATIONS --- */}
@@ -77,7 +76,6 @@ export default function About() {
               whileHover={{ y: -5 }}
               className="bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all group"
             >
-              {/* Gambar Full Width */}
               <div className="relative w-full h-40 bg-black/20">
                 <Image
                   src={cert.image}
