@@ -11,6 +11,7 @@ import {
   FiMail,
   FiArrowRight,
   FiCpu,
+  FiDownload,
 } from "react-icons/fi";
 import {
   SiLaravel,
@@ -25,6 +26,8 @@ import {
   SiNodedotjs,
   SiPostgresql,
   SiWordpress,
+  SiInstagram,
+  SiLinkedin,
 } from "react-icons/si";
 
 import Link from "next/link";
@@ -73,7 +76,64 @@ export default function Home() {
           {t.home.hero.desc}
         </p>
 
+        {/* Social Media Icons - Replaced project and contact buttons */}
         <div className="flex gap-3">
+          {/* Email Icon */}
+          <Link
+            href="mailto:daniel.richard.ransun@gmail.com" // Using a placeholder - update with actual email
+            className="group relative w-10 h-10 rounded-full bg-[#1E1E1E] border border-white/20 flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 overflow-hidden"
+            title={t.contact.socials.email.title}
+          >
+            <FiMail className="w-5 h-5 transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
+          </Link>
+
+          {/* Instagram Icon */}
+          <Link
+            href="https://instagram.com/danielrichard7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative w-10 h-10 rounded-full bg-[#1E1E1E] border border-white/20 flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 overflow-hidden"
+            title="Instagram"
+          >
+            <SiInstagram className="w-5 h-5 transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
+          </Link>
+
+          {/* LinkedIn Icon */}
+          <Link
+            href="https://linkedin.com/in/daniel-richard"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative w-10 h-10 rounded-full bg-[#1E1E1E] border border-white/20 flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 overflow-hidden"
+            title="LinkedIn"
+          >
+            <SiLinkedin className="w-5 h-5 transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
+          </Link>
+
+          {/* GitHub Icon */}
+          <Link
+            href="https://github.com/danielrichard7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative w-10 h-10 rounded-full bg-[#1E1E1E] border border-white/20 flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 overflow-hidden"
+            title="GitHub"
+          >
+            <SiGithub className="w-5 h-5 transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
+          </Link>
+
+          {/* CV Download Icon */}
+          <Link
+            href="https://www.canva.com/design/DAGxujweTzY/gzcOn7n6hELOZxBdxkgfDw/view?utm_content=DAGxujweTzY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb93f5e6498"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative w-10 h-10 rounded-full bg-[#1E1E1E] border border-white/20 flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 overflow-hidden"
+            title={t.sidebar.download}
+          >
+            <FiDownload className="w-5 h-5 transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
+          </Link>
+        </div>
+
+        {/* COMMENTED OUT ORIGINAL BUTTONS - DO NOT DELETE */}
+        {/* <div className="flex gap-3">
           <Link
             href="/projects"
             className=" group relative px-6 py-3 rounded-lg bg-white text-black font-bold text-xs md:text-sm overflow-hidden transition-all duration-300"
@@ -101,7 +161,7 @@ export default function Home() {
               />
             </div>
           </Link>
-        </div>
+        </div> */}
       </motion.section>
 
       <div className="w-full h-px bg-white/10 my-12" />
