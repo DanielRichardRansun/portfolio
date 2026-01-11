@@ -33,7 +33,7 @@ export default function RootLayout({
                 3. flex : Menyusun Sidebar dan Main Content bersisian.
             */}
             <div className="max-w-screen-xl mx-auto flex min-h-screen">
-              
+
               {/* Sidebar dipanggil di sini */}
               <Sidebar />
 
