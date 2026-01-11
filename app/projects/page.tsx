@@ -123,7 +123,7 @@ export default function Projects() {
       </motion.section>
 
       {/* DIVIDER */}
-      <div className="w-full h-px bg-white/5" />
+      <div className="w-full h-px bg-white/5 my-4" />
 
       {/* --- TABS FOR PROJECTS --- */}
       <Tabs

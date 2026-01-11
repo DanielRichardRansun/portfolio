@@ -60,17 +60,17 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: #1a1a1a;
 }
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #555;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: #888888;
 }
 
 @theme inline {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface TabPanel {
   id: string;
@@ -14,57 +14,63 @@ interface TabsProps {
   className?: string;
 }
 
-const Tabs: React.FC<TabsProps> = ({ panels, className = "" }) => {
+const TabsGlassy: React.FC<TabsProps> = ({ panels, className = "" }) => {
   const [activeTab, setActiveTab] = useState<string>(panels[0]?.id || "");
 
   return (
-    <div className={`w-full ${className}`}>
-      {/* Tab Headers */}
-      <div className="flex justify-center mb-8">
-        <div className="relative p-1 bg-[#1E1E1E] rounded-xl border border-white/10">
-          {panels.map((panel, index) => (
+    <div className={`w-full flex flex-col items-center ${className}`}>
+      
+      {/* HEADER: Grid Button Terpisah */}
+      <div className="flex flex-wrap justify-center gap-3 mb-10">
+        {panels.map((panel) => {
+          const isActive = activeTab === panel.id;
+          return (
             <button
               key={panel.id}
               onClick={() => setActiveTab(panel.id)}
-              className={`relative px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 z-10 ${
-                activeTab === panel.id
-                  ? "text-white"
-                  : "text-gray-400 hover:text-gray-200"
-              }`}
+              className="relative px-6 py-3 rounded-lg text-sm font-semibold outline-none"
             >
-              {panel.label}
-
-              {activeTab === panel.id && (
+              {/* Background Effect */}
+              {isActive ? (
                 <motion.div
-                  className="absolute inset-0 bg-[#2D2D2D] rounded-lg z-[-1]"
-                  layoutId="activeTab"
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.3 }}
+                  layoutId="activeGlass"
+                  className="absolute inset-0 bg-white/10 border border-white/20 rounded-lg backdrop-blur-md"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
+              ) : (
+                // Hover effect untuk yang tidak aktif
+                <div className="absolute inset-0 bg-transparent hover:bg-white/5 border border-transparent hover:border-white/5 rounded-lg transition-all duration-300" />
               )}
+
+              {/* Text */}
+              <span className={`relative z-10 transition-colors duration-300 ${isActive ? "text-white" : "text-gray-400"}`}>
+                {panel.label}
+              </span>
             </button>
-          ))}
-        </div>
+          );
+        })}
       </div>
 
-      {/* Tab Content */}
-      <div className="tab-content">
-        {panels.map((panel) => (
-          activeTab === panel.id && (
-            <motion.div
-              key={panel.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="w-full"
-            >
-              {panel.content}
-            </motion.div>
-          )
-        ))}
+      {/* CONTENT */}
+      <div className="w-full">
+        <AnimatePresence mode="wait">
+          {panels.map((panel) =>
+            activeTab === panel.id ? (
+              <motion.div
+                key={panel.id}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.3 }}
+              >
+                {panel.content}
+              </motion.div>
+            ) : null
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
 };
 
-export default Tabs;
+export default TabsGlassy;
