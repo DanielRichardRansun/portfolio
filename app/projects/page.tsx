@@ -89,14 +89,28 @@ export default function Projects() {
 
   // Filter projects into coding and CMS categories
   const codingProjects = t.projects.items.filter((project: Project) =>
-    project.tech.some(tech =>
-      ["laravel", "react", "next.js", "php", "mysql", "html", "css", "javascript", "tailwind", "bootstrap", "node.js"].includes(tech.toLowerCase())
+    project.tech.some((tech) =>
+      [
+        "laravel",
+        "react",
+        "next.js",
+        "php",
+        "mysql",
+        "html",
+        "css",
+        "javascript",
+        "tailwind",
+        "bootstrap",
+        "node.js",
+      ].includes(tech.toLowerCase())
     )
   );
 
   const cmsProjects = t.projects.items.filter((project: Project) =>
-    project.tech.some(tech =>
-      ["wordpress", "wix", "elementor", "woocommerce"].includes(tech.toLowerCase())
+    project.tech.some((tech) =>
+      ["wordpress", "wix", "elementor", "woocommerce"].includes(
+        tech.toLowerCase()
+      )
     )
   );
 
@@ -123,30 +137,36 @@ export default function Projects() {
       </motion.section>
 
       {/* DIVIDER */}
-      <div className="w-full h-px bg-white/5 my-4" />
+      <div className="w-full h-px bg-white/5 my-0" />
 
       {/* --- TABS FOR PROJECTS --- */}
-      <Tabs
-        panels={[
-          {
-            id: "coding",
-            label: t.projects.tabs.coding,
-            content: (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                {codingProjects.map((project: Project) => (
-                  <motion.div
-                    key={project.id}
-                    layoutId={`card-container-${project.id}`}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    onClick={() => setSelectedId(project.id)}
-                    className="group relative bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:border-white/20 transition-all shadow-lg"
-                  >
-                    {/* BADGES */}
-                    {project.badge && (
-                      <div
-                        className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg text-black
+      <motion.section
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-4xl pt-4"
+      >
+        <Tabs
+          panels={[
+            {
+              id: "coding",
+              label: t.projects.tabs.coding,
+              content: (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                  {codingProjects.map((project: Project) => (
+                    <motion.div
+                      key={project.id}
+                      layoutId={`card-container-${project.id}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      onClick={() => setSelectedId(project.id)}
+                      className="group relative bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:border-white/20 transition-all shadow-lg"
+                    >
+                      {/* BADGES */}
+                      {project.badge && (
+                        <div
+                          className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg text-black
                             ${
                               project.badge === "Featured" ||
                               project.badge === "Unggulan"
@@ -160,72 +180,73 @@ export default function Projects() {
                                 : ""
                             }
                         `}
-                      >
-                        {project.badge === "Favorite" || project.badge === "Favorit" ? (
-                          <FiStar className="inline mb-[2px] mr-1" />
-                        ) : null}
-                        {project.badge}
+                        >
+                          {project.badge === "Favorite" ||
+                          project.badge === "Favorit" ? (
+                            <FiStar className="inline mb-[2px] mr-1" />
+                          ) : null}
+                          {project.badge}
+                        </div>
+                      )}
+
+                      {/* IMAGE PREVIEW */}
+                      <div className="relative w-full aspect-video bg-black/50 overflow-hidden">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent opacity-80" />
                       </div>
-                    )}
 
-                    {/* IMAGE PREVIEW */}
-                    <div className="relative w-full aspect-video bg-black/50 overflow-hidden">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent opacity-80" />
-                    </div>
+                      {/* CONTENT PREVIEW */}
+                      <SpotlightCard className="p-6 relative">
+                        <p className="text-primary text-xs font-bold mb-2 uppercase tracking-wide">
+                          {project.category}
+                        </p>
+                        <h3 className="text-xl font-bold text-white mb-2 transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-gray-400 text-sm line-clamp-2 mb-4">
+                          {project.desc}
+                        </p>
 
-                    {/* CONTENT PREVIEW */}
-                    <SpotlightCard className="p-6 relative">
-                      <p className="text-primary text-xs font-bold mb-2 uppercase tracking-wide">
-                        {project.category}
-                      </p>
-                      <h3 className="text-xl font-bold text-white mb-2 transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-gray-400 text-sm line-clamp-2 mb-4">
-                        {project.desc}
-                      </p>
-
-                      <div className="flex gap-2 text-lg text-gray-500">
-                        {project.tech.slice(0, 4).map((tech, i) => (
-                          <span key={i} title={tech}>
-                            {getTechIcon(tech)}
-                          </span>
-                        ))}
-                        {project.tech.length > 4 && (
-                          <span className="text-xs pt-1">+more</span>
-                        )}
-                      </div>
-                    </SpotlightCard>
-                  </motion.div>
-                ))}
-              </div>
-            ),
-          },
-          {
-            id: "cms",
-            label: t.projects.tabs.cms,
-            content: (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                {cmsProjects.map((project: Project) => (
-                  <motion.div
-                    key={project.id}
-                    layoutId={`card-container-${project.id}`}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    onClick={() => setSelectedId(project.id)}
-                    className="group relative bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:border-white/20 transition-all shadow-lg"
-                  >
-                    {/* BADGES */}
-                    {project.badge && (
-                      <div
-                        className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg text-black
+                        <div className="flex gap-2 text-lg text-gray-500">
+                          {project.tech.slice(0, 4).map((tech, i) => (
+                            <span key={i} title={tech}>
+                              {getTechIcon(tech)}
+                            </span>
+                          ))}
+                          {project.tech.length > 4 && (
+                            <span className="text-xs pt-1">+more</span>
+                          )}
+                        </div>
+                      </SpotlightCard>
+                    </motion.div>
+                  ))}
+                </div>
+              ),
+            },
+            {
+              id: "cms",
+              label: t.projects.tabs.cms,
+              content: (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                  {cmsProjects.map((project: Project) => (
+                    <motion.div
+                      key={project.id}
+                      layoutId={`card-container-${project.id}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      onClick={() => setSelectedId(project.id)}
+                      className="group relative bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:border-white/20 transition-all shadow-lg"
+                    >
+                      {/* BADGES */}
+                      {project.badge && (
+                        <div
+                          className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg text-black
                             ${
                               project.badge === "Featured" ||
                               project.badge === "Unggulan"
@@ -239,55 +260,57 @@ export default function Projects() {
                                 : ""
                             }
                         `}
-                      >
-                        {project.badge === "Favorite" || project.badge === "Favorit" ? (
-                          <FiStar className="inline mb-[2px] mr-1" />
-                        ) : null}
-                        {project.badge}
+                        >
+                          {project.badge === "Favorite" ||
+                          project.badge === "Favorit" ? (
+                            <FiStar className="inline mb-[2px] mr-1" />
+                          ) : null}
+                          {project.badge}
+                        </div>
+                      )}
+
+                      {/* IMAGE PREVIEW */}
+                      <div className="relative w-full aspect-video bg-black/50 overflow-hidden">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent opacity-80" />
                       </div>
-                    )}
 
-                    {/* IMAGE PREVIEW */}
-                    <div className="relative w-full aspect-video bg-black/50 overflow-hidden">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent opacity-80" />
-                    </div>
+                      {/* CONTENT PREVIEW */}
+                      <SpotlightCard className="p-6 relative">
+                        <p className="text-primary text-xs font-bold mb-2 uppercase tracking-wide">
+                          {project.category}
+                        </p>
+                        <h3 className="text-xl font-bold text-white mb-2 transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-gray-400 text-sm line-clamp-2 mb-4">
+                          {project.desc}
+                        </p>
 
-                    {/* CONTENT PREVIEW */}
-                    <SpotlightCard className="p-6 relative">
-                      <p className="text-primary text-xs font-bold mb-2 uppercase tracking-wide">
-                        {project.category}
-                      </p>
-                      <h3 className="text-xl font-bold text-white mb-2 transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-gray-400 text-sm line-clamp-2 mb-4">
-                        {project.desc}
-                      </p>
-
-                      <div className="flex gap-2 text-lg text-gray-500">
-                        {project.tech.slice(0, 4).map((tech, i) => (
-                          <span key={i} title={tech}>
-                            {getTechIcon(tech)}
-                          </span>
-                        ))}
-                        {project.tech.length > 4 && (
-                          <span className="text-xs pt-1">+more</span>
-                        )}
-                      </div>
-                    </SpotlightCard>
-                  </motion.div>
-                ))}
-              </div>
-            ),
-          },
-        ]}
-      />
+                        <div className="flex gap-2 text-lg text-gray-500">
+                          {project.tech.slice(0, 4).map((tech, i) => (
+                            <span key={i} title={tech}>
+                              {getTechIcon(tech)}
+                            </span>
+                          ))}
+                          {project.tech.length > 4 && (
+                            <span className="text-xs pt-1">+more</span>
+                          )}
+                        </div>
+                      </SpotlightCard>
+                    </motion.div>
+                  ))}
+                </div>
+              ),
+            },
+          ]}
+        />
+      </motion.section>
 
       {/* --- MODAL POPUP DETAILS --- */}
       <ProjectModal
