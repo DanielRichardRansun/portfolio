@@ -30,8 +30,10 @@ import {
 } from "react-icons/si";
 
 import SpotlightCard from "@/components/SpotlightCard";
+import Tabs from "@/components/Tabs";
+import ProjectModal from "@/components/ProjectModal";
 
-type Project = {
+export type Project = {
   id: number;
   title: string;
   category: string;
@@ -41,15 +43,16 @@ type Project = {
   features: string[];
   outcomes: string[];
   badge: string;
+  liveUrl?: string;
 };
 
 export default function Projects() {
   const { t } = useLanguage();
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
-  const selectedProject = selectedId
+  const selectedProject: Project | undefined = selectedId
     ? t.projects.items.find((p: Project) => p.id === selectedId)
-    : null;
+    : undefined;
 
   const getTechIcon = (techName: string) => {
     switch (techName.toLowerCase()) {
@@ -84,6 +87,19 @@ export default function Projects() {
     }
   };
 
+  // Filter projects into coding and CMS categories
+  const codingProjects = t.projects.items.filter((project: Project) =>
+    project.tech.some(tech =>
+      ["laravel", "react", "next.js", "php", "mysql", "html", "css", "javascript", "tailwind", "bootstrap", "node.js"].includes(tech.toLowerCase())
+    )
+  );
+
+  const cmsProjects = t.projects.items.filter((project: Project) =>
+    project.tech.some(tech =>
+      ["wordpress", "wix", "elementor", "woocommerce"].includes(tech.toLowerCase())
+    )
+  );
+
   return (
     <div className="w-full min-h-screen p-6 md:p-10 pb-20 space-y-10">
       {/* --- HEADER --- */}
@@ -109,216 +125,176 @@ export default function Projects() {
       {/* DIVIDER */}
       <div className="w-full h-px bg-white/5" />
 
-      {/* --- PROJECTS GRID --- */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-        {t.projects.items.map((project: Project) => (
-          <motion.div
-            key={project.id}
-            layoutId={`card-container-${project.id}`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            onClick={() => setSelectedId(project.id)}
-            className="group relative bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:border-white/20 transition-all shadow-lg"
-          >
-            {/* BADGES */}
-            {project.badge && (
-              <div
-                className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg text-black
-                    ${
-                      project.badge === "Featured" ||
-                      project.badge === "Unggulan"
-                        ? "bg-primary"
-                        : ""
-                    } 
-                    ${
-                      project.badge === "Favorite" ||
-                      project.badge === "Favorit"
-                        ? "bg-yellow-500"
-                        : ""
-                    }
-                `}
-              >
-                {project.badge === "Favorite" || project.badge === "Favorit" ? (
-                  <FiStar className="inline mb-[2px] mr-1" />
-                ) : null}
-                {project.badge}
-              </div>
-            )}
+      {/* --- TABS FOR PROJECTS --- */}
+      <Tabs
+        panels={[
+          {
+            id: "coding",
+            label: t.projects.tabs.coding,
+            content: (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                {codingProjects.map((project: Project) => (
+                  <motion.div
+                    key={project.id}
+                    layoutId={`card-container-${project.id}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    onClick={() => setSelectedId(project.id)}
+                    className="group relative bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:border-white/20 transition-all shadow-lg"
+                  >
+                    {/* BADGES */}
+                    {project.badge && (
+                      <div
+                        className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg text-black
+                            ${
+                              project.badge === "Featured" ||
+                              project.badge === "Unggulan"
+                                ? "bg-primary"
+                                : ""
+                            }
+                            ${
+                              project.badge === "Favorite" ||
+                              project.badge === "Favorit"
+                                ? "bg-yellow-500"
+                                : ""
+                            }
+                        `}
+                      >
+                        {project.badge === "Favorite" || project.badge === "Favorit" ? (
+                          <FiStar className="inline mb-[2px] mr-1" />
+                        ) : null}
+                        {project.badge}
+                      </div>
+                    )}
 
-            {/* IMAGE PREVIEW */}
-            <div className="relative w-full aspect-video bg-black/50 overflow-hidden">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent opacity-80" />
-            </div>
+                    {/* IMAGE PREVIEW */}
+                    <div className="relative w-full aspect-video bg-black/50 overflow-hidden">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent opacity-80" />
+                    </div>
 
-            {/* CONTENT PREVIEW */}
-            <SpotlightCard className="p-6 relative">
-              <p className="text-primary text-xs font-bold mb-2 uppercase tracking-wide">
-                {project.category}
-              </p>
-              <h3 className="text-xl font-bold text-white mb-2 transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-gray-400 text-sm line-clamp-2 mb-4">
-                {project.desc}
-              </p>
+                    {/* CONTENT PREVIEW */}
+                    <SpotlightCard className="p-6 relative">
+                      <p className="text-primary text-xs font-bold mb-2 uppercase tracking-wide">
+                        {project.category}
+                      </p>
+                      <h3 className="text-xl font-bold text-white mb-2 transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-400 text-sm line-clamp-2 mb-4">
+                        {project.desc}
+                      </p>
 
-              <div className="flex gap-2 text-lg text-gray-500">
-                {project.tech.slice(0, 4).map((tech, i) => (
-                  <span key={i} title={tech}>
-                    {getTechIcon(tech)}
-                  </span>
+                      <div className="flex gap-2 text-lg text-gray-500">
+                        {project.tech.slice(0, 4).map((tech, i) => (
+                          <span key={i} title={tech}>
+                            {getTechIcon(tech)}
+                          </span>
+                        ))}
+                        {project.tech.length > 4 && (
+                          <span className="text-xs pt-1">+more</span>
+                        )}
+                      </div>
+                    </SpotlightCard>
+                  </motion.div>
                 ))}
-                {project.tech.length > 4 && (
-                  <span className="text-xs pt-1">+more</span>
-                )}
               </div>
-            </SpotlightCard>
-          </motion.div>
-        ))}
-      </div>
+            ),
+          },
+          {
+            id: "cms",
+            label: t.projects.tabs.cms,
+            content: (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                {cmsProjects.map((project: Project) => (
+                  <motion.div
+                    key={project.id}
+                    layoutId={`card-container-${project.id}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    onClick={() => setSelectedId(project.id)}
+                    className="group relative bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:border-white/20 transition-all shadow-lg"
+                  >
+                    {/* BADGES */}
+                    {project.badge && (
+                      <div
+                        className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg text-black
+                            ${
+                              project.badge === "Featured" ||
+                              project.badge === "Unggulan"
+                                ? "bg-primary"
+                                : ""
+                            }
+                            ${
+                              project.badge === "Favorite" ||
+                              project.badge === "Favorit"
+                                ? "bg-yellow-500"
+                                : ""
+                            }
+                        `}
+                      >
+                        {project.badge === "Favorite" || project.badge === "Favorit" ? (
+                          <FiStar className="inline mb-[2px] mr-1" />
+                        ) : null}
+                        {project.badge}
+                      </div>
+                    )}
+
+                    {/* IMAGE PREVIEW */}
+                    <div className="relative w-full aspect-video bg-black/50 overflow-hidden">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent opacity-80" />
+                    </div>
+
+                    {/* CONTENT PREVIEW */}
+                    <SpotlightCard className="p-6 relative">
+                      <p className="text-primary text-xs font-bold mb-2 uppercase tracking-wide">
+                        {project.category}
+                      </p>
+                      <h3 className="text-xl font-bold text-white mb-2 transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-400 text-sm line-clamp-2 mb-4">
+                        {project.desc}
+                      </p>
+
+                      <div className="flex gap-2 text-lg text-gray-500">
+                        {project.tech.slice(0, 4).map((tech, i) => (
+                          <span key={i} title={tech}>
+                            {getTechIcon(tech)}
+                          </span>
+                        ))}
+                        {project.tech.length > 4 && (
+                          <span className="text-xs pt-1">+more</span>
+                        )}
+                      </div>
+                    </SpotlightCard>
+                  </motion.div>
+                ))}
+              </div>
+            ),
+          },
+        ]}
+      />
 
       {/* --- MODAL POPUP DETAILS --- */}
-      <AnimatePresence>
-        {selectedId && selectedProject && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedId(null)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
-            />
-
-            <motion.div
-              layoutId={`card-container-${selectedId}`}
-              className="relative w-full max-w-2xl max-h-[90vh] bg-[#121212] border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex flex-col"
-            >
-              <button
-                onClick={() => setSelectedId(null)}
-                className="absolute top-4 right-4 z-30 p-2 bg-black/50 hover:bg-white text-white hover:text-black rounded-full transition-all"
-              >
-                <FiX size={20} />
-              </button>
-
-              <div className="overflow-y-auto custom-scrollbar">
-                <div className="relative w-full aspect-video bg-gray-900">
-                  <Image
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    fill
-                    className="object-cover"
-                  />
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-90" />
-
-                  {/* Content Container (Title & Button) */}
-                  <div className="absolute bottom-6 left-6 right-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
-                    {/* Judul & Kategori (Kiri) */}
-                    <div>
-                      <span className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold rounded-full mb-3 inline-block">
-                        {selectedProject.category}
-                      </span>
-                      <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
-                        {selectedProject.title}
-                      </h2>
-                    </div>
-
-                    {/* BUTTON LIVE VIEW (Kanan) */}
-                    {/* Hanya muncul jika liveUrl ada di dictionary */}
-                    {selectedProject.liveUrl && (
-                      <a
-                        href={selectedProject.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="
-          group flex items-center gap-2 px-5 py-3 
-          bg-white text-black rounded-full 
-          font-bold text-sm shadow-lg shadow-white/10
-          transition-all duration-300
-          hover:scale-105 hover:bg-primary hover:text-white
-        "
-                      >
-                        <span>Live View</span>
-                        <FiExternalLink className="transition-transform group-hover:rotate-45" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                <div className="p-6 md:p-8 space-y-8">
-                  {/* 1. Description & Tech Stack */}
-                  <div className="flex flex-col gap-6">
-                    <p className="text-gray-300 leading-relaxed text-sm md:text-base">
-                      {selectedProject.desc}
-                    </p>
-
-                    <div className="bg-[#1E1E1E] p-4 rounded-xl border border-white/5">
-                      <h4 className="text-gray-400 font-bold text-xs uppercase mb-3 tracking-wider">
-                        {t.home.featured.box_tech_title}
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {selectedProject.tech.map((tech, i) => (
-                          <div
-                            key={i}
-                            className="flex items-center gap-2 text-xs text-gray-300 bg-black/30 px-3 py-2 rounded-lg border border-white/5"
-                          >
-                            {getTechIcon(tech)}
-                            <span>{tech}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* 2. Key Features */}
-                  <div>
-                    <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                      <FiLayout className="text-primary" />{" "}
-                      {t.projects.modal.features}
-                    </h3>
-                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {selectedProject.features.map((feature, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-3 bg-[#1E1E1E] p-3 rounded-xl border border-white/5 text-sm text-gray-400"
-                        >
-                          <div className="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="bg-gradient-to-r from-[#1E1E1E] to-[#121212] p-6 rounded-2xl border border-white/5">
-                    <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                      {t.projects.modal.outcomes}
-                    </h3>
-
-                    <ul className="space-y-3">
-                      {selectedProject.outcomes.map((outcome, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-3 text-sm text-gray-400"
-                        >
-                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
-                          <span className="leading-relaxed">{outcome}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+      <ProjectModal
+        selectedProject={selectedProject}
+        selectedId={selectedId}
+        setSelectedId={setSelectedId}
+      />
     </div>
   );
 }

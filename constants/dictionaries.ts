@@ -167,6 +167,10 @@ export const en = {
     title: "Projects",
     subtitle:
       "A showcase of my work, ranging from web apps to company profiles.",
+    tabs: {
+      coding: "Coding Projects",
+      cms: "CMS Projects",
+    },
     modal: {
       features: "Key Features",
       outcomes: "Project Outcomes",
@@ -449,7 +453,7 @@ export const en = {
     subtitle: "Let's get in touch.",
     socials: {
       email: {
-        title: "Stay in Touch",
+        title: "Get in Touch",
         desc: "Reach out via email for inquiries.",
         btn: "Go to Gmail",
       },
@@ -649,6 +653,10 @@ export const id = {
     title: "Proyek",
     subtitle:
       "Kumpulan karya saya, mulai dari aplikasi web hingga profil perusahaan.",
+    tabs: {
+      coding: "Proyek Coding",
+      cms: "Proyek CMS",
+    },
     modal: {
       features: "Fitur Utama",
       outcomes: "Hasil Proyek",
@@ -927,7 +935,7 @@ export const id = {
     subtitle: "Mari terhubung.",
     socials: {
       email: {
-        title: "Tetap Terhubung",
+        title: "Mari terhubung",
         desc: "Hubungi via email untuk pertanyaan.",
         btn: "Buka Gmail",
       },
