@@ -152,46 +152,36 @@ export default function Home() {
         {/* GRID LAYOUT UTAMA (3 Kolom) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <SpotlightCard className="col-span-1 md:col-span-2 rounded-2xl p-0 relative overflow-hidden group h-full min-h-[300px]">
-            {/* Link Full Card */}
             <Link href="/projects" className="absolute inset-0 z-30" />
 
-            {/* 1. BACKGROUND MARQUEE */}
-            {/* Ubah opacity jadi lebih terang (50% -> 100% saat hover) */}
-            {/* Tambahkan transition blur: Blur saat diam, Tajam saat hover */}
             <div className="absolute inset-0 z-0 opacity-50 group-hover:opacity-100 transition-all duration-700 filter blur-[2px] group-hover:blur-0">
-               <ProjectMarquee />
+              <ProjectMarquee />
             </div>
 
-            {/* 2. GRADIENT OVERLAY (LEBIH TRANSPARAN) */}
-            {/* Logic: Hitam pekat di kiri (bawah teks), lalu memudar cepat ke kanan */}
             <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#121212] via-[#121212]/60 to-transparent" />
-            
-            {/* Gradient Tambahan dari Bawah ke Atas agar teks bawah terbaca jelas */}
             <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-80" />
 
-            {/* 3. CONTENT */}
             <div className="relative z-20 flex flex-col justify-between h-full p-6 md:p-8">
-              {/* Bagian Atas */}
               <div>
                 <div className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <FiSmartphone size={24} />
                 </div>
-                
-                <h3 className="text-3xl font-bold text-white mb-2 group-hover:text-primary transition-colors drop-shadow-md">
+
+                <h3 className="text-3xl font-bold text-white mb-2 transition-colors drop-shadow-md">
                   Projects
                 </h3>
-                
-                <p className="text-gray-300 text-sm max-w-sm leading-relaxed drop-shadow-sm font-medium">
-                  Real apps, real solutions. Explore the digital products I've crafted.
+
+                <p className="text-gray-400 text-xs max-w-sm leading-relaxed drop-shadow-sm font-medium">
+                  Real apps, real solutions. Explore the digital products I've
+                  crafted.
                 </p>
               </div>
 
-              {/* Bagian Bawah: Tombol Visual */}
               <div className="mt-auto pt-8">
-                 <div className="inline-flex items-center gap-2 text-sm font-bold text-white border-b border-white/30 pb-1 group-hover:border-primary group-hover:text-primary transition-all">
-                    <span>View All Projects</span>
-                    <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-                 </div>
+                <div className="inline-flex items-center gap-2 text-xs font-bold text-gray-400 group-hover:text-gray-300 border-b border-white/30 pb-1 transition-all">
+                  <span>View All Projects</span>
+                  <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
             </div>
           </SpotlightCard>
