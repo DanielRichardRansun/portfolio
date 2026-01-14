@@ -12,6 +12,8 @@ import {
   FiArrowRight,
   FiCpu,
   FiDownload,
+  FiMapPin, // Added MapPin for Location
+  FiTerminal, // Added Terminal for Role
 } from "react-icons/fi";
 import {
   SiLaravel,
@@ -58,28 +60,37 @@ export default function Home() {
 
   return (
     <div className="w-full min-h-screen p-6 md:p-10 pb-20">
-      {/* --- SECTION 1: HERO (COMPACT) --- */}
       <motion.section
         initial="hidden"
         animate="visible"
         variants={fadeInUp}
-        className="pt-4 mb-10"
+        className="pt-8 mb-12"
       >
-        <h1 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
+        <h1 className="text-2xl md:text-3xl font-bold text-white mb-5 leading-tight tracking-tight">
           {t.home.hero.greeting}
         </h1>
 
-        <p className="text-gray-500 mb-4 text-sm font-medium">
-          {t.home.hero.location}
-        </p>
+        <div className="flex flex-wrap items-center gap-3 mb-6">
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-gray-200 backdrop-blur-md shadow-sm">
+            <FiTerminal className="text-gray-400" />{" "}
+            <span>Software Engineer & CMS Developer</span>
+          </div>
 
-        <p className="text-sm md:text-base text-gray-400 leading-relaxed mb-6">
+          <span className="hidden md:block text-gray-600">•</span>
+
+          <div className="flex items-center gap-1.5 text-gray-500 text-sm font-medium">
+            <FiMapPin size={14} />
+            {t.home.hero.location}
+          </div>
+        </div>
+
+        <p className="text-sm md:text-base text-gray-400 leading-relaxed mb-8">
           {t.home.hero.desc}
         </p>
 
-        <div className="flex flex-wrap items-start gap-3 mt-6">
+        <div className="flex flex-wrap items-start gap-4">
           <HoverIconLabel
-            icon={<FiMail size={20} />} 
+            icon={<FiMail size={20} />}
             label={t.contact.socials.email.title || "Email"}
             href="mailto:daniel.richard.ransun@gmail.com"
           />
@@ -116,37 +127,6 @@ export default function Home() {
             rel="noopener noreferrer"
           />
         </div>
-
-        {/* Button Project and Contact*/}
-        {/* <div className="flex gap-3">
-          <Link
-            href="/projects"
-            className=" group relative px-6 py-3 rounded-lg bg-white text-black font-bold text-xs md:text-sm overflow-hidden transition-all duration-300"
-          >
-            <div className="flex items-center gap-2 transition-transform duration-300 group-hover:-translate-x-1">
-              <span>{t.home.hero.btn_project}</span>
-              <FiArrowRight className="w-0 opacity-0 -translate-x-2 transition-all duration-300 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0" />
-            </div>
-          </Link>
-
-          <Link
-            href="/contact"
-            className="group relative px-5 py-2 border border-white/20 text-gray-300 rounded-lg hover:bg-white/5 transition-colors duration-300 font-medium text-xs md:text-sm flex items-center leading-none"
-          >
-            <div className="flex items-center gap-2 transition-transform duration-300 group-hover:-translate-x-1">
-              <span className="transition-colors duration-300 group-hover:text-white">
-                {t.home.hero.btn_contact}
-              </span>
-              <FiArrowRight
-                className="
-        w-0 opacity-0 -translate-x-2
-        transition-all duration-300
-        group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0
-      "
-              />
-            </div>
-          </Link>
-        </div> */}
       </motion.section>
 
       <div className="w-full h-px bg-white/10 my-12" />

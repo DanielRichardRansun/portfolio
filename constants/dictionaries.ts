@@ -50,19 +50,19 @@ export const en = {
           name: "AWS Cloud Practitioner",
           issuer: "Amazon Web Services",
           date: "Jan 2025",
-          image: "/images/cert1.jpg",
+          image: "/images/certificate/cert1.jpg",
         },
         {
           name: "Google Data Analytics",
           issuer: "Coursera",
           date: "Dec 2024",
-          image: "/images/cert2.jpg",
+          image: "/images/certificate/cert2.jpg",
         },
         {
           name: "Meta Frontend Developer",
           issuer: "Meta",
           date: "Nov 2024",
-          image: "/images/cert3.jpg",
+          image: "/images/certificate/cert3.jpg",
         },
       ],
     },
@@ -70,12 +70,12 @@ export const en = {
       title: "Education",
       subtitle: "My academic background.",
       uni: {
-        name: "Universitas Dinamika Bangsa",
+        name: "Surabaya University",
         degree: "Bachelor's degree",
         major: "Information Systems",
         year: "2022 - 2026",
         location: "Jambi, Indonesia",
-        logo: "/images/unama.png",
+        logo: "/images/logo/ubaya.png",
       },
       sma: {
         name: "SMA Xaverius 1 Jambi",
@@ -83,7 +83,7 @@ export const en = {
         major: "Science / IPA",
         year: "2019 - 2022",
         location: "Jambi, Indonesia",
-        logo: "/images/sma.png",
+        logo: "/images/logo/sma12.png",
       },
     },
   },
@@ -98,6 +98,7 @@ export const en = {
         company: "PT Muda Karya Kriya",
         date: "Feb 2025 - Present",
         type: "Full-time",
+        logo: "/images/logo/krya.png",
         desc: "Leading the digital infrastructure and technical operations.",
         responsibilities: [
           "Develop and maintain company and client websites (hosting, domain, database, email).",
@@ -115,6 +116,7 @@ export const en = {
         company: "PT Muda Karya Kriya",
         date: "Sep 2024 - Jan 2025",
         type: "Internship",
+        logo: "/images/logo/krya.png",
         desc: "Focused on frontend development and UI/UX implementation.",
         responsibilities: [
           "Assisted in developing websites focusing on performance and SEO.",
@@ -129,9 +131,10 @@ export const en = {
       },
       {
         role: "Assistant Lecturer - Native Mobile Programming",
-        company: "Universitas Dinamika Bangsa",
+        company: "Surabaya University",
         date: "Sep 2024 - Dec 2024",
         type: "Part-time",
+        logo: "/images/logo/ubaya.png",
         desc: "Mentoring students in Android Development.",
         responsibilities: [
           "Assisted students with Android Studio projects (Java & Kotlin).",
@@ -149,6 +152,7 @@ export const en = {
         company: "GPIB Cahaya Anugerah",
         date: "Jul 2020 - Present",
         type: "Volunteering",
+        logo: "/images/logo/gpib.png",
         desc: "Managing visual communication and broadcasting.",
         responsibilities: [
           "Operated EasyWorship and multimedia tools for worship visuals.",
@@ -535,19 +539,19 @@ export const id = {
           name: "AWS Cloud Practitioner",
           issuer: "Amazon Web Services",
           date: "Jan 2025",
-          image: "/images/cert1.jpg",
+          image: "/images/certificate/cert1.jpg",
         },
         {
           name: "Google Data Analytics",
           issuer: "Coursera",
           date: "Des 2024",
-          image: "/images/cert2.jpg",
+          image: "/images/certificate/cert2.jpg",
         },
         {
           name: "Meta Frontend Developer",
           issuer: "Meta",
           date: "Nov 2024",
-          image: "/images/cert3.jpg",
+          image: "/images/certificate/cert3.jpg",
         },
       ],
     },
@@ -555,12 +559,12 @@ export const id = {
       title: "Pendidikan",
       subtitle: "Latar belakang akademis saya.",
       uni: {
-        name: "Universitas Dinamika Bangsa",
+        name: "Universitas Surabaya",
         degree: "Sarjana (S1)",
         major: "Sistem Informasi",
         year: "2022 - 2026",
         location: "Jambi, Indonesia",
-        logo: "/images/unama.png",
+        logo: "/images/logo/ubaya.png",
       },
       sma: {
         name: "SMA Xaverius 1 Jambi",
@@ -584,6 +588,7 @@ export const id = {
         company: "PT Muda Karya Kriya",
         date: "Feb 2025 - Sekarang",
         type: "Penuh waktu",
+        logo: "/images/logo/krya.png",
         desc: "Memimpin infrastruktur digital dan operasional teknis.",
         responsibilities: [
           "Mengembangkan & memelihara website (hosting, domain, database, email).",
@@ -601,6 +606,7 @@ export const id = {
         company: "PT Muda Karya Kriya",
         date: "Sep 2024 - Jan 2025",
         type: "Magang",
+        logo: "/images/logo/krya.png",
         desc: "Fokus pada pengembangan frontend dan implementasi UI/UX.",
         responsibilities: [
           "Membantu pengembangan website dengan fokus performa & SEO.",
@@ -615,9 +621,10 @@ export const id = {
       },
       {
         role: "Asisten Dosen - Native Mobile Programming",
-        company: "Universitas Dinamika Bangsa",
+        company: "Universitas Surabaya",
         date: "Sep 2024 - Des 2024",
         type: "Paruh Waktu",
+        logo: "/images/logo/ubaya.png",
         desc: "Mentoring mahasiswa dalam Pengembangan Android.",
         responsibilities: [
           "Membantu mahasiswa dengan proyek Android Studio (Java & Kotlin).",
@@ -635,6 +642,7 @@ export const id = {
         company: "GPIB Cahaya Anugerah",
         date: "Jul 2020 - Sekarang",
         type: "Sukarelawan",
+        logo: "/images/logo/gpib.png",
         desc: "Mengelola komunikasi visual dan penyiaran.",
         responsibilities: [
           "Mengoperasikan EasyWorship dan alat multimedia.",

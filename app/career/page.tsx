@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion, useInView } from "framer-motion";
 import SpotlightCard from "@/components/SpotlightCard";
+import Image from "next/image"; // Pastikan import Image
 import {
   FiBriefcase,
   FiCalendar,
@@ -15,7 +16,6 @@ import {
 // --- SUB-COMPONENT: CAREER ITEM ---
 const CareerItem = ({ job, index }: { job: any; index: number }) => {
   const ref = useRef(null);
-
   const isInView = useInView(ref, { margin: "-40% 0px -40% 0px", amount: 0.3 });
 
   const fadeInUp = {
@@ -49,34 +49,65 @@ const CareerItem = ({ job, index }: { job: any; index: number }) => {
           ${isInView ? "border-white/30 bg-[#1E1E1E]/80" : "border-white/5"} 
         `}
       >
-        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-6">
-          <div>
-            <h3
-              className={`text-xl font-bold transition-colors duration-500 
-                ${isInView ? "text-primary" : "text-white"}
-              `}
-            >
-              {job.role}
-            </h3>
-            <p className="text-gray-400 font-medium text-sm mt-1">
-              {job.company}
-            </p>
-          </div>
-          <div className="flex flex-col items-start md:items-end gap-1">
-            <div className="flex items-center gap-2 text-xs text-gray-400 bg-black/20 px-3 py-1 rounded-full border border-white/10">
-              <FiCalendar /> {job.date}
+        {/* HEADER: LOGO + ROLE + COMPANY */}
+        <div className="flex flex-col md:flex-row gap-4 mb-6">
+          
+          {/* 1. COMPANY LOGO (NEW) */}
+          <div className="flex-shrink-0">
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden p-2">
+              {/* Cek apakah ada properti logo di data job, jika tidak pakai inisial */}
+              {job.logo ? (
+                <div className="relative w-full h-full">
+                   <Image 
+                     src={job.logo} 
+                     alt={`${job.company} Logo`}
+                     fill
+                     className="object-contain"
+                   />
+                </div>
+              ) : (
+                <span className="text-xl font-bold text-gray-500">
+                  {job.company.charAt(0)}
+                </span>
+              )}
             </div>
-            <span className="text-xs text-gray-400 font-medium">
-              {job.type}
-            </span>
+          </div>
+
+          {/* 2. ROLE & COMPANY INFO */}
+          <div className="flex-grow">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+              <div>
+                <h3
+                  className={`text-xl font-bold transition-colors duration-500 
+                    ${isInView ? "text-primary" : "text-white"}
+                  `}
+                >
+                  {job.role}
+                </h3>
+                <p className="text-gray-400 font-medium text-sm mt-1">
+                  {job.company}
+                </p>
+              </div>
+
+              {/* Date & Type */}
+              <div className="flex flex-col items-start md:items-end gap-1 mt-2 md:mt-0">
+                <div className="flex items-center gap-2 text-xs text-gray-400 bg-black/20 px-3 py-1 rounded-full border border-white/10">
+                  <FiCalendar /> {job.date}
+                </div>
+                <span className="text-xs text-gray-400 font-medium">
+                  {job.type}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <p className="text-gray-300 text-sm mb-8 border-b border-white/5 pb-6">
+        {/* DESCRIPTION */}
+        <p className="text-gray-300 text-sm mb-8 border-b border-white/5 pb-6 leading-relaxed">
           {job.desc}
         </p>
 
-        {/* Columns */}
+        {/* COLUMNS: Responsibilities & Impact */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
