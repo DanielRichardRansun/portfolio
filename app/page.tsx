@@ -133,7 +133,6 @@ export default function Home() {
 
       <div className="w-full h-px bg-white/10 my-12" />
 
-      {/* --- SECTION 2: FEATURED SECTIONS --- */}
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -142,143 +141,108 @@ export default function Home() {
       >
         <div className="mb-6">
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            <FiLayout className="text-primary" /> {t.home.featured.title}
+            <FiLayout className="text-gray-500" /> {t.home.featured.title}
           </h2>
           <p className="text-sm text-gray-500 mt-1">
             {t.home.featured.subtitle}
           </p>
         </div>
 
-        {/* GRID LAYOUT UTAMA (3 Kolom) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <SpotlightCard className="col-span-1 md:col-span-2 rounded-2xl p-0 relative overflow-hidden group h-full min-h-[300px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
+          {/* 1. PROJECTS (VERTICAL - Sisi Kiri) */}
+          <SpotlightCard className="col-span-1 md:row-span-2 rounded-3xl p-0 relative overflow-hidden group min-h-[400px] md:min-h-full">
             <Link href="/projects" className="absolute inset-0 z-30" />
 
             <div className="absolute inset-0 z-0 opacity-50 group-hover:opacity-100 transition-all duration-700 filter blur-[2px] group-hover:blur-0">
               <ProjectMarquee />
             </div>
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#121212] via-[#121212]/40 to-transparent opacity-90" />
 
-            <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#121212] via-[#121212]/60 to-transparent" />
-            <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-80" />
-
-            <div className="relative z-20 flex flex-col justify-between h-full p-6 md:p-8">
-              <div>
-                <div className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div className="relative z-20 flex flex-col justify-end h-full p-6 md:p-8">
+              <div className="mb-4">
+                <div className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <FiSmartphone size={24} />
                 </div>
-
-                <h3 className="text-3xl font-bold text-white mb-2 transition-colors drop-shadow-md">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 transition-colors">
                   Projects
                 </h3>
-
-                <p className="text-gray-400 text-xs max-w-sm leading-relaxed drop-shadow-sm font-medium">
-                  Real apps, real solutions. Explore the digital products I've
-                  crafted.
+                <p className="text-gray-400 text-sm">
+                  Explore my digital craftsmanship.
                 </p>
               </div>
 
-              <div className="mt-auto pt-8">
-                <div className="inline-flex items-center gap-2 text-xs font-bold text-gray-400 group-hover:text-gray-300 border-b border-white/30 pb-1 transition-all">
-                  <span>View All Projects</span>
-                  <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </div>
+              <div className="inline-flex items-center gap-2 text-sm text-white/70 group-hover:text-white border-b border-white/20 pb-1 w-fit transition-all">
+                <span>View Gallery</span>
+                <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
           </SpotlightCard>
 
-          <div className="flex flex-col gap-4 col-span-1">
-            <Link href="/about" className="contents">
-              <SpotlightCard className="flex-1 min-h-[130px] flex flex-col justify-center cursor-pointer hover:border-white/20 rounded-2xl p-5">
-                <div className="relative z-10">
-                  <div className="flex justify-between items-start mb-2">
-                    <FiUser className="text-gray-400 text-2xl" />
-                    <FiArrowRight className="text-gray-600 -rotate-45" />
-                  </div>
-                  <h4 className="font-bold text-white">
-                    {t.home.featured.box_about_title}
-                  </h4>
-                </div>
-              </SpotlightCard>
-            </Link>
+          {/* 2. CAREER */}
+          <SpotlightCard className="col-span-1 md:col-span-2 rounded-3xl p-6 group relative overflow-hidden min-h-[180px] flex flex-col justify-center">
+            <Link href="/career" className="absolute inset-0 z-20" />
+            <div className="absolute right-0 bottom-0 opacity-10 group-hover:opacity-20 transition-opacity">
+              <FiBriefcase
+                size={100}
+                className="-rotate-12 translate-x-4 translate-y-4"
+              />
+            </div>
 
-            {/* Box 3: Tech Stack */}
-            <SpotlightCard className="flex-1 min-h-[130px] flex flex-col justify-center cursor-default hover:border-white/20 rounded-2xl p-5">
-              <div className="relative z-10">
-                <div className="flex justify-between items-start mb-2 relative z-10">
-                  <div className="p-2 bg-white/5 rounded-lg text-gray-400 group-hover:text-primary group-hover:bg-primary/10 transition-colors duration-300">
-                    <FiCpu size={24} />
-                  </div>
+            <div className="relative z-10 flex justify-between items-center">
+              <div>
+                <h3 className="text-xl font-bold text-white mb-1 transition-colors">
+                  Career Journey
+                </h3>
+                <p className="text-sm text-gray-500">
+                  Professional timeline & milestones.
+                </p>
 
-                  <div className="flex items-center">
-                    {[
-                      { Icon: SiWordpress, color: "text-[#21759B]" },
-                      { Icon: SiReact, color: "text-[#61DAFB]" },
-                      { Icon: SiNextdotjs, color: "text-white" },
-                      { Icon: SiLaravel, color: "text-[#FF2D20]" },
-                    ].map((item, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ width: 0, opacity: 0, scale: 0 }}
-                        whileInView={{ width: "auto", opacity: 1, scale: 1 }}
-                        className="relative -ml-2 first:ml-0"
-                      >
-                        <div
-                          className={`w-8 h-8 rounded-full bg-[#121212] border border-white/10 flex items-center justify-center text-xs text-gray-500 transition-all duration-300 group-hover:scale-110 group-hover:${item.color}`}
-                        >
-                          <item.Icon />
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
+                <div className="flex items-center gap-2 mt-4 text-xs font-medium bg-white/5 border border-white/10 px-3 py-1.5 rounded-full w-fit text-gray-300">
+                  <FiBriefcase /> <span>4+ Years Experience</span>
                 </div>
-                <h4 className="font-bold text-white">
-                  {t.home.featured.box_tech_title}
-                </h4>
+              </div>
+              <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black group-hover:border-gray-400 transition-all">
+                <FiArrowRight className="-rotate-45 group-hover:rotate-0 transition-transform" />
+              </div>
+            </div>
+          </SpotlightCard>
+
+          {/* 3. ABOUT ME */}
+          <Link href="/about" className="contents">
+            <SpotlightCard className="col-span-1 rounded-3xl p-5 group relative overflow-hidden min-h-[180px] flex flex-col justify-between hover:border-white/20">
+              <div className="flex justify-between items-start">
+                <div className="p-2.5 bg-white/5 rounded-xl text-gray-400 group-hover:text-white transition-colors">
+                  <FiUser size={20} />
+                </div>
+              </div>
+              <div>
+                <h4 className="font-bold text-white text-lg">About Me</h4>
+                <p className="text-xs text-gray-500 mt-1">
+                  Bio, hobby, & personality.
+                </p>
               </div>
             </SpotlightCard>
-          </div>
+          </Link>
 
-          {/* Box 4: Career */}
-          <SpotlightCard className="col-span-1 md:col-span-2 relative z-0 rounded-2xl p-5">
-            <Link href="/career" className="absolute inset-0 z-20" />
-            <div className="relative z-10">
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center">
-                    <FiBriefcase size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-white">
-                      {t.home.featured.box_career_title}
-                    </h3>
-                    <p className="text-xs text-gray-500">
-                      {t.home.featured.box_career_desc}
-                    </p>
-                  </div>
-                </div>
-                <FiArrowRight className="text-gray-600 group-hover:text-primary transition-colors" />
-              </div>
-            </div>
-          </SpotlightCard>
-
-          {/* Box 5: Contact */}
-          <SpotlightCard className="col-span-1 md:col-span-1 bg-gradient-to-br from-[#1E1E1E] to-[#121212] flex flex-col justify-between hover:border-green-500/30 rounded-2xl p-5">
-            <Link href="/contact" className="absolute inset-0 z-20" />
-            <div className="relative z-10 w-full h-full flex flex-col justify-between">
+          {/* 4. TECH / CONTACT (Kanan Bawah Kanan) */}
+          <Link href="/contact" className="contents">
+            <SpotlightCard className="col-span-1 rounded-3xl p-5 group relative overflow-hidden min-h-[180px] flex flex-col justify-between bg-gradient-to-br from-[#1E1E1E] to-[#111]">
               <div className="flex justify-between items-start">
-                <FiMail className="text-gray-400 text-2xl group-hover:text-primary transition-colors" />
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                <div className="p-2.5 bg-green-500/10 rounded-xl text-green-400 group-hover:scale-110 transition-transform">
+                  <FiMail size={20} />
+                </div>
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               </div>
-              <div className="mt-4">
-                <h3 className="font-bold text-white">
-                  {t.home.featured.box_contact_title}
-                </h3>
+              <div>
+                <h4 className="font-bold text-white text-lg group-hover:text-green-400 transition-colors">
+                  Contact
+                </h4>
                 <p className="text-xs text-gray-500 mt-1">
-                  {t.home.featured.box_contact_desc}
+                  Let's work together.
                 </p>
               </div>
-            </div>
-          </SpotlightCard>
+            </SpotlightCard>
+          </Link>
         </div>
       </motion.section>
 
