@@ -41,6 +41,7 @@ import ProjectMarquee from "@/components/ProjectMarquee";
 import SingleProjectMarquee from "@/components/SingleProjectMarquee";
 import Stack from "@/components/Stack";
 import ContactChat from "@/components/ContactChat";
+import CareerPulse from "@/components/CareerPulse";
 
 const skills = [
   { icon: <SiNextdotjs />, name: "Next.js", hex: "#ffffff" },
@@ -48,7 +49,7 @@ const skills = [
   { icon: <SiLaravel />, name: "Laravel", hex: "#FF2D20" },
   { icon: <SiTailwindcss />, name: "Tailwind", hex: "#06B6D4" },
   { icon: <SiTypescript />, name: "TypeScript", hex: "#3178C6" },
-  { icon: <SiPhp />, name: "PHP", hex: "#777BB4" },
+  { icon: <SiPhp />, name: "PHP", hex: "#616cfd" },
   { icon: <SiMysql />, name: "MySQL", hex: "#4479A1" },
   { icon: <SiPostgresql />, name: "PostgreSQL", hex: "#336791" },
   { icon: <SiFigma />, name: "Figma", hex: "#F24E1E" },
@@ -174,10 +175,10 @@ export default function Home() {
                 <div className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <FiSmartphone size={24} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 transition-colors group-hover:text-primary">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                   Projects
                 </h3>
-                <p className="text-gray-400 text-sm font-medium">
+                <p className="text-gray-400 text-sm">
                   Explore my digital craftsmanship.
                 </p>
               </div>
@@ -190,30 +191,42 @@ export default function Home() {
           </SpotlightCard>
 
           {/* 2. CAREER */}
-          <SpotlightCard className="col-span-1 md:col-span-2 rounded-3xl p-6 group relative overflow-hidden min-h-[180px] flex flex-col justify-center">
+          <SpotlightCard className="col-span-1 md:col-span-2 rounded-3xl p-8 group relative overflow-hidden min-h-[240px] flex flex-col justify-center">
             <Link href="/career" className="absolute inset-0 z-20" />
-            <div className="absolute right-0 bottom-0 opacity-10 group-hover:opacity-20 transition-opacity">
+
+            <div className="absolute right-0 bottom-0 opacity-5 group-hover:opacity-10 transition-opacity">
               <FiBriefcase
-                size={100}
-                className="-rotate-12 translate-x-4 translate-y-4"
+                size={120}
+                className="-rotate-12 translate-x-6 translate-y-6"
               />
             </div>
 
-            <div className="relative z-10 flex justify-between items-center">
-              <div>
-                <h3 className="text-xl font-bold text-white mb-1 transition-colors">
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+              <div className="flex flex-col justify-center">
+                <h3 className="text-xl font-bold text-white mb-2">
                   Career Journey
                 </h3>
-                <p className="text-sm text-gray-500">
-                  Professional timeline & milestones.
+                <p className="text-sm text-gray-500 pb-6">
+                  Tracing the path from humble beginnings to professional
+                  milestones.
                 </p>
 
-                <div className="flex items-center gap-2 mt-4 text-xs font-medium bg-white/5 border border-white/10 px-3 py-1.5 rounded-full w-fit text-gray-300">
-                  <FiBriefcase /> <span>4+ Years Experience</span>
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 text-sm font-medium bg-white/5 border border-white/10 px-4 py-2 rounded-full w-fit text-gray-300 group-hover:bg-white/10 transition-all">
+                    <FiBriefcase className="text-gray-400" />
+                    <span>4+ Years Exp</span>
+                  </div>
+
+                  <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black group-hover:border-white transition-all">
+                    <FiArrowRight className="-rotate-45 group-hover:rotate-0 transition-transform" />
+                  </div>
                 </div>
               </div>
-              <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black group-hover:border-gray-400 transition-all">
-                <FiArrowRight className="-rotate-45 group-hover:rotate-0 transition-transform" />
+
+              <div className="hidden md:flex w-full h-full min-h-[120px] items-center justify-center relative">
+                <div className="w-full h-[140px] opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                  <CareerPulse />
+                </div>
               </div>
             </div>
           </SpotlightCard>

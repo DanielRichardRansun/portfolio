@@ -21,7 +21,7 @@ const SingleProjectMarquee = ({ className = "" }: { className?: string }) => {
 
       {/* Container Animasi */}
       <motion.div
-        className="flex flex-col gap-4 w-full px-4"
+        className="flex flex-col gap-4 w-full px-6"
         // Mulai dari 0, bergerak ke atas sampai -50% (setengah dari total duplikasi)
         animate={{ y: ["0%", "-50%"] }}
         transition={{
