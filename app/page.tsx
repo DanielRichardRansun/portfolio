@@ -159,7 +159,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* 1. PROJECTS (VERTICAL - Sisi Kiri) */}
           <SpotlightCard className="col-span-1 md:row-span-2 rounded-3xl p-0 relative overflow-hidden group min-h-[400px] md:min-h-full">
             <Link href="/projects" className="absolute inset-0 z-30" />
@@ -175,7 +175,7 @@ export default function Home() {
                 <div className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <FiSmartphone size={24} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 transition-colors group-hover:text-primary">
                   Projects
                 </h3>
                 <p className="text-gray-400 text-sm">
@@ -190,41 +190,41 @@ export default function Home() {
             </div>
           </SpotlightCard>
 
-          {/* 2. CAREER */}
-          <SpotlightCard className="col-span-1 md:col-span-2 rounded-3xl p-8 group relative overflow-hidden min-h-[240px] flex flex-col justify-center">
+          {/* 2. CAREER (DIPERPENDEK) */}
+          <SpotlightCard className="col-span-1 md:col-span-2 rounded-3xl p-6 group relative overflow-hidden min-h-[190px] flex flex-col justify-center">
             <Link href="/career" className="absolute inset-0 z-20" />
 
             <div className="absolute right-0 bottom-0 opacity-5 group-hover:opacity-10 transition-opacity">
               <FiBriefcase
-                size={120}
-                className="-rotate-12 translate-x-6 translate-y-6"
+                size={100}
+                className="-rotate-12 translate-x-4 translate-y-4"
               />
             </div>
 
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
               <div className="flex flex-col justify-center">
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-xl font-bold text-white mb-1">
                   Career Journey
                 </h3>
-                <p className="text-sm text-gray-500 pb-6">
-                  Tracing the path from humble beginnings to professional
-                  milestones.
+                <p className="text-sm text-gray-500 pb-8">
+                  Tracing the path from humble beginnings to professional.
                 </p>
 
                 <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-2 text-sm font-medium bg-white/5 border border-white/10 px-4 py-2 rounded-full w-fit text-gray-300 group-hover:bg-white/10 transition-all">
+                  <div className="flex items-center gap-2 text-xs font-medium bg-white/5 border border-white/10 px-3 py-1.5 rounded-full w-fit text-gray-300 group-hover:bg-white/10 transition-all">
                     <FiBriefcase className="text-gray-400" />
                     <span>4+ Years Exp</span>
                   </div>
 
-                  <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black group-hover:border-white transition-all">
+                  <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black group-hover:border-white transition-all">
                     <FiArrowRight className="-rotate-45 group-hover:rotate-0 transition-transform" />
                   </div>
                 </div>
               </div>
 
-              <div className="hidden md:flex w-full h-full min-h-[120px] items-center justify-center relative">
-                <div className="w-full h-[140px] opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+              {/* Container animasi disesuaikan tingginya */}
+              <div className="hidden md:flex w-full h-full min-h-[100px] items-center justify-center relative">
+                <div className="w-full h-[110px] opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                   <CareerPulse />
                 </div>
               </div>
@@ -266,7 +266,7 @@ export default function Home() {
             </Link>
           </SpotlightCard>
 
-          {/* 4. CONTACT (Kanan Bawah Kanan) */}
+          {/* 4. CONTACT */}
           <Link href="/contact" className="contents">
             <SpotlightCard className="col-span-1 rounded-3xl p-6 group relative overflow-hidden min-h-[240px] flex flex-col gap-2 bg-gradient-to-br from-[#1E1E1E] to-[#111] hover:border-green-500/30">
               <div className="flex justify-between items-start relative z-20">
