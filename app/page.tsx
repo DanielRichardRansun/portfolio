@@ -12,8 +12,8 @@ import {
   FiArrowRight,
   FiCpu,
   FiDownload,
-  FiMapPin, // Added MapPin for Location
-  FiTerminal, // Added Terminal for Role
+  FiMapPin,
+  FiTerminal,
 } from "react-icons/fi";
 import {
   SiLaravel,
@@ -33,10 +33,14 @@ import {
 } from "react-icons/si";
 
 import Link from "next/link";
+import Image from "next/image";
 import SpotlightCard from "@/components/SpotlightCard";
 import HoverIconLabel from "@/components/HoverIconLabel";
 import AnimatedTag from "@/components/AnimatedTag";
 import ProjectMarquee from "@/components/ProjectMarquee";
+import SingleProjectMarquee from "@/components/SingleProjectMarquee";
+import Stack from "@/components/Stack";
+import ContactChat from "@/components/ContactChat";
 
 const skills = [
   { icon: <SiNextdotjs />, name: "Next.js", hex: "#ffffff" },
@@ -50,6 +54,12 @@ const skills = [
   { icon: <SiFigma />, name: "Figma", hex: "#F24E1E" },
   { icon: <SiGithub />, name: "Git", hex: "#ffffff" },
   { icon: <SiNodedotjs />, name: "Node.js", hex: "#339933" },
+];
+
+const aboutImages = [
+  "/images/home_about/image1.jpg",
+  "/images/home_about/image2.jpg",
+  "/images/home_about/image3.jpg",
 ];
 
 export default function Home() {
@@ -153,20 +163,21 @@ export default function Home() {
           <SpotlightCard className="col-span-1 md:row-span-2 rounded-3xl p-0 relative overflow-hidden group min-h-[400px] md:min-h-full">
             <Link href="/projects" className="absolute inset-0 z-30" />
 
-            <div className="absolute inset-0 z-0 opacity-50 group-hover:opacity-100 transition-all duration-700 filter blur-[2px] group-hover:blur-0">
-              <ProjectMarquee />
+            <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-100 transition-all duration-700 filter blur-[1px] group-hover:blur-0">
+              <SingleProjectMarquee />
             </div>
-            <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#121212] via-[#121212]/40 to-transparent opacity-90" />
 
-            <div className="relative z-20 flex flex-col justify-end h-full p-6 md:p-8">
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#1E1E1E] via-[#1E1E1E]/50 to-transparent" />
+
+            <div className="relative z-20 flex flex-col gap-4 justify-end h-full p-6 md:p-8">
               <div className="mb-4">
                 <div className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <FiSmartphone size={24} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 transition-colors group-hover:text-primary">
                   Projects
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 text-sm font-medium">
                   Explore my digital craftsmanship.
                 </p>
               </div>
@@ -208,38 +219,62 @@ export default function Home() {
           </SpotlightCard>
 
           {/* 3. ABOUT ME */}
-          <Link href="/about" className="contents">
-            <SpotlightCard className="col-span-1 rounded-3xl p-5 group relative overflow-hidden min-h-[180px] flex flex-col justify-between hover:border-white/20">
-              <div className="flex justify-between items-start">
-                <div className="p-2.5 bg-white/5 rounded-xl text-gray-400 group-hover:text-white transition-colors">
-                  <FiUser size={20} />
-                </div>
-              </div>
+          <SpotlightCard className="col-span-1 rounded-3xl p-6 group relative overflow-hidden min-h-[240px] flex flex-col justify-between hover:border-white/20">
+            <div className="w-full h-[140px] mb-4 relative z-20">
+              <Stack
+                sensitivity={100}
+                cards={aboutImages.map((src, i) => (
+                  <div key={i} className="relative w-full h-full">
+                    <Image
+                      src={src}
+                      alt="About Me Photo"
+                      fill
+                      className="object-cover pointer-events-none"
+                      sizes="(max-width: 768px) 100vw, 300px"
+                    />
+                    <div className="absolute inset-0 bg-black/10" />
+                  </div>
+                ))}
+              />
+            </div>
+
+            <Link href="/about" className="relative z-10 block">
               <div>
-                <h4 className="font-bold text-white text-lg">About Me</h4>
-                <p className="text-xs text-gray-500 mt-1">
+                <div className="flex justify-between items-center mb-1">
+                  <h3 className="font-bold text-white text-xl transition-colors">
+                    About Me
+                  </h3>
+                  <FiArrowRight className="-rotate-45 group-hover:rotate-0 transition-transform text-gray-500 group-hover:text-white" />
+                </div>
+                <p className="text-sm text-gray-500">
                   Bio, hobby, & personality.
                 </p>
               </div>
-            </SpotlightCard>
-          </Link>
+            </Link>
+          </SpotlightCard>
 
-          {/* 4. TECH / CONTACT (Kanan Bawah Kanan) */}
+          {/* 4. CONTACT (Kanan Bawah Kanan) */}
           <Link href="/contact" className="contents">
-            <SpotlightCard className="col-span-1 rounded-3xl p-5 group relative overflow-hidden min-h-[180px] flex flex-col justify-between bg-gradient-to-br from-[#1E1E1E] to-[#111]">
-              <div className="flex justify-between items-start">
-                <div className="p-2.5 bg-green-500/10 rounded-xl text-green-400 group-hover:scale-110 transition-transform">
-                  <FiMail size={20} />
+            <SpotlightCard className="col-span-1 rounded-3xl p-6 group relative overflow-hidden min-h-[240px] flex flex-col gap-2 bg-gradient-to-br from-[#1E1E1E] to-[#111] hover:border-green-500/30">
+              <div className="flex justify-between items-start relative z-20">
+                <div>
+                  <h3 className="font-bold text-white text-xl transition-colors">
+                    Contact
+                  </h3>
+                  <p className="text-sm text-gray-500 pt-2">
+                    Let's work together.
+                  </p>
                 </div>
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-black/20 border border-white/5 backdrop-blur-md">
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
+                  <span className="text-[10px] font-medium text-green-400">
+                    Online
+                  </span>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-white text-lg group-hover:text-green-400 transition-colors">
-                  Contact
-                </h4>
-                <p className="text-xs text-gray-500 mt-1">
-                  Let's work together.
-                </p>
+
+              <div className="flex-1 w-full relative z-10 mt-6">
+                <ContactChat />
               </div>
             </SpotlightCard>
           </Link>
