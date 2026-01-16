@@ -23,27 +23,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} antialiased bg-background text-foreground overflow-x-hidden`}>
-        <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem={false}>
+      <body
+        className={`${poppins.variable} antialiased bg-background text-foreground overflow-x-hidden`}
+      >
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
           <LanguageProvider>
-            
-            {/* CONTAINER UTAMA:
-                1. max-w-screen-xl : Membatasi lebar agar tidak full screen di monitor besar.
-                2. mx-auto : Membuat posisi rata tengah kiri-kanan.
-                3. flex : Menyusun Sidebar dan Main Content bersisian.
-            */}
             <div className="max-w-screen-xl mx-auto flex min-h-screen">
-
-              {/* Sidebar dipanggil di sini */}
               <Sidebar />
 
-              {/* Area Konten Utama */}
-              <main className="flex-1 min-w-0 transition-all duration-300">
+              <main className="flex-1 min-w-0 transition-all duration-300 lg:pt-0 pt-16">
                 {children}
               </main>
-
             </div>
-
           </LanguageProvider>
         </ThemeProvider>
       </body>
