@@ -77,7 +77,7 @@ export default function Home() {
         initial="hidden"
         animate="visible"
         variants={fadeInUp}
-        className="pt-8 mb-12"
+        className="pt-4 md:pt-8 mb-12"
       >
         <h1 className="text-2xl md:text-3xl font-bold text-white mb-5 leading-tight tracking-tight">
           {t.home.hero.greeting}
@@ -190,7 +190,7 @@ export default function Home() {
             </div>
           </SpotlightCard>
 
-          {/* 2. CAREER (DIPERPENDEK) */}
+          {/* 2. CAREER */}
           <SpotlightCard className="col-span-1 md:col-span-2 rounded-3xl p-6 group relative overflow-hidden min-h-[190px] flex flex-col justify-center">
             <Link href="/career" className="absolute inset-0 z-20" />
 
@@ -222,8 +222,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Container animasi disesuaikan tingginya */}
-              <div className="hidden md:flex w-full h-full min-h-[100px] items-center justify-center relative">
+              <div className="flex w-full h-full min-h-[100px] items-center justify-center relative md:mt-0 -mt-6">
                 <div className="w-full h-[110px] opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                   <CareerPulse />
                 </div>
@@ -302,6 +301,7 @@ export default function Home() {
         whileInView="visible"
         viewport={{ once: true }}
         variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
+        className="skills-section"
       >
         <div className="mb-6">
           <h2 className="text-xl font-bold text-white">
@@ -310,7 +310,7 @@ export default function Home() {
           <p className="text-sm text-gray-500">{t.home.skills.subtitle}</p>
         </div>
 
-        <div className="flex flex-wrap gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
           {skills.map((skill, index) => (
             <motion.div
               key={index}
@@ -318,7 +318,7 @@ export default function Home() {
               initial="rest"
               whileHover="hover"
               animate="rest"
-              className="relative flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E1E1E] border border-white/5 cursor-default overflow-hidden group"
+              className="skill-item relative flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E1E1E] border border-white/5 cursor-default overflow-hidden group"
             >
               <motion.div
                 variants={{
@@ -329,18 +329,16 @@ export default function Home() {
                 style={{ backgroundColor: skill.hex }}
               />
 
-              {/* Icon & Text */}
               <motion.span
-                className="text-lg relative z-10"
-                style={{ color: skill.hex }} // Warna Icon selalu nyala
+                className="text-lg relative z-10 flex-shrink-0"
+                style={{ color: skill.hex }}
               >
                 {skill.icon}
               </motion.span>
-              <span className="text-gray-300 text-sm font-medium relative z-10 group-hover:text-white transition-colors">
+              <span className="text-gray-300 text-sm font-medium relative z-10 group-hover:text-white transition-colors truncate">
                 {skill.name}
               </span>
 
-              {/* Border Glow Effect */}
               <motion.div
                 className="absolute inset-0 rounded-full border-2"
                 variants={{
