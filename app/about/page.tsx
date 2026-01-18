@@ -111,7 +111,7 @@ export default function About() {
                       />
                     </div>
 
-                    <SpotlightCard>
+                    <SpotlightCard className="h-full border-t-0 rounded-t-none">
                       <div className="p-5">
                         <h3 className="font-bold text-white mb-1 line-clamp-2 leading-tight">
                           {cert.name}
