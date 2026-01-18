@@ -12,7 +12,7 @@ export const en = {
     hero: {
       greeting: "Hi, I'm Daniel Richard Ransun",
       location: "Based in Jambi, Indonesia 🇮🇩",
-      desc: "Professional Web Developer & Technology Specialist with experience in front-end and back-end development, CMS platforms, and mobile applications. Skilled in developing and maintaining websites for both local and international clients or companies, with a strong foundation in technology, content development, copywriting, and AI-driven solutions. Passionate about learning new technologies, adapting to challenges, and delivering effective problem-solving, supported by solid English communication skills.",
+    desc: "Professional Web Developer & Technology Specialist with experience in front-end and back-end development, CMS platforms, and mobile applications. Skilled in developing and maintaining websites for both local and international clients or companies, with a strong foundation in technology, content development, copywriting, and AI-driven solutions.",
       btn_project: "See My Work",
       btn_contact: "Contact Me",
     },
@@ -552,7 +552,7 @@ export const id = {
     hero: {
       greeting: "Hai, Saya Daniel Richard Ransun",
       location: "Berbasis di Jambi, Indonesia 🇮🇩",
-      desc: "Pengembang Web Profesional & Spesialis Teknologi dengan pengalaman dalam pengembangan front-end dan back-end, platform CMS, dan aplikasi seluler. Terampil dalam mengembangkan dan memelihara situs web untuk klien atau perusahaan lokal dan internasional, dengan dasar yang kuat dalam teknologi, pengembangan konten, penulisan iklan, dan solusi berbasis AI. Bersemangat untuk mempelajari teknologi baru, beradaptasi dengan tantangan, dan memberikan solusi masalah yang efektif, didukung oleh kemampuan komunikasi bahasa Inggris yang solid.",
+      desc: "Pengembang Web Profesional & Spesialis Teknologi dengan pengalaman dalam pengembangan front-end dan back-end, platform CMS, dan aplikasi seluler. Terampil dalam mengembangkan dan memelihara situs web untuk klien atau perusahaan lokal dan internasional, dengan dasar yang kuat dalam teknologi, pengembangan konten, penulisan iklan, dan solusi berbasis AI.",
       btn_project: "Lihat Karya",
       btn_contact: "Email Saya",
     },

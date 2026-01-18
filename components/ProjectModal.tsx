@@ -2,11 +2,24 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { FiExternalLink, FiLayout, FiX, FiZap } from "react-icons/fi";
-import { SiLaravel, SiNextdotjs, SiReact, SiTailwindcss, SiMysql, SiPhp, SiWordpress, SiElementor, SiWoocommerce, SiBootstrap, SiHtml5, SiCss3, SiJavascript } from "react-icons/si";
+import { FiExternalLink, FiLayout, FiX, FiZap, FiCheck } from "react-icons/fi";
+import {
+  SiLaravel,
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiMysql,
+  SiPhp,
+  SiWordpress,
+  SiElementor,
+  SiWoocommerce,
+  SiBootstrap,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+} from "react-icons/si";
 import { useLanguage } from "@/context/LanguageContext";
-import SpotlightCard from "@/components/SpotlightCard";
-import { Project } from "@/app/projects/page"; // Import the Project type
+import { Project } from "@/app/projects/page";
 
 interface ProjectModalProps {
   selectedProject: Project | undefined;
@@ -57,131 +70,124 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
   return (
     <AnimatePresence>
       {selectedId && selectedProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] flex items-end md:items-center justify-center p-0 md:p-4">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedId(null)}
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
+            className="absolute inset-0 bg-black/90 backdrop-blur-sm cursor-pointer"
           />
 
           <motion.div
             layoutId={`card-container-${selectedId}`}
-            className="relative w-full max-w-2xl max-h-[90vh] bg-[#121212] border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex flex-col"
+            className="relative w-full max-w-2xl max-h-[90vh] md:max-h-[85vh] bg-[#121212] border-t md:border border-white/10 rounded-t-3xl md:rounded-3xl overflow-hidden shadow-2xl flex flex-col"
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
           >
             <button
               onClick={() => setSelectedId(null)}
-              className="absolute top-4 right-4 z-30 p-2 bg-black/50 hover:bg-white text-white hover:text-black rounded-full transition-all"
+              className="absolute top-4 right-4 z-40 p-2 bg-black/50 backdrop-blur-md border border-white/10 hover:bg-white text-white hover:text-black rounded-full transition-all"
             >
               <FiX size={20} />
             </button>
 
-            <div className="overflow-y-auto custom-scrollbar">
-              <div className="relative w-full aspect-video bg-gray-900">
+            <div className="overflow-y-auto custom-scrollbar flex-1">
+              <div className="relative w-full aspect-video bg-[#121212] shrink-0">
                 <Image
                   src={selectedProject.image}
                   alt={selectedProject.title}
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/40 to-transparent" />
 
-                {/* Content Container (Title & Button) */}
-                <div className="absolute bottom-6 left-6 right-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
-                  {/* Judul & Kategori (Kiri) */}
-                  <div>
-                    <span className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold rounded-full mb-3 inline-block">
+                <div className="absolute bottom-0 left-0 right-0 p-5 md:p-8 flex flex-col gap-2">
+                  <div className="flex flex-col items-start gap-2">
+                    <span className="px-3 py-1 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-[10px] md:text-xs font-bold uppercase tracking-wider rounded-full">
                       {selectedProject.category}
                     </span>
                     <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
                       {selectedProject.title}
                     </h2>
                   </div>
+                </div>
+              </div>
 
-                  {/* BUTTON LIVE VIEW (Kanan) */}
-                  {/* Hanya muncul jika liveUrl ada di dictionary */}
+              <div className="p-5 md:p-8 md:pt-4 pt-4 space-y-8 pb-10">
+                <div className="flex flex-col gap-8">
                   {selectedProject.liveUrl && (
                     <a
                       href={selectedProject.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="
-          group flex items-center gap-2 px-5 py-3
-          bg-white text-black rounded-full
-          font-bold text-sm shadow-lg shadow-white/10
-          transition-all duration-300
-          hover:scale-105 hover:bg-primary hover:text-white
-        "
+                      className="w-fit flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black font-bold text-xs shadow-lg hover:bg-primary hover:text-white transition-all active:scale-95"
                     >
-                      <span>Live View</span>
-                      <FiExternalLink className="transition-transform group-hover:rotate-45" />
+                      <FiExternalLink />
+                      <span>Visit Live Site</span>
                     </a>
                   )}
-                </div>
-              </div>
 
-              <div className="p-6 md:p-8 space-y-8">
-                {/* 1. Description & Tech Stack */}
-                <div className="flex flex-col gap-6">
-                  <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-300 leading-relaxed text-sm md:text-base border-l-2 border-white/10 pl-4">
                     {selectedProject.desc}
                   </p>
+                </div>
 
-                  <div className="bg-[#1E1E1E] p-4 rounded-xl border border-white/5">
-                    <h4 className="text-gray-400 font-bold text-xs uppercase mb-3 tracking-wider">
-                      {t.home.featured.box_tech_title}
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedProject.tech.map((tech, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center gap-2 text-xs text-gray-300 bg-black/30 px-3 py-2 rounded-lg border border-white/5"
-                        >
-                          {getTechIcon(tech)}
-                          <span>{tech}</span>
-                        </div>
-                      ))}
-                    </div>
+                <div className="bg-[#1E1E1E] p-4 rounded-xl border border-white/5">
+                  <h4 className="text-gray-500 font-bold text-xs uppercase mb-3 tracking-wider flex items-center gap-2">
+                    <FiZap className="text-yellow-500" />
+                    {t.home.featured.box_tech_title}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.tech.map((tech, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-1.5 text-xs text-gray-300 bg-black/40 px-3 py-1.5 rounded-lg border border-white/5"
+                      >
+                        {getTechIcon(tech)}
+                        <span>{tech}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
-                {/* 2. Key Features */}
-                <div>
-                  <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    <FiLayout className="text-primary" />{" "}
-                    {t.projects.modal.features}
-                  </h3>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {selectedProject.features.map((feature, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-3 bg-[#1E1E1E] p-3 rounded-xl border border-white/5 text-sm text-gray-400"
-                      >
-                        <div className="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 border-t border-white/5">
+                  <div>
+                    <h3 className="text-base font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                      <FiLayout className="text-xl text-primary" />{" "}
+                      {t.projects.modal.features}
+                    </h3>
+                    <ul className="space-y-3">
+                      {selectedProject.features.map((feature, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-sm text-gray-400"
+                        >
+                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-300 flex-shrink-0" />
+                          <span className="leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                <div className="bg-gradient-to-r from-[#1E1E1E] to-[#121212] p-6 rounded-2xl border border-white/5">
-                  <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    {t.projects.modal.outcomes}
-                  </h3>
-
-                  <ul className="space-y-3">
-                    {selectedProject.outcomes.map((outcome, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-3 text-sm text-gray-400"
-                      >
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
-                        <span className="leading-relaxed">{outcome}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div>
+                    <h3 className="text-base font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                      {t.projects.modal.outcomes}
+                    </h3>
+                    <ul className="space-y-3">
+                      {selectedProject.outcomes.map((outcome, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-sm text-gray-400"
+                        >
+                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
+                          <span className="leading-relaxed">{outcome}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

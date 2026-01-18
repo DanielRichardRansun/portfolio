@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
-import { FiAward, FiBook, FiUser } from "react-icons/fi";
+import { FiAward, FiBook, FiUser, FiChevronDown, FiChevronUp } from "react-icons/fi";
 import Image from "next/image";
 import SpotlightCard from "@/components/SpotlightCard";
 import { useState } from "react";
@@ -10,23 +10,25 @@ import CertificateLightbox from "@/components/CertificateLightbox";
 
 export default function About() {
   const { t } = useLanguage();
+  
+  // State untuk Lightbox (Popup Gambar)
   const [lightboxState, setLightboxState] = useState<{
     isOpen: boolean;
     index: number | null;
   }>({ isOpen: false, index: null });
+  
+  // State untuk tombol Show All
   const [showAll, setShowAll] = useState(false);
 
+  // Animasi standar (Fade In Up)
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
-  const staggerContainer = {
-    visible: { transition: { staggerChildren: 0.1 } },
-  };
-
   return (
     <div className="w-full min-h-screen p-6 md:p-10 pb-20 space-y-16">
+      
       {/* --- SECTION 1: INTRODUCTION --- */}
       <motion.section
         initial="hidden"
@@ -54,13 +56,14 @@ export default function About() {
       <div className="w-full h-px bg-white/5" />
 
       {/* --- SECTION 2: CERTIFICATIONS --- */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={staggerContainer}
-      >
-        <div className="flex items-center gap-3 mb-6">
+      <section>
+        <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="flex items-center gap-3 mb-6"
+        >
           <div className="p-3 bg-[#1E1E1E] border border-white/10 rounded-full text-white">
             <FiAward size={20} />
           </div>
@@ -72,37 +75,39 @@ export default function About() {
               {t.about.certifications.subtitle}
             </p>
           </div>
-        </div>
+        </motion.div>
 
+        {/* LOGIC DATA */}
         {(() => {
           const totalCertificates = t.about.certifications.items.length;
-          const displayCount = showAll ? totalCertificates : 3;
-          const certificatesToShow = t.about.certifications.items.slice(
-            0,
-            displayCount,
-          );
+          
+          // Simpel: Potong array berdasarkan state showAll
+          const certificatesToShow = showAll 
+            ? t.about.certifications.items 
+            : t.about.certifications.items.slice(0, 3);
 
           return (
             <>
+              {/* GRID CONTAINER */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {certificatesToShow.map((cert, index) => (
                   <motion.div
-                    key={index}
+                    key={index} // Key index aman disini karena urutan tidak berubah
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={fadeInUp}
-                    whileHover={{ y: -5 }}
-                    className="bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all group cursor-pointer"
+                    className="bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all group cursor-pointer flex flex-col"
                     onClick={() => {
-                      const originalIndex =
-                        t.about.certifications.items.findIndex(
-                          (item) => item.name === cert.name,
-                        );
+                      // Logic pencarian index asli untuk lightbox
+                      const originalIndex = t.about.certifications.items.findIndex(
+                        (item) => item.name === cert.name
+                      );
                       setLightboxState({ isOpen: true, index: originalIndex });
                     }}
                   >
-                    <div className="relative w-full h-60 bg-black/20 sm:h-50 md:h-50">
+                    {/* Image Container */}
+                    <div className="relative w-full h-60 bg-black/20 sm:h-50 md:h-50 shrink-0">
                       <Image
                         src={cert.image}
                         alt={cert.name}
@@ -111,8 +116,9 @@ export default function About() {
                       />
                     </div>
 
+                    {/* Card Content */}
                     <SpotlightCard className="h-full border-t-0 rounded-t-none">
-                      <div className="p-5">
+                      <div className="p-5 h-full flex flex-col justify-between">
                         <h3 className="font-bold text-white mb-1 line-clamp-2 leading-tight">
                           {cert.name}
                         </h3>
@@ -125,7 +131,7 @@ export default function About() {
                               {cert.issuer}
                             </p>
                           </div>
-                          <span className="text-[10px] text-gray-500 border border-white/10 px-2 py-1 rounded-md bg-black/20">
+                          <span className="text-[10px] text-gray-500 border border-white/10 px-2 py-1 rounded-md bg-black/20 whitespace-nowrap">
                             {cert.date}
                           </span>
                         </div>
@@ -135,28 +141,29 @@ export default function About() {
                 ))}
               </div>
 
-              {!showAll && totalCertificates > 3 && (
-                <div className="flex justify-center mt-6">
-                  <button
-                    onClick={() => setShowAll(true)}
-                    className="px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors text-sm font-medium"
-                  >
-                    Show All
-                  </button>
+              {/* TOMBOL SHOW ALL / HIDE (SIMPEL) */}
+              {totalCertificates > 3 && (
+                <div className="flex justify-center mt-8">
+                    <button
+                        onClick={() => setShowAll(!showAll)}
+                        className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#1E1E1E] border border-white/10 text-white hover:bg-white/10 transition-colors text-sm font-medium"
+                    >
+                        {showAll ? (
+                            <>
+                                <span>Hide Certificates</span>
+                                <FiChevronUp />
+                            </>
+                        ) : (
+                            <>
+                                <span>Show All ({totalCertificates})</span>
+                                <FiChevronDown />
+                            </>
+                        )}
+                    </button>
                 </div>
               )}
 
-              {showAll && (
-                <div className="flex justify-center mt-6">
-                  <button
-                    onClick={() => setShowAll(false)}
-                    className="px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors text-sm font-medium"
-                  >
-                    Hide Certificates
-                  </button>
-                </div>
-              )}
-
+              {/* LIGHTBOX */}
               {lightboxState.index !== null && (
                 <CertificateLightbox
                   isOpen={lightboxState.isOpen}
@@ -178,10 +185,11 @@ export default function About() {
             </>
           );
         })()}
-      </motion.section>
+      </section>
 
       <div className="w-full h-px bg-white/5" />
 
+      {/* --- SECTION 3: EDUCATION --- */}
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -202,7 +210,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Grid 2 Kolom (Kanan Kiri) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <SpotlightCard className="p-6 rounded-2xl">
             <div className="flex items-start gap-5 ">
