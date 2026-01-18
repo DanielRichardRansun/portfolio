@@ -88,17 +88,13 @@ export default function About() {
                 {certificatesToShow.map((cert, index) => (
                   <motion.div
                     key={index}
-                    // --- PERBAIKAN DI SINI ---
-                    // Kita paksa card punya trigger animasi sendiri
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    // -------------------------
                     variants={fadeInUp}
                     whileHover={{ y: -5 }}
                     className="bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all group cursor-pointer"
                     onClick={() => {
-                      // Logic Lightbox Anda tetap sama
                       const originalIndex =
                         t.about.certifications.items.findIndex(
                           (item) => item.name === cert.name,
@@ -106,8 +102,7 @@ export default function About() {
                       setLightboxState({ isOpen: true, index: originalIndex });
                     }}
                   >
-                    {/* ... (Isi Card Image & Content tetap sama) ... */}
-                    <div className="relative w-full h-56 bg-black/20 sm:h-48 md:h-40">
+                    <div className="relative w-full h-60 bg-black/20 sm:h-50 md:h-50">
                       <Image
                         src={cert.image}
                         alt={cert.name}

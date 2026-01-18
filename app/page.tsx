@@ -161,7 +161,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* 1. PROJECTS*/}
-          <SpotlightCard className="col-span-1 md:row-span-2 rounded-3xl p-0 relative overflow-hidden group min-h-[300px] md:min-h-full">
+          <SpotlightCard className="col-span-1 md:row-span-2 rounded-3xl p-0 relative overflow-hidden group min-h-[320px] md:min-h-full">
             <Link href="/projects" className="absolute inset-0 z-30" />
 
             <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-100 transition-all duration-700 filter blur-[1px] group-hover:blur-0">
@@ -176,15 +176,15 @@ export default function Home() {
                   <FiSmartphone size={24} />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2 transition-colors">
-                  Projects
+                  {t.home.featured.box_projects_title}
                 </h3>
                 <p className="text-gray-400 text-sm">
-                  Explore my digital craftsmanship.
+                  {t.home.featured.box_projects_desc}
                 </p>
               </div>
 
               <div className="inline-flex items-center gap-2 text-sm text-white/70 group-hover:text-white border-b border-white/20 pb-1 w-fit transition-all">
-                <span>View Gallery</span>
+                <span>{t.home.featured.box_projects_btn || "View Gallery"}</span>
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
@@ -204,16 +204,16 @@ export default function Home() {
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
               <div className="flex flex-col justify-center">
                 <h3 className="text-xl font-bold text-white mb-1">
-                  Career Journey
+                  {t.home.featured.box_career_title}
                 </h3>
                 <p className="text-sm text-gray-500 pb-8">
-                  Tracing the path from humble beginnings to professional.
+                  {t.home.featured.box_career_desc}
                 </p>
 
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-2 text-xs font-medium bg-white/5 border border-white/10 px-3 py-1.5 rounded-full w-fit text-gray-300 group-hover:bg-white/10 transition-all">
                     <FiBriefcase className="text-gray-400" />
-                    <span>4+ Years Exp</span>
+                    <span>{t.home.featured.box_career_exp || "4+ Years Exp"}</span>
                   </div>
 
                   <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black group-hover:border-white transition-all">
@@ -254,12 +254,12 @@ export default function Home() {
               <div>
                 <div className="flex justify-between items-center mb-1">
                   <h3 className="font-bold text-white text-xl transition-colors">
-                    About Me
+                    {t.home.featured.box_about_title}
                   </h3>
                   <FiArrowRight className="-rotate-45 group-hover:rotate-0 transition-transform text-gray-500 group-hover:text-white" />
                 </div>
                 <p className="text-sm text-gray-500">
-                  Bio, hobby, & personality.
+                  {t.home.featured.box_about_desc}
                 </p>
               </div>
             </Link>
@@ -271,10 +271,10 @@ export default function Home() {
               <div className="flex justify-between items-start relative z-20">
                 <div>
                   <h3 className="font-bold text-white text-xl transition-colors">
-                    Contact
+                    {t.home.featured.box_contact_title}
                   </h3>
                   <p className="text-sm text-gray-500 pt-2">
-                    Let's work together.
+                    {t.home.featured.box_contact_desc}
                   </p>
                 </div>
                 <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-black/20 border border-white/5 backdrop-blur-md">
