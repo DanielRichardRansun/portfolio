@@ -54,7 +54,7 @@ const CareerItem = ({ job, index }: { job: any; index: number }) => {
           
           {/* 1. COMPANY LOGO (NEW) */}
           <div className="flex-shrink-0">
-            <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden p-2">
+            <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center overflow-hidden">
               {/* Cek apakah ada properti logo di data job, jika tidak pakai inisial */}
               {job.logo ? (
                 <div className="relative w-full h-full">
@@ -74,7 +74,7 @@ const CareerItem = ({ job, index }: { job: any; index: number }) => {
           </div>
 
           {/* 2. ROLE & COMPANY INFO */}
-          <div className="flex-grow">
+          <div className="flex-grow items-center">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
               <div>
                 <h3

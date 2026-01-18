@@ -175,7 +175,7 @@ export default function Home() {
                 <div className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <FiSmartphone size={24} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 transition-colors group-hover:text-primary">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 transition-colors">
                   Projects
                 </h3>
                 <p className="text-gray-400 text-sm">
