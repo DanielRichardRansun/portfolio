@@ -5,9 +5,16 @@ import { motion } from "framer-motion";
 import { FiAward, FiBook, FiUser } from "react-icons/fi";
 import Image from "next/image";
 import SpotlightCard from "@/components/SpotlightCard";
+import { useState } from "react";
+import CertificateLightbox from "@/components/CertificateLightbox";
 
 export default function About() {
   const { t } = useLanguage();
+  const [lightboxState, setLightboxState] = useState<{
+    isOpen: boolean;
+    index: number | null;
+  }>({ isOpen: false, index: null });
+  const [showAll, setShowAll] = useState(false);
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -67,45 +74,115 @@ export default function About() {
           </div>
         </div>
 
-        {/* GRID 3 KOLOM */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {t.about.certifications.items.map((cert, index) => (
-            <motion.div
-              key={index}
-              variants={fadeInUp}
-              whileHover={{ y: -5 }}
-              className="bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all group"
-            >
-              <div className="relative w-full h-40 bg-black/20">
-                <Image
-                  src={cert.image}
-                  alt={cert.name}
-                  fill
-                  className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                />
+        {(() => {
+          const totalCertificates = t.about.certifications.items.length;
+          const displayCount = showAll ? totalCertificates : 3;
+          const certificatesToShow = t.about.certifications.items.slice(
+            0,
+            displayCount,
+          );
+
+          return (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {certificatesToShow.map((cert, index) => (
+                  <motion.div
+                    key={index}
+                    // --- PERBAIKAN DI SINI ---
+                    // Kita paksa card punya trigger animasi sendiri
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    // -------------------------
+                    variants={fadeInUp}
+                    whileHover={{ y: -5 }}
+                    className="bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all group cursor-pointer"
+                    onClick={() => {
+                      // Logic Lightbox Anda tetap sama
+                      const originalIndex =
+                        t.about.certifications.items.findIndex(
+                          (item) => item.name === cert.name,
+                        );
+                      setLightboxState({ isOpen: true, index: originalIndex });
+                    }}
+                  >
+                    {/* ... (Isi Card Image & Content tetap sama) ... */}
+                    <div className="relative w-full h-56 bg-black/20 sm:h-48 md:h-40">
+                      <Image
+                        src={cert.image}
+                        alt={cert.name}
+                        fill
+                        className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+
+                    <SpotlightCard>
+                      <div className="p-5">
+                        <h3 className="font-bold text-white mb-1 line-clamp-2 leading-tight">
+                          {cert.name}
+                        </h3>
+                        <div className="flex justify-between items-end mt-4">
+                          <div>
+                            <p className="text-xs text-gray-400 mb-1">
+                              {t.about.certifications.issued}
+                            </p>
+                            <p className="text-xs font-medium text-white">
+                              {cert.issuer}
+                            </p>
+                          </div>
+                          <span className="text-[10px] text-gray-500 border border-white/10 px-2 py-1 rounded-md bg-black/20">
+                            {cert.date}
+                          </span>
+                        </div>
+                      </div>
+                    </SpotlightCard>
+                  </motion.div>
+                ))}
               </div>
 
-              <SpotlightCard>
-              <div className="p-5">
-                <h3 className="font-bold text-white mb-1 line-clamp-2 leading-tight">
-                  {cert.name}
-                </h3>
-                <div className="flex justify-between items-end mt-4">
-                  <div>
-                  <p className="text-xs text-gray-400 mb-1">{t.about.certifications.issued}</p>
-                    <p className="text-xs font-medium text-white">
-                      {cert.issuer}
-                    </p>
-                  </div>
-                  <span className="text-[10px] text-gray-500 border border-white/10 px-2 py-1 rounded-md bg-black/20">
-                    {cert.date}
-                  </span>
+              {!showAll && totalCertificates > 3 && (
+                <div className="flex justify-center mt-6">
+                  <button
+                    onClick={() => setShowAll(true)}
+                    className="px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors text-sm font-medium"
+                  >
+                    Show All
+                  </button>
                 </div>
-              </div>
-              </SpotlightCard>
-            </motion.div>
-          ))}
-        </div>
+              )}
+
+              {showAll && (
+                <div className="flex justify-center mt-6">
+                  <button
+                    onClick={() => setShowAll(false)}
+                    className="px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors text-sm font-medium"
+                  >
+                    Hide Certificates
+                  </button>
+                </div>
+              )}
+
+              {lightboxState.index !== null && (
+                <CertificateLightbox
+                  isOpen={lightboxState.isOpen}
+                  onClose={() =>
+                    setLightboxState({ isOpen: false, index: null })
+                  }
+                  imageUrl={
+                    t.about.certifications.items[lightboxState.index!].image
+                  }
+                  title={
+                    t.about.certifications.items[lightboxState.index!].name
+                  }
+                  issuer={
+                    t.about.certifications.items[lightboxState.index!].issuer
+                  }
+                  date={t.about.certifications.items[lightboxState.index!].date}
+                />
+              )}
+            </>
+          );
+        })()}
       </motion.section>
 
       <div className="w-full h-px bg-white/5" />

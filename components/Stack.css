@@ -41,15 +41,14 @@
   user-select: none;
 }
 
-/* Mobile-specific adjustments */
 @media (max-width: 768px) {
   .card {
-    width: 90%;
+    width: 80%;
     height: 90%;
-    max-height: 120px;
+    max-height: 140px;
   }
 
   .stack-container {
-    height: 140px; /* Fixed height for mobile */
+    height: 140px; 
   }
 }
