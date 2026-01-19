@@ -4,13 +4,10 @@ import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import {
   FiLayout,
-  FiCode,
   FiSmartphone,
-  FiUser,
   FiBriefcase,
   FiMail,
   FiArrowRight,
-  FiCpu,
   FiDownload,
   FiMapPin,
   FiTerminal,
@@ -19,42 +16,99 @@ import {
   SiLaravel,
   SiNextdotjs,
   SiReact,
-  SiTailwindcss,
+  SiVite,
   SiMysql,
-  SiTypescript,
+  SiPostgresql,
   SiFigma,
   SiGithub,
-  SiPhp,
-  SiNodedotjs,
-  SiPostgresql,
   SiWordpress,
   SiInstagram,
   SiLinkedin,
 } from "react-icons/si";
+import { FaWix } from "react-icons/fa";
 
 import Link from "next/link";
 import Image from "next/image";
 import SpotlightCard from "@/components/SpotlightCard";
 import HoverIconLabel from "@/components/HoverIconLabel";
 import AnimatedTag from "@/components/AnimatedTag";
-import ProjectMarquee from "@/components/ProjectMarquee";
 import SingleProjectMarquee from "@/components/SingleProjectMarquee";
 import Stack from "@/components/Stack";
 import ContactChat from "@/components/ContactChat";
 import CareerPulse from "@/components/CareerPulse";
 
+// Data Skills
 const skills = [
-  { icon: <SiNextdotjs />, name: "Next.js", hex: "#ffffff" },
-  { icon: <SiReact />, name: "React", hex: "#61DAFB" },
-  { icon: <SiLaravel />, name: "Laravel", hex: "#FF2D20" },
-  { icon: <SiTailwindcss />, name: "Tailwind", hex: "#06B6D4" },
-  { icon: <SiTypescript />, name: "TypeScript", hex: "#3178C6" },
-  { icon: <SiPhp />, name: "PHP", hex: "#616cfd" },
-  { icon: <SiMysql />, name: "MySQL", hex: "#4479A1" },
-  { icon: <SiPostgresql />, name: "PostgreSQL", hex: "#336791" },
-  { icon: <SiFigma />, name: "Figma", hex: "#F24E1E" },
-  { icon: <SiGithub />, name: "Git", hex: "#ffffff" },
-  { icon: <SiNodedotjs />, name: "Node.js", hex: "#339933" },
+  {
+    name: "Laravel",
+    desc: "PHP Framework",
+    icon: SiLaravel,
+    color: "#FF2D20",
+    bg: "bg-[#FF2D20]/10",
+  },
+  {
+    name: "React",
+    desc: "JavaScript Library",
+    icon: SiReact,
+    color: "#61DAFB",
+    bg: "bg-[#61DAFB]/10",
+  },
+  {
+    name: "Next.js",
+    desc: "React Framework",
+    icon: SiNextdotjs,
+    color: "#ffffff",
+    bg: "bg-white/10",
+  },
+  {
+    name: "Vite",
+    desc: "Build Tool",
+    icon: SiVite,
+    color: "#646CFF",
+    bg: "bg-[#646CFF]/10",
+  },
+  {
+    name: "WordPress",
+    desc: "CMS",
+    icon: SiWordpress,
+    color: "#21759B",
+    bg: "bg-[#21759B]/10",
+  },
+  {
+    name: "Wix",
+    desc: "Website Builder",
+    icon: FaWix,
+    color: "#0C6EFC",
+    bg: "bg-[#0C6EFC]/10",
+  },
+  {
+    name: "MySQL",
+    desc: "Database",
+    icon: SiMysql,
+    color: "#4479A1",
+    bg: "bg-[#4479A1]/10",
+  },
+  {
+    name: "PostgreSQL",
+    desc: "Database",
+    icon: SiPostgresql,
+    color: "#336791",
+    bg: "bg-[#336791]/10",
+  },
+  {
+    name: "GitHub",
+    desc: "Version Control",
+    icon: SiGithub,
+    color: "#ffffff",
+    bg: "bg-white/10",
+  },
+  {
+    name: "Figma",
+    desc: "Design Tool",
+    icon: SiFigma,
+    color: "#F24E1E",
+    bg: "bg-[#F24E1E]/10",
+  },
 ];
 
 const aboutImages = [
@@ -71,8 +125,24 @@ export default function Home() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <div className="w-full min-h-screen p-6 md:p-10 pb-20">
+      {/* --- SECTION 1: HERO --- */}
       <motion.section
         initial="hidden"
         animate="visible"
@@ -144,6 +214,7 @@ export default function Home() {
 
       <div className="w-full h-px bg-white/10 my-12" />
 
+      {/* --- SECTION 2: BENTO GRID --- */}
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -295,13 +366,12 @@ export default function Home() {
 
       <div className="w-full h-px bg-white/10 my-12" />
 
-      {/* --- SECTION 3: SKILLS (COLORED) --- */}
+      {/* --- SECTION 3: SKILLS & TOOLS --- */}
       <motion.section
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
-        variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
-        className="skills-section"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
       >
         <div className="mb-6">
           <h2 className="text-xl font-bold text-white">
@@ -310,42 +380,27 @@ export default function Home() {
           <p className="text-sm text-gray-500">{t.home.skills.subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {skills.map((skill, index) => (
             <motion.div
               key={index}
-              variants={fadeInUp}
-              initial="rest"
-              whileHover="hover"
-              animate="rest"
-              className="skill-item relative flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E1E1E] border border-white/5 cursor-default overflow-hidden group"
-            >
-              <motion.div
-                variants={{
-                  rest: { opacity: 0 },
-                  hover: { opacity: 0.15 },
-                }}
-                className="absolute inset-0"
-                style={{ backgroundColor: skill.hex }}
-              />
-
-              <motion.span
-                className="text-lg relative z-10 flex-shrink-0"
-                style={{ color: skill.hex }}
+              variants={itemVariants}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="bg-[#1E1E1E] border border-white/5 rounded-lg p-2 flex items-center gap-3 hover:border-white/20 hover:bg-white/[0.02] transition-colors group cursor-default"
+            > 
+              <div
+                className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${skill.bg}`}
               >
-                {skill.icon}
-              </motion.span>
-              <span className="text-gray-300 text-sm font-medium relative z-10 group-hover:text-white transition-colors truncate">
-                {skill.name}
-              </span>
-
-              <motion.div
-                className="absolute inset-0 rounded-full border-2"
-                variants={{
-                  rest: { opacity: 0, borderColor: "transparent" },
-                  hover: { opacity: 1, borderColor: skill.hex },
-                }}
-              />
+                <skill.icon size={24} style={{ color: skill.color }} />
+              </div>
+              <div className="flex flex-col overflow-hidden">
+                <span className="text-white font-semibold text-sm truncate group-hover:text-white/90 transition-colors">
+                  {skill.name}
+                </span>
+                <span className="text-xs text-gray-500 truncate">
+                  {skill.desc}
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>

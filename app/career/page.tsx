@@ -78,9 +78,9 @@ const CareerItem = ({
           } 
         `}
       >
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-5 md:mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-5 mb-5 md:mb-6">
           <div className="flex-shrink-0">
-            <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl flex items-center justify-center overflow-hidden bg-white/100 border border-white/5">
+            <div className="w-12 h-12 md:w-15 md:h-15 rounded-xl flex items-center justify-center overflow-hidden bg-white/100 border border-white/5">
               {job.logo ? (
                 <div className="relative w-full h-full p-1">
                   <BlurImage
