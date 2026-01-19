@@ -32,6 +32,7 @@ import {
 import SpotlightCard from "@/components/SpotlightCard";
 import Tabs from "@/components/Tabs";
 import ProjectModal from "@/components/ProjectModal";
+import BlurImage from "@/components/BlurImage";
 
 export type Project = {
   id: number;
@@ -269,18 +270,15 @@ export default function Projects() {
                         </div>
                       )}
 
-                      {/* IMAGE PREVIEW */}
                       <div className="relative w-full aspect-video bg-black/50 overflow-hidden">
-                        <Image
+                        <BlurImage
                           src={project.image}
                           alt={project.title}
-                          fill
                           className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent opacity-80" />
                       </div>
 
-                      {/* CONTENT PREVIEW */}
                       <SpotlightCard className="p-6 relative">
                         <p className="text-primary text-xs font-bold mb-2 uppercase tracking-wide">
                           {project.category}

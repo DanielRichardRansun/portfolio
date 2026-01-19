@@ -4,8 +4,9 @@ import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import SpotlightCard from "@/components/SpotlightCard";
-import Image from "next/image";
 import { FiBriefcase, FiCalendar, FiActivity, FiTarget } from "react-icons/fi";
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
+import BlurImage from "@/components/BlurImage";
 
 const CareerItem = ({
   job,
@@ -77,15 +78,14 @@ const CareerItem = ({
           } 
         `}
       >
-        <div className="flex flex-col sm:flex-row gap-4 mb-5 md:mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-5 md:mb-6">
           <div className="flex-shrink-0">
-            <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl flex items-center justify-center overflow-hidden bg-white/5 border border-white/5">
+            <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl flex items-center justify-center overflow-hidden bg-white/100 border border-white/5">
               {job.logo ? (
                 <div className="relative w-full h-full p-1">
-                  <Image
+                  <BlurImage
                     src={job.logo}
                     alt={`${job.company} Logo`}
-                    fill
                     className="object-contain"
                   />
                 </div>
@@ -98,7 +98,7 @@ const CareerItem = ({
           </div>
 
           <div className="flex-grow">
-            <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-1 md:gap-2">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-1 md:gap-2">
               <div>
                 <h3 className="text-lg md:text-xl font-bold text-white transition-colors duration-500 leading-tight">
                   {job.role}
@@ -129,7 +129,7 @@ const CareerItem = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <FiActivity className="text-gray-500" size={16} />
+              <IoCheckmarkDoneSharp className="text-gray-500" size={16} />
               <h4 className="text-xs md:text-sm font-bold text-white uppercase tracking-wider">
                 Responsibilities
               </h4>
@@ -151,7 +151,7 @@ const CareerItem = ({
 
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <FiTarget className="text-gray-500" size={16} />
+              <FiActivity className="text-gray-500" size={16} />
               <h4 className="text-xs md:text-sm font-bold text-white uppercase tracking-wider">
                 Impact
               </h4>

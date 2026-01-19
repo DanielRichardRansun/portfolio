@@ -126,7 +126,7 @@ export const en = {
         major: "Information Systems",
         year: "2022 - 2026",
         location: "Jambi, Indonesia",
-        logo: "/images/logo/ubaya.png",
+        logo: "/images/logo/univ_surabaya.png",
       },
       sma: {
         name: "SMA Xaverius 1 Jambi",
@@ -185,7 +185,7 @@ export const en = {
         company: "Surabaya University",
         date: "Sep 2024 - Dec 2024",
         type: "Part-time",
-        logo: "/images/logo/ubaya.png",
+        logo: "/images/logo/univ_surabaya.png",
         desc: "Mentoring students in Android Development.",
         responsibilities: [
           "Assisted students with Android Studio projects (Java & Kotlin).",
@@ -666,7 +666,7 @@ export const id = {
         major: "Sistem Informasi",
         year: "2022 - 2026",
         location: "Jambi, Indonesia",
-        logo: "/images/logo/ubaya.png",
+        logo: "/images/logo/univ_surabaya.png",
       },
       sma: {
         name: "SMA Xaverius 1 Jambi",
@@ -726,7 +726,7 @@ export const id = {
         company: "Universitas Surabaya",
         date: "Sep 2024 - Des 2024",
         type: "Paruh Waktu",
-        logo: "/images/logo/ubaya.png",
+        logo: "/images/logo/univ_surabaya.png",
         desc: "Mentoring mahasiswa dalam Pengembangan Android.",
         responsibilities: [
           "Membantu mahasiswa dengan proyek Android Studio (Java & Kotlin).",
