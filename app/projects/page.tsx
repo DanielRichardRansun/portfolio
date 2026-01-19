@@ -103,16 +103,16 @@ export default function Projects() {
         "tailwind",
         "bootstrap",
         "node.js",
-      ].includes(tech.toLowerCase())
-    )
+      ].includes(tech.toLowerCase()),
+    ),
   );
 
   const cmsProjects = t.projects.items.filter((project: Project) =>
     project.tech.some((tech) =>
       ["wordpress", "wix", "elementor", "woocommerce"].includes(
-        tech.toLowerCase()
-      )
-    )
+        tech.toLowerCase(),
+      ),
+    ),
   );
 
   return (
@@ -192,10 +192,9 @@ export default function Projects() {
 
                       {/* IMAGE PREVIEW */}
                       <div className="relative w-full aspect-video bg-black/50 overflow-hidden">
-                        <Image
+                        <BlurImage
                           src={project.image}
                           alt={project.title}
-                          fill
                           className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent opacity-80" />
