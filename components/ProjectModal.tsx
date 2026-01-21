@@ -156,7 +156,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 border-t border-white/5">
                   <div>
                     <h3 className="text-base font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-                      <FiLayout className="text-xl text-primary" />{" "}
                       {t.projects.modal.features}
                     </h3>
                     <ul className="space-y-3">
