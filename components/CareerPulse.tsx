@@ -86,9 +86,7 @@ const CareerPulse = () => {
           cx="350"
           cy="50"
           r="8"
-          className="fill-green-500 stroke-green-200 stroke-4"
-          initial={{ boxShadow: "0 0 0px rgba(34, 197, 94, 0)" }}
-          animate={{ boxShadow: "0 0 20px rgba(34, 197, 94, 0.8)" }}
+          className="fill-green-500 stroke-green-200 stroke-4 filter drop-shadow-[0_0_8px_rgba(34,197,94,0.6)]"
           whileInView={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 2, repeat: Infinity, delay: 1.6 }}
         />

@@ -50,7 +50,10 @@
 [data-theme="dark"] {
   --background: #121212;
   --foreground: #ffffff;
+  /* Biru Neon */
   --primary: #03dac5;
+  /* Hijau */
+  /* --primary: #22c55e; */
 }
 
 body {

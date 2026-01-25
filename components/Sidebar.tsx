@@ -18,6 +18,7 @@ import {
   FiX,
   FiMenu,
 } from "react-icons/fi";
+import PixelTransition from "./PixelTransition";
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -56,13 +57,42 @@ export default function Sidebar() {
       <aside className="hidden lg:flex w-[280px] sticky top-0 h-screen flex-col px-6 py-10 overflow-y-auto z-50 border-r border-white/5 bg-background">
         <div className="flex flex-col items-center mb-8">
           <div className="relative w-28 h-28 mb-4 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-gray-700 to-gray-900 shadow-lg">
-            <Image
-              src="/profile.jpg"
-              alt="Profile"
-              width={112}
-              height={112}
-              className="rounded-full object-cover w-full h-full"
-              priority
+            <PixelTransition
+              firstContent={
+                <Image
+                  src="/profile.jpg"
+                  alt="Profile"
+                  width={112}
+                  height={112}
+                  className="rounded-full object-cover w-full h-full"
+                  priority
+                />
+              }
+              secondContent={
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    display: "grid",
+                    placeItems: "center",
+                    backgroundColor: "#111",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontWeight: 900,
+                      fontSize: "1.2rem",
+                      color: "#ffffff",
+                    }}
+                  >
+                    Hello!
+                  </p>
+                </div>
+              }
+              gridSize={12}
+              pixelColor="#898b8fff"
+              animationStepDuration={0.4}
+              className="w-full h-full rounded-full"
             />
           </div>
           <h2 className="text-lg font-bold text-foreground">
@@ -169,12 +199,41 @@ export default function Sidebar() {
       <div className="lg:hidden fixed top-0 left-0 w-full h-16 bg-[#121212]/90 backdrop-blur-md border-b-1 border-white/8 z-40 px-5 flex items-center justify-between transition-all duration-300">
         <div className="flex items-center gap-3">
           <div className="relative w-9 h-9 rounded-full overflow-hidden border border-white/10">
-            <Image
-              src="/profile.jpg"
-              alt="Profile"
-              width={36}
-              height={36}
-              className="object-cover w-full h-full"
+            <PixelTransition
+              firstContent={
+                <Image
+                  src="/profile.jpg"
+                  alt="Profile"
+                  width={36}
+                  height={36}
+                  className="object-cover w-full h-full"
+                />
+              }
+              secondContent={
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    display: "grid",
+                    placeItems: "center",
+                    backgroundColor: "#111",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontWeight: 900,
+                      fontSize: "0.8rem",
+                      color: "#ffffff",
+                    }}
+                  >
+                    D
+                  </p>
+                </div>
+              }
+              gridSize={6}
+              pixelColor="#ffffff"
+              animationStepDuration={0.4}
+              className="w-full h-full rounded-full"
             />
           </div>
           <div className="flex flex-col">
@@ -213,12 +272,41 @@ export default function Sidebar() {
         <div className="w-full max-w-md px-8 h-full flex flex-col justify-between py-10">
           <div className="flex flex-col items-center text-center mt-8 shrink-0">
             <div className="relative w-22 h-22 mb-3 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-gray-700 to-gray-900 shadow-2xl">
-              <Image
-                src="/profile.jpg"
-                alt="Profile"
-                width={80}
-                height={80}
-                className="rounded-full object-cover w-full h-full"
+              <PixelTransition
+                firstContent={
+                  <Image
+                    src="/profile.jpg"
+                    alt="Profile"
+                    width={80}
+                    height={80}
+                    className="rounded-full object-cover w-full h-full"
+                  />
+                }
+                secondContent={
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      display: "grid",
+                      placeItems: "center",
+                      backgroundColor: "#111",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontWeight: 900,
+                        fontSize: "1.2rem",
+                        color: "#ffffff",
+                      }}
+                    >
+                      Hello!
+                    </p>
+                  </div>
+                }
+                gridSize={10}
+                pixelColor="#898b8fff"
+                animationStepDuration={0.4}
+                className="w-full h-full rounded-full"
               />
             </div>
             <h2 className="text-lg font-bold text-white">Daniel Richard R.</h2>

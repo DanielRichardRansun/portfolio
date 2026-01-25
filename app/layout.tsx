@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Sidebar from "@/components/Sidebar";
+import InitialLoader from "@/components/InitialLoader";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
           enableSystem={false}
         >
           <LanguageProvider>
+            <InitialLoader />
             <div className="max-w-screen-xl mx-auto flex min-h-screen">
               <Sidebar />
 
