@@ -90,7 +90,7 @@ export default function Sidebar() {
                 </div>
               }
               gridSize={12}
-              pixelColor="#898b8fff"
+              pixelColor="#a2a5a9ff"
               animationStepDuration={0.4}
               className="w-full h-full rounded-full"
             />
@@ -304,7 +304,7 @@ export default function Sidebar() {
                   </div>
                 }
                 gridSize={10}
-                pixelColor="#898b8fff"
+                pixelColor="#a2a5a9ff"
                 animationStepDuration={0.4}
                 className="w-full h-full rounded-full"
               />
