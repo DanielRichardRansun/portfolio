@@ -221,14 +221,14 @@ export default function Home() {
         viewport={{ once: true }}
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
-        <div className="mb-6">
+        <motion.div className="mb-6" variants={fadeInUp}>
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
             <FiLayout className="text-gray-500" /> {t.home.featured.title}
           </h2>
           <p className="text-sm text-gray-500 mt-1">
             {t.home.featured.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* 1. PROJECTS*/}
@@ -255,7 +255,9 @@ export default function Home() {
               </div>
 
               <div className="inline-flex items-center gap-2 text-sm text-white/70 group-hover:text-white border-b border-white/20 pb-1 w-fit transition-all">
-                <span>{t.home.featured.box_projects_btn || "View Gallery"}</span>
+                <span>
+                  {t.home.featured.box_projects_btn || "View Gallery"}
+                </span>
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
@@ -284,7 +286,9 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-2 text-xs font-medium bg-white/5 border border-white/10 px-3 py-1.5 rounded-full w-fit text-gray-300 group-hover:bg-white/10 transition-all">
                     <FiBriefcase className="text-gray-400" />
-                    <span>{t.home.featured.box_career_exp || "4+ Years Exp"}</span>
+                    <span>
+                      {t.home.featured.box_career_exp || "4+ Years Exp"}
+                    </span>
                   </div>
 
                   <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black group-hover:border-white transition-all">
@@ -387,7 +391,7 @@ export default function Home() {
               variants={itemVariants}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
               className="bg-[#1E1E1E] border border-white/5 rounded-lg p-2 flex items-center gap-3 hover:border-white/20 hover:bg-white/[0.02] transition-colors group cursor-default"
-            > 
+            >
               <div
                 className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${skill.bg}`}
               >

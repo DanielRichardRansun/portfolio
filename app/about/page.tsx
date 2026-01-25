@@ -135,7 +135,13 @@ export default function About() {
               </div>
 
               {totalCertificates > 3 && (
-                <div className="flex justify-center mt-8">
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeInUp}
+                  className="flex justify-center mt-8"
+                >
                   <button
                     onClick={() => setShowAll(!showAll)}
                     className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#1E1E1E] border border-white/10 text-white hover:bg-white/10 transition-colors text-sm font-medium"
@@ -152,7 +158,7 @@ export default function About() {
                       </>
                     )}
                   </button>
-                </div>
+                </motion.div>
               )}
 
               {lightboxState.index !== null && (

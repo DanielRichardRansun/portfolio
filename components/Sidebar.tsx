@@ -97,12 +97,12 @@ export default function Sidebar() {
             </button>
           </div>
 
-          <button
+          {/* <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="w-8 h-8 flex items-center justify-center rounded-full bg-[#1E1E1E] border border-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
           >
             {theme === "dark" ? <FiMoon size={14} /> : <FiSun size={14} />}
-          </button>
+          </button> */}
         </div>
 
         <nav className="flex-1 space-y-2">
@@ -276,13 +276,13 @@ export default function Sidebar() {
                   ID
                 </button>
               </div>
-              <div className="w-px h-4 bg-white/10 mx-1"></div>
-              <button
+              {/* <div className="w-px h-4 bg-white/10 mx-1"></div> */}
+              {/* <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="w-8 h-8 flex items-center justify-center rounded-full text-gray-400 hover:text-white"
               >
                 {theme === "dark" ? <FiMoon size={16} /> : <FiSun size={16} />}
-              </button>
+              </button> */}
             </div>
 
             <a
