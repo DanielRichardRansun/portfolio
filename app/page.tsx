@@ -37,79 +37,19 @@ import Stack from "@/components/Stack";
 import ContactChat from "@/components/ContactChat";
 import CareerPulse from "@/components/CareerPulse";
 
-// Data Skills
-const skills = [
-  {
-    name: "Laravel",
-    desc: "PHP Framework",
-    icon: SiLaravel,
-    color: "#FF2D20",
-    bg: "bg-[#FF2D20]/10",
-  },
-  {
-    name: "React",
-    desc: "JavaScript Library",
-    icon: SiReact,
-    color: "#61DAFB",
-    bg: "bg-[#61DAFB]/10",
-  },
-  {
-    name: "Next.js",
-    desc: "React Framework",
-    icon: SiNextdotjs,
-    color: "#ffffff",
-    bg: "bg-white/10",
-  },
-  {
-    name: "Vite",
-    desc: "Build Tool",
-    icon: SiVite,
-    color: "#646CFF",
-    bg: "bg-[#646CFF]/10",
-  },
-  {
-    name: "WordPress",
-    desc: "CMS",
-    icon: SiWordpress,
-    color: "#21759B",
-    bg: "bg-[#21759B]/10",
-  },
-  {
-    name: "Wix",
-    desc: "Website Builder",
-    icon: FaWix,
-    color: "#0C6EFC",
-    bg: "bg-[#0C6EFC]/10",
-  },
-  {
-    name: "MySQL",
-    desc: "Database",
-    icon: SiMysql,
-    color: "#4479A1",
-    bg: "bg-[#4479A1]/10",
-  },
-  {
-    name: "PostgreSQL",
-    desc: "Database",
-    icon: SiPostgresql,
-    color: "#336791",
-    bg: "bg-[#336791]/10",
-  },
-  {
-    name: "GitHub",
-    desc: "Version Control",
-    icon: SiGithub,
-    color: "#ffffff",
-    bg: "bg-white/10",
-  },
-  {
-    name: "Figma",
-    desc: "Design Tool",
-    icon: SiFigma,
-    color: "#F24E1E",
-    bg: "bg-[#F24E1E]/10",
-  },
-];
+// Icons for Skills
+const skillIcons = {
+  SiLaravel: SiLaravel,
+  SiReact: SiReact,
+  SiNextdotjs: SiNextdotjs,
+  SiVite: SiVite,
+  SiWordpress: SiWordpress,
+  FaWix: FaWix,
+  SiMysql: SiMysql,
+  SiPostgresql: SiPostgresql,
+  SiGithub: SiGithub,
+  SiFigma: SiFigma,
+};
 
 const aboutImages = [
   "/images/home_about/image1.jpg",
@@ -385,28 +325,31 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-[#1E1E1E] border border-white/5 rounded-lg p-2 flex items-center gap-3 hover:border-white/20 hover:bg-white/[0.02] transition-colors group cursor-default"
-            >
-              <div
-                className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${skill.bg}`}
+          {t.home.skills.items.map((skill, index) => {
+            const IconComponent = skillIcons[skill.icon as keyof typeof skillIcons];
+            return (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className="bg-[#1E1E1E] border border-white/5 rounded-lg p-2 flex items-center gap-3 hover:border-white/20 hover:bg-white/[0.02] transition-colors group cursor-default"
               >
-                <skill.icon size={24} style={{ color: skill.color }} />
-              </div>
-              <div className="flex flex-col overflow-hidden">
-                <span className="text-white font-semibold text-sm truncate group-hover:text-white/90 transition-colors">
-                  {skill.name}
-                </span>
-                <span className="text-xs text-gray-500 truncate">
-                  {skill.desc}
-                </span>
-              </div>
-            </motion.div>
-          ))}
+                <div
+                  className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${skill.bg}`}
+                >
+                  {IconComponent && <IconComponent size={24} style={{ color: skill.color }} />}
+                </div>
+                <div className="flex flex-col overflow-hidden">
+                  <span className="text-white font-semibold text-sm truncate group-hover:text-white/90 transition-colors">
+                    {skill.name}
+                  </span>
+                  <span className="text-xs text-gray-500 truncate">
+                    {skill.desc}
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.section>
     </div>

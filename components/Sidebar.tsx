@@ -99,7 +99,7 @@ export default function Sidebar() {
             Daniel Richard R.
           </h2>
           <p className="text-sm text-muted-foreground font-medium">
-            @danielrichard7
+            @danielrichardr_
           </p>
         </div>
 
@@ -310,7 +310,7 @@ export default function Sidebar() {
               />
             </div>
             <h2 className="text-lg font-bold text-white">Daniel Richard R.</h2>
-            <p className="text-xs text-gray-500 font-medium">@danielrichard7</p>
+            <p className="text-xs text-gray-500 font-medium">@danielrichardr_</p>
           </div>
 
           <nav className="flex flex-col justify-center w-full gap-2 flex-1 my-4">
