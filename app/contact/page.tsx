@@ -30,7 +30,7 @@ export default function Contact() {
   const FORMSPREE_ID = "xqeaarpw";
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -125,7 +125,7 @@ export default function Contact() {
         </motion.a>
 
         <motion.a
-          href="https://instagram.com/danielrichard"
+          href="https://instagram.com/danielrichardr_"
           target="_blank"
           variants={fadeInUp}
           whileHover={{ y: -5 }}
@@ -151,7 +151,7 @@ export default function Contact() {
         </motion.a>
 
         <motion.a
-          href="https://linkedin.com/in/danielrichard"
+          href="https://www.linkedin.com/in/daniel-richard-ransun-991216272/"
           target="_blank"
           variants={fadeInUp}
           whileHover={{ y: -5 }}
@@ -177,7 +177,7 @@ export default function Contact() {
         </motion.a>
 
         <motion.a
-          href="https://github.com/@danielrichard"
+          href="https://github.com/danielrichardransun"
           target="_blank"
           variants={fadeInUp}
           whileHover={{ y: -5 }}

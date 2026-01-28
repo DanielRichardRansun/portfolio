@@ -175,13 +175,13 @@ export default function Home() {
           <HoverIconLabel
             icon={<FiMail size={20} />}
             label={t.contact.socials.email.title || "Email"}
-            href="mailto:daniel.richard.ransun@gmail.com"
+            href="mailto:richardgtwp@gmail.com"
           />
 
           <HoverIconLabel
             icon={<SiInstagram size={20} />}
             label="Instagram"
-            href="https://instagram.com/danielrichard7"
+            href="https://instagram.com/danielrichardr_"
             target="_blank"
             rel="noopener noreferrer"
           />
@@ -189,7 +189,7 @@ export default function Home() {
           <HoverIconLabel
             icon={<SiLinkedin size={20} />}
             label="LinkedIn"
-            href="https://linkedin.com/in/daniel-richard"
+            href="https://www.linkedin.com/in/daniel-richard-ransun-991216272/"
             target="_blank"
             rel="noopener noreferrer"
           />
@@ -197,7 +197,7 @@ export default function Home() {
           <HoverIconLabel
             icon={<SiGithub size={20} />}
             label="GitHub"
-            href="https://github.com/danielrichard7"
+            href="https://github.com/danielrichardransun"
             target="_blank"
             rel="noopener noreferrer"
           />
