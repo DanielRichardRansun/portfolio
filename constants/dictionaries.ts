@@ -607,6 +607,12 @@ export const en = {
       message: "Message",
       btn: "Send Email",
     },
+    chat: {
+      client_message: "Hi, I have a project idea for you! 👋",
+      reply_message: "Sounds great! Let's discuss. 🚀",
+      timestamp_1: "10:23 AM",
+      timestamp_2: "10:25 AM",
+    },
   },
 };
 
@@ -1215,6 +1221,12 @@ export const id = {
       email: "Email",
       message: "Pesan",
       btn: "Kirim Email",
+    },
+    chat: {
+      client_message: "Hai, saya punya ide proyek untuk Anda! 👋",
+      reply_message: "Menarik! Ayo kita bahas. 🚀",
+      timestamp_1: "10:23 AM",
+      timestamp_2: "10:25 AM",
     },
   },
 };
