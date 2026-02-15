@@ -308,7 +308,7 @@ export const en = {
         id: 1,
         title: "Ransite | Web Dev Service",
         category: "Service Website",
-        image: "/images/porto/porto1.jpg",
+        image: "/images/porto/portofolio1.jpg",
         liveUrl: "https://ransite.com",
         tech: ["HTML", "CSS", "JavaScript"],
         desc: "My personal freelance website creation service to help companies create websites.",
@@ -623,7 +623,7 @@ export const id = {
     career: "Karir",
     projects: "Proyek",
     contact: "Kontak",
-    download: "Unduh CV",
+    download: "Buka Resume",
     footer: "© 2026 Daniel Richard R.",
   },
   home: {

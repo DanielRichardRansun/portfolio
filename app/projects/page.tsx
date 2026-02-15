@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
@@ -49,6 +50,8 @@ export type Project = {
 
 export default function Projects() {
   const { t } = useLanguage();
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   const selectedProject: Project | undefined = selectedId
@@ -169,7 +172,15 @@ export default function Projects() {
                       {/* BADGES */}
                       {project.badge && (
                         <div
-                          className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg text-black
+                          className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg
+                            ${
+                              project.badge === "Featured" ||
+                              project.badge === "Unggulan" ||
+                              project.badge === "Favorite" ||
+                              project.badge === "Favorit"
+                                ? `${isDark ? "text-black" : "text-white"}`
+                                : "text-black"
+                            }
                             ${
                               project.badge === "Featured" ||
                               project.badge === "Unggulan"
@@ -247,7 +258,15 @@ export default function Projects() {
                       {/* BADGES */}
                       {project.badge && (
                         <div
-                          className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg text-black
+                          className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg
+                            ${
+                              project.badge === "Featured" ||
+                              project.badge === "Unggulan" ||
+                              project.badge === "Favorite" ||
+                              project.badge === "Favorit"
+                                ? `${isDark ? "text-black" : "text-white"}`
+                                : "text-black"
+                            }
                             ${
                               project.badge === "Featured" ||
                               project.badge === "Unggulan"
