@@ -89,25 +89,25 @@ export default function Home() {
         variants={fadeInUp}
         className="pt-4 md:pt-8 mb-12"
       >
-        <h1 className="text-2xl md:text-3xl font-bold text-white mb-5 leading-tight tracking-tight">
+        <h1 className="text-2xl md:text-3xl font-bold text-[var(--text-heading)] mb-5 leading-tight tracking-tight">
           {t.home.hero.greeting}
         </h1>
 
         <div className="flex flex-wrap items-center gap-3 mb-6">
           <AnimatedTag>
-            <FiTerminal className="text-gray-300" />{" "}
+            <FiTerminal className="text-[var(--text-body)]" />{" "}
             <span>Software Engineer & CMS Developer</span>
           </AnimatedTag>
 
-          <span className="hidden md:block text-gray-600">•</span>
+          <span className="hidden md:block text-[var(--text-muted)]">•</span>
 
-          <div className="flex items-center gap-1.5 text-gray-500 text-sm font-medium">
+          <div className="flex items-center gap-1.5 text-[var(--text-muted)] text-sm font-medium">
             <FiMapPin size={14} />
             {t.home.hero.location}
           </div>
         </div>
 
-        <p className="text-sm md:text-base text-gray-400 leading-relaxed mb-8">
+        <p className="text-sm md:text-base text-[var(--text-body)] leading-relaxed mb-8">
           {t.home.hero.desc}
         </p>
 
@@ -152,7 +152,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      <div className="w-full h-px bg-white/10 my-12" />
+      <div className="w-full h-px bg-[var(--border-subtle)] my-12" />
 
       {/* --- SECTION 2: BENTO GRID --- */}
       <motion.section
@@ -162,10 +162,11 @@ export default function Home() {
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
         <motion.div className="mb-6" variants={fadeInUp}>
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            <FiLayout className="text-gray-500" /> {t.home.featured.title}
+          <h2 className="text-xl font-bold text-[var(--text-heading)] flex items-center gap-2">
+            <FiLayout className="text-[var(--text-muted)]" />{" "}
+            {t.home.featured.title}
           </h2>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm text-[var(--text-muted)] mt-1">
             {t.home.featured.subtitle}
           </p>
         </motion.div>
@@ -179,22 +180,22 @@ export default function Home() {
               <SingleProjectMarquee />
             </div>
 
-            <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#1E1E1E] via-[#1E1E1E]/50 to-transparent" />
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-[var(--surface)] via-[var(--surface)]/50 to-transparent" />
 
             <div className="relative z-20 flex flex-col gap-4 justify-end h-full p-6 md:p-8">
               <div className="mb-4">
-                <div className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-[var(--spotlight)] backdrop-blur-md border border-[var(--border-hover)] rounded-2xl flex items-center justify-center text-[var(--text-heading)] mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <FiSmartphone size={24} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold text-[var(--text-heading)] mb-2 transition-colors">
                   {t.home.featured.box_projects_title}
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-[var(--text-body)] text-sm">
                   {t.home.featured.box_projects_desc}
                 </p>
               </div>
 
-              <div className="inline-flex items-center gap-2 text-sm text-white/70 group-hover:text-white border-b border-white/20 pb-1 w-fit transition-all">
+              <div className="inline-flex items-center gap-2 text-sm text-[var(--text-body)] group-hover:text-[var(--text-heading)] border-b border-[var(--border-hover)] pb-1 w-fit transition-all">
                 <span>
                   {t.home.featured.box_projects_btn || "View Gallery"}
                 </span>
@@ -216,22 +217,22 @@ export default function Home() {
 
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
               <div className="flex flex-col justify-center">
-                <h3 className="text-xl font-bold text-white mb-1">
+                <h3 className="text-xl font-bold text-[var(--text-heading)] mb-1">
                   {t.home.featured.box_career_title}
                 </h3>
-                <p className="text-sm text-gray-500 pb-8">
+                <p className="text-sm text-[var(--text-muted)] pb-8">
                   {t.home.featured.box_career_desc}
                 </p>
 
                 <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-2 text-xs font-medium bg-white/5 border border-white/10 px-3 py-1.5 rounded-full w-fit text-gray-300 group-hover:bg-white/10 transition-all">
-                    <FiBriefcase className="text-gray-400" />
+                  <div className="flex items-center gap-2 text-xs font-medium bg-[var(--border-subtle)] border border-[var(--border-subtle)] px-3 py-1.5 rounded-full w-fit text-[var(--text-body)] group-hover:bg-[var(--spotlight)] transition-all">
+                    <FiBriefcase className="text-[var(--text-muted)]" />
                     <span>
                       {t.home.featured.box_career_exp || "4+ Years Exp"}
                     </span>
                   </div>
 
-                  <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black group-hover:border-white transition-all">
+                  <div className="w-8 h-8 rounded-full border border-[var(--border-subtle)] flex items-center justify-center group-hover:bg-[var(--text-heading)] group-hover:text-[var(--background)] group-hover:border-[var(--text-heading)] transition-all">
                     <FiArrowRight className="-rotate-45 group-hover:rotate-0 transition-transform" />
                   </div>
                 </div>
@@ -246,7 +247,7 @@ export default function Home() {
           </SpotlightCard>
 
           {/* 3. ABOUT ME */}
-          <SpotlightCard className="col-span-1 rounded-3xl p-6 group relative overflow-hidden min-h-[240px] flex flex-col justify-between hover:border-white/20">
+          <SpotlightCard className="col-span-1 rounded-3xl p-6 group relative overflow-hidden min-h-[240px] flex flex-col justify-between hover:border-[var(--border-hover)]">
             <div className="w-full h-[140px] mb-4 relative z-20">
               <Stack
                 sensitivity={100}
@@ -268,12 +269,12 @@ export default function Home() {
             <Link href="/about" className="relative z-10 block">
               <div>
                 <div className="flex justify-between items-center mb-1">
-                  <h3 className="font-bold text-white text-xl transition-colors">
+                  <h3 className="font-bold text-[var(--text-heading)] text-xl transition-colors">
                     {t.home.featured.box_about_title}
                   </h3>
-                  <FiArrowRight className="-rotate-45 group-hover:rotate-0 transition-transform text-gray-500 group-hover:text-white" />
+                  <FiArrowRight className="-rotate-45 group-hover:rotate-0 transition-transform text-[var(--text-muted)] group-hover:text-[var(--text-heading)]" />
                 </div>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-[var(--text-muted)]">
                   {t.home.featured.box_about_desc}
                 </p>
               </div>
@@ -282,19 +283,19 @@ export default function Home() {
 
           {/* 4. CONTACT */}
           <Link href="/contact" className="contents">
-            <SpotlightCard className="col-span-1 rounded-3xl p-6 group relative overflow-hidden min-h-[240px] flex flex-col gap-2 bg-gradient-to-br from-[#1E1E1E] to-[#111] hover:border-green-500/30">
+            <SpotlightCard className="col-span-1 rounded-3xl p-6 group relative overflow-hidden min-h-[240px] flex flex-col gap-2 bg-gradient-to-br from-[var(--surface)] to-[var(--surface-alt)] hover:border-green-500/30">
               <div className="flex justify-between items-start relative z-20">
                 <div>
-                  <h3 className="font-bold text-white text-xl transition-colors">
+                  <h3 className="font-bold text-[var(--text-heading)] text-xl transition-colors">
                     {t.home.featured.box_contact_title}
                   </h3>
-                  <p className="text-sm text-gray-500 pt-2">
+                  <p className="text-sm text-[var(--text-muted)] pt-2">
                     {t.home.featured.box_contact_desc}
                   </p>
                 </div>
-                <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-black/20 border border-white/5 backdrop-blur-md">
+                <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-[var(--border-subtle)] border border-[var(--border-subtle)] backdrop-blur-md">
                   <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
-                  <span className="text-[10px] font-medium text-green-400">
+                  <span className="text-[10px] font-medium text-green-500">
                     Online
                   </span>
                 </div>
@@ -308,7 +309,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      <div className="w-full h-px bg-white/10 my-12" />
+      <div className="w-full h-px bg-[var(--border-subtle)] my-12" />
 
       {/* --- SECTION 3: SKILLS & TOOLS --- */}
       <motion.section
@@ -318,32 +319,37 @@ export default function Home() {
         variants={containerVariants}
       >
         <div className="mb-6">
-          <h2 className="text-xl font-bold text-white">
+          <h2 className="text-xl font-bold text-[var(--text-heading)]">
             {t.home.skills.title}
           </h2>
-          <p className="text-sm text-gray-500">{t.home.skills.subtitle}</p>
+          <p className="text-sm text-[var(--text-muted)]">
+            {t.home.skills.subtitle}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {t.home.skills.items.map((skill, index) => {
-            const IconComponent = skillIcons[skill.icon as keyof typeof skillIcons];
+            const IconComponent =
+              skillIcons[skill.icon as keyof typeof skillIcons];
             return (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className="bg-[#1E1E1E] border border-white/5 rounded-lg p-2 flex items-center gap-3 hover:border-white/20 hover:bg-white/[0.02] transition-colors group cursor-default"
+                className="bg-[var(--surface)] border border-[var(--border-subtle)] rounded-lg p-2 flex items-center gap-3 hover:border-[var(--border-hover)] hover:bg-[var(--surface-hover)] transition-colors group cursor-default"
               >
                 <div
                   className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${skill.bg}`}
                 >
-                  {IconComponent && <IconComponent size={24} style={{ color: skill.color }} />}
+                  {IconComponent && (
+                    <IconComponent size={24} style={{ color: skill.color }} />
+                  )}
                 </div>
                 <div className="flex flex-col overflow-hidden">
-                  <span className="text-white font-semibold text-sm truncate group-hover:text-white/90 transition-colors">
+                  <span className="text-[var(--text-heading)] font-semibold text-sm truncate transition-colors">
                     {skill.name}
                   </span>
-                  <span className="text-xs text-gray-500 truncate">
+                  <span className="text-xs text-[var(--text-muted)] truncate">
                     {skill.desc}
                   </span>
                 </div>

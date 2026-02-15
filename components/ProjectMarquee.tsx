@@ -7,7 +7,7 @@ import Image from "next/image";
 // Generate array of 15 images based on your file structure
 const images = Array.from(
   { length: 15 },
-  (_, i) => `/images/porto/porto${i + 1}.jpg`
+  (_, i) => `/images/porto/porto${i + 1}.jpg`,
 );
 
 // Bagi gambar menjadi 2 kolom untuk efek visual yang dinamis
@@ -43,7 +43,6 @@ const MarqueeColumn = ({
             src={src}
             alt="Project Preview"
             fill
-
             className="object-cover opacity-100 transition-all duration-500 grayscale-[30%] hover:grayscale-0 brightness-75 hover:brightness-100"
             sizes="(max-width: 768px) 100px, 200px"
           />
@@ -58,7 +57,7 @@ const ProjectMarquee = ({ className = "" }: { className?: string }) => {
     <div
       className={`flex gap-4 h-[150%] -mt-10 overflow-hidden select-none pointer-events-none ${className}`}
     >
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#1E1E1E] via-transparent to-[#1E1E1E] pointer-events-none" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-[var(--surface)] via-transparent to-[var(--surface)] pointer-events-none" />
 
       <MarqueeColumn images={column1} duration={25} />
 

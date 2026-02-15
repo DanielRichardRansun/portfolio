@@ -25,7 +25,7 @@ export default function SpotlightCard({
 
   return (
     <motion.div
-      className={`bg-[#1E1E1E] relative overflow-hidden group border border-white/5 hover:border-white/10 transition-all ${className}`}
+      className={`bg-[var(--surface)] relative overflow-hidden group border border-[var(--border-subtle)] hover:border-[var(--border-hover)] transition-all ${className}`}
       onMouseMove={handleMouseMove}
       initial="hidden"
       whileInView="visible"
@@ -43,7 +43,7 @@ export default function SpotlightCard({
           background: useMotionTemplate`
             radial-gradient(
               500px circle at ${mouseX}px ${mouseY}px,
-              rgba(255, 255, 255, 0.1),
+              var(--spotlight),
               transparent 100%
             )
           `,

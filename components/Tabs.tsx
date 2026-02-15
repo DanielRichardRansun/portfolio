@@ -19,7 +19,6 @@ const TabsGlassy: React.FC<TabsProps> = ({ panels, className = "" }) => {
 
   return (
     <div className={`w-full flex flex-col items-center ${className}`}>
-      
       {/* HEADER: Grid Button Terpisah */}
       <div className="flex flex-wrap justify-center gap-3 mb-10">
         {panels.map((panel) => {
@@ -34,16 +33,18 @@ const TabsGlassy: React.FC<TabsProps> = ({ panels, className = "" }) => {
               {isActive ? (
                 <motion.div
                   layoutId="activeGlass"
-                  className="absolute inset-0 bg-white/10 border border-white/20 rounded-lg backdrop-blur-md"
+                  className="absolute inset-0 bg-[var(--spotlight)] border border-[var(--border-hover)] rounded-lg backdrop-blur-md"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               ) : (
                 // Hover effect untuk yang tidak aktif
-                <div className="absolute inset-0 bg-transparent hover:bg-white/5 border border-transparent hover:border-white/5 rounded-lg transition-all duration-300" />
+                <div className="absolute inset-0 bg-transparent hover:bg-[var(--border-subtle)] border border-transparent hover:border-[var(--border-subtle)] rounded-lg transition-all duration-300" />
               )}
 
               {/* Text */}
-              <span className={`relative z-10 transition-colors duration-300 ${isActive ? "text-white" : "text-gray-400"}`}>
+              <span
+                className={`relative z-10 transition-colors duration-300 ${isActive ? "text-[var(--text-heading)]" : "text-[var(--text-muted)]"}`}
+              >
                 {panel.label}
               </span>
             </button>
@@ -65,7 +66,7 @@ const TabsGlassy: React.FC<TabsProps> = ({ panels, className = "" }) => {
               >
                 {panel.content}
               </motion.div>
-            ) : null
+            ) : null,
           )}
         </AnimatePresence>
       </div>

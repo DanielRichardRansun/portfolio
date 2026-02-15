@@ -52,11 +52,13 @@ export default function Sidebar() {
 
   if (!mounted) return null;
 
+  const isDark = theme === "dark";
+
   return (
     <>
-      <aside className="hidden lg:flex w-[280px] sticky top-0 h-screen flex-col px-6 py-10 overflow-y-auto z-50 border-r border-white/5 bg-background">
+      <aside className="hidden lg:flex w-[280px] sticky top-0 h-screen flex-col px-6 py-10 overflow-y-auto z-50 border-r border-[var(--border-subtle)] bg-background">
         <div className="flex flex-col items-center mb-8">
-          <div className="relative w-28 h-28 mb-4 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-gray-700 to-gray-900 shadow-lg">
+          <div className="relative w-28 h-28 mb-4 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-[var(--text-muted)] to-[var(--surface-hover)] shadow-lg">
             <PixelTransition
               firstContent={
                 <Image
@@ -75,14 +77,14 @@ export default function Sidebar() {
                     height: "100%",
                     display: "grid",
                     placeItems: "center",
-                    backgroundColor: "#111",
+                    backgroundColor: isDark ? "#111" : "#e2e8f0",
                   }}
                 >
                   <p
                     style={{
                       fontWeight: 900,
                       fontSize: "1.2rem",
-                      color: "#ffffff",
+                      color: isDark ? "#ffffff" : "#1a1a2e",
                     }}
                   >
                     Hello!
@@ -90,27 +92,27 @@ export default function Sidebar() {
                 </div>
               }
               gridSize={12}
-              pixelColor="#a2a5a9ff"
+              pixelColor={isDark ? "#a2a5a9ff" : "#94a3b8"}
               animationStepDuration={0.4}
               className="w-full h-full rounded-full"
             />
           </div>
-          <h2 className="text-lg font-bold text-foreground">
+          <h2 className="text-lg font-bold text-[var(--text-heading)]">
             Daniel Richard R.
           </h2>
-          <p className="text-sm text-muted-foreground font-medium">
+          <p className="text-sm text-[var(--text-muted)] font-medium">
             @danielrichardr_
           </p>
         </div>
 
         <div className="flex justify-center gap-3 mb-8">
-          <div className="flex items-center bg-[#1E1E1E] rounded-full p-1 border border-white/5">
+          <div className="flex items-center bg-[var(--surface)] rounded-full p-1 border border-[var(--border-subtle)]">
             <button
               onClick={() => setLanguage("EN")}
               className={`px-3 py-1 rounded-full text-[10px] font-bold transition-all ${
                 language === "EN"
                   ? "bg-primary text-black shadow-md"
-                  : "text-gray-500 hover:text-white"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-heading)]"
               }`}
             >
               EN
@@ -120,19 +122,19 @@ export default function Sidebar() {
               className={`px-3 py-1 rounded-full text-[10px] font-bold transition-all ${
                 language === "ID"
                   ? "bg-primary text-black shadow-md"
-                  : "text-gray-500 hover:text-white"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-heading)]"
               }`}
             >
               ID
             </button>
           </div>
 
-          {/* <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="w-8 h-8 flex items-center justify-center rounded-full bg-[#1E1E1E] border border-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+          <button
+            onClick={() => setTheme(isDark ? "light" : "dark")}
+            className="w-8 h-8 flex items-center justify-center rounded-full bg-[var(--surface)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--surface-hover)] transition-colors cursor-pointer"
           >
-            {theme === "dark" ? <FiMoon size={14} /> : <FiSun size={14} />}
-          </button> */}
+            {isDark ? <FiSun size={14} /> : <FiMoon size={14} />}
+          </button>
         </div>
 
         <nav className="flex-1 space-y-2">
@@ -145,8 +147,8 @@ export default function Sidebar() {
                 className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group relative overflow-hidden
                   ${
                     isActive
-                      ? "bg-[#1E1E1E] text-white font-medium shadow-inner"
-                      : "text-gray-500 hover:text-white hover:bg-white/5"
+                      ? "bg-[var(--surface)] text-[var(--text-heading)] font-medium shadow-inner"
+                      : "text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--border-subtle)]"
                   }
                 `}
               >
@@ -155,7 +157,7 @@ export default function Sidebar() {
                   ${
                     isActive
                       ? "text-primary group-hover:-rotate-12 group-hover:scale-110"
-                      : "text-gray-500 group-hover:text-white group-hover:-rotate-12 group-hover:scale-110"
+                      : "text-[var(--text-muted)] group-hover:text-[var(--text-heading)] group-hover:-rotate-12 group-hover:scale-110"
                   }
                   `}
                 >
@@ -164,7 +166,7 @@ export default function Sidebar() {
                 <span className="tracking-wide text-base">{menu.name}</span>
 
                 {isActive && (
-                  <div className="absolute right-3 w-1.5 h-1.5 rounded-full bg-gray-500 shadow-[0_0_8px_rgba(0,0,0,0.5)]" />
+                  <div className="absolute right-3 w-1.5 h-1.5 rounded-full bg-[var(--text-muted)] shadow-[0_0_8px_rgba(0,0,0,0.3)]" />
                 )}
               </Link>
             );
@@ -190,15 +192,17 @@ export default function Sidebar() {
         </div>
 
         <div className="mt-6 text-center">
-          <p className="text-[10px] text-gray-500 uppercase tracking-widest opacity-50">
+          <p className="text-[10px] text-[var(--text-muted)] uppercase tracking-widest opacity-50">
             {t.sidebar.footer}
           </p>
         </div>
       </aside>
 
-      <div className="lg:hidden fixed top-0 left-0 w-full h-16 bg-[#121212]/90 backdrop-blur-md border-b-1 border-white/8 z-40 px-5 flex items-center justify-between transition-all duration-300">
+      <div
+        className={`lg:hidden fixed top-0 left-0 w-full h-16 bg-[var(--background)]/90 backdrop-blur-md border-b border-[var(--border-subtle)] z-40 px-5 flex items-center justify-between transition-all duration-300`}
+      >
         <div className="flex items-center gap-3">
-          <div className="relative w-9 h-9 rounded-full overflow-hidden border border-white/10">
+          <div className="relative w-9 h-9 rounded-full overflow-hidden border border-[var(--border-subtle)]">
             <PixelTransition
               firstContent={
                 <Image
@@ -216,14 +220,14 @@ export default function Sidebar() {
                     height: "100%",
                     display: "grid",
                     placeItems: "center",
-                    backgroundColor: "#111",
+                    backgroundColor: isDark ? "#111" : "#e2e8f0",
                   }}
                 >
                   <p
                     style={{
                       fontWeight: 900,
                       fontSize: "0.8rem",
-                      color: "#ffffff",
+                      color: isDark ? "#ffffff" : "#1a1a2e",
                     }}
                   >
                     D
@@ -231,21 +235,23 @@ export default function Sidebar() {
                 </div>
               }
               gridSize={6}
-              pixelColor="#ffffff"
+              pixelColor={isDark ? "#ffffff" : "#94a3b8"}
               animationStepDuration={0.4}
               className="w-full h-full rounded-full"
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-bold text-white leading-none">
+            <span className="text-sm font-bold text-[var(--text-heading)] leading-none">
               Daniel Richard R.
             </span>
-            <span className="text-[10px] text-gray-500">Software Engineer</span>
+            <span className="text-[10px] text-[var(--text-muted)]">
+              Software Engineer
+            </span>
           </div>
         </div>
 
         <button
-          className="p-2 -mr-2 text-white hover:text-primary transition-colors active:scale-90"
+          className="p-2 -mr-2 text-[var(--text-heading)] hover:text-primary transition-colors active:scale-90"
           onClick={() => setMobileMenuOpen(true)}
           aria-label="Open menu"
         >
@@ -254,7 +260,7 @@ export default function Sidebar() {
       </div>
 
       <div
-        className={`lg:hidden fixed inset-0 z-50 bg-[#121212] flex flex-col items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]
+        className={`lg:hidden fixed inset-0 z-50 bg-[var(--background)] flex flex-col items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]
         ${
           mobileMenuOpen
             ? "opacity-100 visible translate-y-0"
@@ -262,7 +268,7 @@ export default function Sidebar() {
         }`}
       >
         <button
-          className="absolute top-5 right-5 p-2 text-gray-400 hover:text-white bg-white/5 rounded-full border border-white/10 transition-all active:scale-90 z-50"
+          className="absolute top-5 right-5 p-2 text-[var(--text-muted)] hover:text-[var(--text-heading)] bg-[var(--border-subtle)] rounded-full border border-[var(--border-subtle)] transition-all active:scale-90 z-50"
           onClick={() => setMobileMenuOpen(false)}
           aria-label="Close menu"
         >
@@ -271,7 +277,7 @@ export default function Sidebar() {
 
         <div className="w-full max-w-md px-8 h-full flex flex-col justify-between py-10">
           <div className="flex flex-col items-center text-center mt-8 shrink-0">
-            <div className="relative w-22 h-22 mb-3 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-gray-700 to-gray-900 shadow-2xl">
+            <div className="relative w-22 h-22 mb-3 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-[var(--text-muted)] to-[var(--surface-hover)] shadow-2xl">
               <PixelTransition
                 firstContent={
                   <Image
@@ -289,14 +295,14 @@ export default function Sidebar() {
                       height: "100%",
                       display: "grid",
                       placeItems: "center",
-                      backgroundColor: "#111",
+                      backgroundColor: isDark ? "#111" : "#e2e8f0",
                     }}
                   >
                     <p
                       style={{
                         fontWeight: 900,
                         fontSize: "1.2rem",
-                        color: "#ffffff",
+                        color: isDark ? "#ffffff" : "#1a1a2e",
                       }}
                     >
                       Hello!
@@ -304,13 +310,17 @@ export default function Sidebar() {
                   </div>
                 }
                 gridSize={10}
-                pixelColor="#a2a5a9ff"
+                pixelColor={isDark ? "#a2a5a9ff" : "#94a3b8"}
                 animationStepDuration={0.4}
                 className="w-full h-full rounded-full"
               />
             </div>
-            <h2 className="text-lg font-bold text-white">Daniel Richard R.</h2>
-            <p className="text-xs text-gray-500 font-medium">@danielrichardr_</p>
+            <h2 className="text-lg font-bold text-[var(--text-heading)]">
+              Daniel Richard R.
+            </h2>
+            <p className="text-xs text-[var(--text-muted)] font-medium">
+              @danielrichardr_
+            </p>
           </div>
 
           <nav className="flex flex-col justify-center w-full gap-2 flex-1 my-4">
@@ -324,8 +334,8 @@ export default function Sidebar() {
                   className={`flex items-center justify-center gap-3 px-6 py-3 rounded-xl transition-all duration-300 border
                   ${
                     isActive
-                      ? "bg-white/10 border-white/10 text-white shadow-lg scale-105"
-                      : "bg-transparent border-transparent text-gray-400 hover:text-white hover:bg-white/5"
+                      ? "bg-[var(--border-subtle)] border-[var(--border-subtle)] text-[var(--text-heading)] shadow-lg scale-105"
+                      : "bg-transparent border-transparent text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--border-subtle)]"
                   }
                   `}
                 >
@@ -341,14 +351,14 @@ export default function Sidebar() {
           </nav>
 
           <div className="flex flex-col items-center gap-5 w-full shrink-0">
-            <div className="flex items-center justify-between gap-6 p-1 bg-white/5 rounded-full border border-white/5">
+            <div className="flex items-center justify-between gap-4 p-1 bg-[var(--border-subtle)] rounded-full border border-[var(--border-subtle)]">
               <div className="flex">
                 <button
                   onClick={() => setLanguage("EN")}
                   className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
                     language === "EN"
                       ? "bg-primary text-black"
-                      : "text-gray-500"
+                      : "text-[var(--text-muted)]"
                   }`}
                 >
                   EN
@@ -358,19 +368,19 @@ export default function Sidebar() {
                   className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
                     language === "ID"
                       ? "bg-primary text-black"
-                      : "text-gray-500"
+                      : "text-[var(--text-muted)]"
                   }`}
                 >
                   ID
                 </button>
               </div>
-              {/* <div className="w-px h-4 bg-white/10 mx-1"></div> */}
-              {/* <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="w-8 h-8 flex items-center justify-center rounded-full text-gray-400 hover:text-white"
+              <div className="w-px h-4 bg-[var(--border-subtle)] mx-1"></div>
+              <button
+                onClick={() => setTheme(isDark ? "light" : "dark")}
+                className="w-8 h-8 flex items-center justify-center rounded-full text-[var(--text-muted)] hover:text-[var(--text-heading)] cursor-pointer"
               >
-                {theme === "dark" ? <FiMoon size={16} /> : <FiSun size={16} />}
-              </button> */}
+                {isDark ? <FiSun size={16} /> : <FiMoon size={16} />}
+              </button>
             </div>
 
             <a
@@ -384,7 +394,7 @@ export default function Sidebar() {
               {t.sidebar.download}
             </a>
 
-            <p className="text-[9px] text-gray-600 uppercase tracking-widest">
+            <p className="text-[9px] text-[var(--text-muted)] uppercase tracking-widest">
               {t.sidebar.footer}
             </p>
           </div>

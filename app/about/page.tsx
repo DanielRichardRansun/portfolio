@@ -40,23 +40,27 @@ export default function About() {
         className="max-w-4xl pt-4"
       >
         <div className="flex items-center gap-3 mb-6">
-          <div className="p-3 bg-[#1E1E1E] border border-white/10 rounded-full text-white">
+          <div className="p-3 bg-[var(--surface)] border border-[var(--border-subtle)] rounded-full text-[var(--text-heading)]">
             <FiUser size={20} />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-white">{t.about.title}</h1>
-            <p className="text-gray-500 text-sm">{t.about.subtitle}</p>
+            <h1 className="text-2xl font-bold text-[var(--text-heading)]">
+              {t.about.title}
+            </h1>
+            <p className="text-[var(--text-muted)] text-sm">
+              {t.about.subtitle}
+            </p>
           </div>
         </div>
 
-        <div className="space-y-6 text-gray-400 leading-relaxed text-sm md:text-base border-l-2 border-white/5 pl-6">
+        <div className="space-y-6 text-[var(--text-body)] leading-relaxed text-sm md:text-base border-l-2 border-[var(--border-subtle)] pl-6">
           <p>{t.about.story.p1}</p>
           <p>{t.about.story.p2}</p>
           <p>{t.about.story.p3}</p>
         </div>
       </motion.section>
 
-      <div className="w-full h-px bg-white/5" />
+      <div className="w-full h-px bg-[var(--border-subtle)]" />
 
       {/* --- SECTION 2: CERTIFICATIONS --- */}
       <section>
@@ -67,14 +71,14 @@ export default function About() {
           variants={fadeInUp}
           className="flex items-center gap-3 mb-6"
         >
-          <div className="p-3 bg-[#1E1E1E] border border-white/10 rounded-full text-white">
+          <div className="p-3 bg-[var(--surface)] border border-[var(--border-subtle)] rounded-full text-[var(--text-heading)]">
             <FiAward size={20} />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white">
+            <h2 className="text-xl font-bold text-[var(--text-heading)]">
               {t.about.certifications.title}
             </h2>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-[var(--text-muted)]">
               {t.about.certifications.subtitle}
             </p>
           </div>
@@ -97,7 +101,7 @@ export default function About() {
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={fadeInUp}
-                    className="bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all group cursor-pointer flex flex-col"
+                    className="bg-[var(--surface)] border border-[var(--border-subtle)] rounded-2xl overflow-hidden hover:border-[var(--border-hover)] transition-all group cursor-pointer flex flex-col"
                     onClick={() => {
                       const originalIndex =
                         t.about.certifications.items.findIndex(
@@ -112,19 +116,19 @@ export default function About() {
 
                     <SpotlightCard className="h-full border-t-0 rounded-t-none">
                       <div className="p-5 h-full flex flex-col justify-between">
-                        <h3 className="font-bold text-white mb-1 line-clamp-2 leading-tight">
+                        <h3 className="font-bold text-[var(--text-heading)] mb-1 line-clamp-2 leading-tight">
                           {cert.name}
                         </h3>
                         <div className="flex justify-between items-end mt-4">
                           <div>
-                            <p className="text-xs text-gray-400 mb-1">
+                            <p className="text-xs text-[var(--text-muted)] mb-1">
                               {t.about.certifications.issued}
                             </p>
-                            <p className="text-xs font-medium text-white">
+                            <p className="text-xs font-medium text-[var(--text-heading)]">
                               {cert.issuer}
                             </p>
                           </div>
-                          <span className="text-[10px] text-gray-500 border border-white/10 px-2 py-1 rounded-md bg-black/20 whitespace-nowrap">
+                          <span className="text-[10px] text-[var(--text-muted)] border border-[var(--border-subtle)] px-2 py-1 rounded-md bg-[var(--border-subtle)] whitespace-nowrap">
                             {cert.date}
                           </span>
                         </div>
@@ -144,7 +148,7 @@ export default function About() {
                 >
                   <button
                     onClick={() => setShowAll(!showAll)}
-                    className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#1E1E1E] border border-white/10 text-white hover:bg-white/10 transition-colors text-sm font-medium"
+                    className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-[var(--surface)] border border-[var(--border-subtle)] text-[var(--text-heading)] hover:bg-[var(--surface-hover)] transition-colors text-sm font-medium cursor-pointer"
                   >
                     {showAll ? (
                       <>
@@ -184,7 +188,7 @@ export default function About() {
         })()}
       </section>
 
-      <div className="w-full h-px bg-white/5" />
+      <div className="w-full h-px bg-[var(--border-subtle)]" />
 
       {/* --- SECTION 3: EDUCATION --- */}
       <motion.section
@@ -194,14 +198,14 @@ export default function About() {
         variants={fadeInUp}
       >
         <div className="flex items-center gap-3 mb-6">
-          <div className="p-3 bg-[#1E1E1E] border border-white/10 rounded-full text-white">
+          <div className="p-3 bg-[var(--surface)] border border-[var(--border-subtle)] rounded-full text-[var(--text-heading)]">
             <FiBook size={20} />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white">
+            <h2 className="text-xl font-bold text-[var(--text-heading)]">
               {t.about.education.title}
             </h2>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-[var(--text-muted)]">
               {t.about.education.subtitle}
             </p>
           </div>
@@ -219,21 +223,21 @@ export default function About() {
               </div>
 
               <div className="flex-1">
-                <h3 className="text-lg font-bold text-white mb-1">
+                <h3 className="text-lg font-bold text-[var(--text-heading)] mb-1">
                   {t.about.education.uni.name}
                 </h3>
-                <p className="text-sm text-gray-300 font-medium mb-1">
+                <p className="text-sm text-[var(--text-body)] font-medium mb-1">
                   {t.about.education.uni.degree}
                 </p>
-                <p className="text-xs text-gray-500 mb-4">
+                <p className="text-xs text-[var(--text-muted)] mb-4">
                   {t.about.education.uni.major}
                 </p>
 
-                <div className="flex justify-between items-center pt-3 border-t border-white/5">
-                  <span className="text-xs text-gray-500">
+                <div className="flex justify-between items-center pt-3 border-t border-[var(--border-subtle)]">
+                  <span className="text-xs text-[var(--text-muted)]">
                     {t.about.education.uni.year}
                   </span>
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-[var(--text-muted)]">
                     {t.about.education.uni.location}
                   </span>
                 </div>
@@ -251,21 +255,21 @@ export default function About() {
                 />
               </div>
               <div className="flex-1">
-                <h3 className="text-lg font-bold text-white mb-1">
+                <h3 className="text-lg font-bold text-[var(--text-heading)] mb-1">
                   {t.about.education.sma.name}
                 </h3>
-                <p className="text-sm text-gray-300 font-medium mb-1">
+                <p className="text-sm text-[var(--text-body)] font-medium mb-1">
                   {t.about.education.sma.degree}
                 </p>
-                <p className="text-xs text-gray-500 mb-4">
+                <p className="text-xs text-[var(--text-muted)] mb-4">
                   {t.about.education.sma.major}
                 </p>
 
-                <div className="flex justify-between items-center pt-3 border-t border-white/5">
-                  <span className="text-xs text-gray-500">
+                <div className="flex justify-between items-center pt-3 border-t border-[var(--border-subtle)]">
+                  <span className="text-xs text-[var(--text-muted)]">
                     {t.about.education.sma.year}
                   </span>
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-[var(--text-muted)]">
                     {t.about.education.sma.location}
                   </span>
                 </div>

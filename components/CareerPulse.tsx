@@ -66,7 +66,7 @@ const CareerPulse = () => {
           cx="50"
           cy="150"
           r="6"
-          className="fill-[#1E1E1E] stroke-white/50 stroke-2"
+          className="fill-[var(--surface)] stroke-[var(--text-muted)] stroke-2"
           whileInView={{ scale: [1, 1.5, 1] }}
           transition={{ duration: 2, repeat: Infinity, delay: 0 }}
         />
@@ -76,7 +76,7 @@ const CareerPulse = () => {
           cx="200"
           cy="100"
           r="6"
-          className="fill-[#1E1E1E] stroke-white/50 stroke-2"
+          className="fill-[var(--surface)] stroke-[var(--text-muted)] stroke-2"
           whileInView={{ scale: [1, 1.5, 1] }}
           transition={{ duration: 2, repeat: Infinity, delay: 0.8 }}
         />

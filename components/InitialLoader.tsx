@@ -30,7 +30,7 @@ export default function InitialLoader() {
     <AnimatePresence>
       {!complete && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0a0a0a] text-white"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[var(--background)] text-[var(--text-heading)]"
           exit={{
             opacity: 0,
             filter: "blur(20px)", // Efek exit nge-blur keren
@@ -48,9 +48,9 @@ export default function InitialLoader() {
             </motion.h1>
 
             {/* Progress Bar Tipis di bawah */}
-            <div className="w-64 h-[2px] bg-white/10 mt-8 rounded-full overflow-hidden">
+            <div className="w-64 h-[2px] bg-[var(--border-subtle)] mt-8 rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-white"
+                className="h-full bg-[var(--text-heading)]"
                 initial={{ width: 0 }}
                 animate={{ width: `${count}%` }}
                 transition={{ ease: "linear" }}
@@ -58,7 +58,7 @@ export default function InitialLoader() {
             </div>
 
             {/* Status Text Kecil */}
-            <p className="mt-4 text-xs uppercase tracking-[0.3em] text-gray-500 animate-pulse">
+            <p className="mt-4 text-xs uppercase tracking-[0.3em] text-[var(--text-muted)] animate-pulse">
               Loading Assets
             </p>
           </div>

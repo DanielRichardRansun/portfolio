@@ -49,7 +49,7 @@ const CertificateLightbox = ({
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--overlay)] backdrop-blur-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -72,7 +72,7 @@ const CertificateLightbox = ({
           </button>
 
           {/* Certificate image */}
-          <div className="relative w-full h-full overflow-hidden rounded-xl bg-[#1E1E1E] border border-white/10">
+          <div className="relative w-full h-full overflow-hidden rounded-xl bg-[var(--surface)] border border-[var(--border-subtle)]">
             <img
               src={imageUrl}
               alt={title}
@@ -82,16 +82,22 @@ const CertificateLightbox = ({
           </div>
 
           {/* Certificate info */}
-          <div className="mt-4 p-4 bg-[#1E1E1E] border border-white/10 rounded-xl">
-            <h3 className="text-xl font-bold text-white mb-1">{title}</h3>
+          <div className="mt-4 p-4 bg-[var(--surface)] border border-[var(--border-subtle)] rounded-xl">
+            <h3 className="text-xl font-bold text-[var(--text-heading)] mb-1">
+              {title}
+            </h3>
             <div className="flex flex-wrap justify-between items-center mt-3">
               <div>
-                <p className="text-xs text-gray-400">Issued by</p>
-                <p className="text-sm font-medium text-white">{issuer}</p>
+                <p className="text-xs text-[var(--text-muted)]">Issued by</p>
+                <p className="text-sm font-medium text-[var(--text-heading)]">
+                  {issuer}
+                </p>
               </div>
               <div className="text-right">
-                <p className="text-xs text-gray-400">Date</p>
-                <p className="text-sm font-medium text-white">{date}</p>
+                <p className="text-xs text-[var(--text-muted)]">Date</p>
+                <p className="text-sm font-medium text-[var(--text-heading)]">
+                  {date}
+                </p>
               </div>
             </div>
           </div>

@@ -62,7 +62,7 @@ export default function Projects() {
       case "react":
         return <SiReact className="text-blue-400" />;
       case "next.js":
-        return <SiNextdotjs className="text-white" />;
+        return <SiNextdotjs className="text-[var(--text-heading)]" />;
       case "wordpress":
         return <SiWordpress className="text-blue-500" />;
       case "elementor":
@@ -84,7 +84,7 @@ export default function Projects() {
       case "javascript":
         return <SiJavascript className="text-yellow-400" />;
       default:
-        return <FiZap className="text-gray-400" />;
+        return <FiZap className="text-[var(--text-muted)]" />;
     }
   };
 
@@ -125,20 +125,22 @@ export default function Projects() {
         className="max-w-4xl pt-4"
       >
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-3 bg-[#1E1E1E] border border-white/10 rounded-full text-white">
+          <div className="p-3 bg-[var(--surface)] border border-[var(--border-subtle)] rounded-full text-[var(--text-heading)]">
             <FiLayers size={20} />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-white">
+            <h1 className="text-2xl font-bold text-[var(--text-heading)]">
               {t.projects.title}
             </h1>
-            <p className="text-gray-500 text-sm">{t.projects.subtitle}</p>
+            <p className="text-[var(--text-muted)] text-sm">
+              {t.projects.subtitle}
+            </p>
           </div>
         </div>
       </motion.section>
 
       {/* DIVIDER */}
-      <div className="w-full h-px bg-white/5 my-0" />
+      <div className="w-full h-px bg-[var(--border-subtle)] my-0" />
 
       {/* --- TABS FOR PROJECTS --- */}
       <motion.section
@@ -162,7 +164,7 @@ export default function Projects() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       onClick={() => setSelectedId(project.id)}
-                      className="group relative bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:border-white/20 transition-all shadow-lg"
+                      className="group relative bg-[var(--surface)] border border-[var(--border-subtle)] rounded-2xl overflow-hidden cursor-pointer hover:border-[var(--border-hover)] transition-all shadow-lg"
                     >
                       {/* BADGES */}
                       {project.badge && (
@@ -197,7 +199,7 @@ export default function Projects() {
                           alt={project.title}
                           className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent opacity-80" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent opacity-80" />
                       </div>
 
                       {/* CONTENT PREVIEW */}
@@ -205,14 +207,14 @@ export default function Projects() {
                         <p className="text-primary text-xs font-bold mb-2 uppercase tracking-wide">
                           {project.category}
                         </p>
-                        <h3 className="text-xl font-bold text-white mb-2 transition-colors">
+                        <h3 className="text-xl font-bold text-[var(--text-heading)] mb-2 transition-colors">
                           {project.title}
                         </h3>
-                        <p className="text-gray-400 text-sm line-clamp-2 mb-4">
+                        <p className="text-[var(--text-body)] text-sm line-clamp-2 mb-4">
                           {project.desc}
                         </p>
 
-                        <div className="flex gap-2 text-lg text-gray-500">
+                        <div className="flex gap-2 text-lg text-[var(--text-muted)]">
                           {project.tech.slice(0, 4).map((tech, i) => (
                             <span key={i} title={tech}>
                               {getTechIcon(tech)}
@@ -241,7 +243,7 @@ export default function Projects() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       onClick={() => setSelectedId(project.id)}
-                      className="group relative bg-[#1E1E1E] border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:border-white/20 transition-all shadow-lg"
+                      className="group relative bg-[var(--surface)] border border-[var(--border-subtle)] rounded-2xl overflow-hidden cursor-pointer hover:border-[var(--border-hover)] transition-all shadow-lg"
                     >
                       {/* BADGES */}
                       {project.badge && (
@@ -275,21 +277,21 @@ export default function Projects() {
                           alt={project.title}
                           className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent opacity-80" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent opacity-80" />
                       </div>
 
                       <SpotlightCard className="p-6 relative">
                         <p className="text-primary text-xs font-bold mb-2 uppercase tracking-wide">
                           {project.category}
                         </p>
-                        <h3 className="text-xl font-bold text-white mb-2 transition-colors">
+                        <h3 className="text-xl font-bold text-[var(--text-heading)] mb-2 transition-colors">
                           {project.title}
                         </h3>
-                        <p className="text-gray-400 text-sm line-clamp-2 mb-4">
+                        <p className="text-[var(--text-body)] text-sm line-clamp-2 mb-4">
                           {project.desc}
                         </p>
 
-                        <div className="flex gap-2 text-lg text-gray-500">
+                        <div className="flex gap-2 text-lg text-[var(--text-muted)]">
                           {project.tech.slice(0, 4).map((tech, i) => (
                             <span key={i} title={tech}>
                               {getTechIcon(tech)}

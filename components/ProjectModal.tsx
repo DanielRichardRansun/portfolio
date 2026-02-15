@@ -41,7 +41,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
       case "react":
         return <SiReact className="text-blue-400" />;
       case "next.js":
-        return <SiNextdotjs className="text-white" />;
+        return <SiNextdotjs className="text-[var(--text-heading)]" />;
       case "wordpress":
         return <SiWordpress className="text-blue-500" />;
       case "elementor":
@@ -76,12 +76,12 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedId(null)}
-            className="absolute inset-0 bg-black/90 backdrop-blur-sm cursor-pointer"
+            className="absolute inset-0 bg-[var(--overlay)] backdrop-blur-sm cursor-pointer"
           />
 
           <motion.div
             layoutId={`card-container-${selectedId}`}
-            className="relative w-full max-w-2xl max-h-[90vh] md:max-h-[85vh] bg-[#121212] border-t md:border border-white/10 rounded-t-3xl md:rounded-3xl overflow-hidden shadow-2xl flex flex-col"
+            className="relative w-full max-w-2xl max-h-[90vh] md:max-h-[85vh] bg-[var(--background)] border-t md:border border-[var(--border-subtle)] rounded-t-3xl md:rounded-3xl overflow-hidden shadow-2xl flex flex-col"
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
@@ -89,27 +89,27 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
           >
             <button
               onClick={() => setSelectedId(null)}
-              className="absolute top-4 right-4 z-40 p-2 bg-black/50 backdrop-blur-md border border-white/10 hover:bg-white text-white hover:text-black rounded-full transition-all"
+              className="absolute top-4 right-4 z-40 p-2 bg-black/50 backdrop-blur-md border border-[var(--border-subtle)] hover:bg-[var(--surface)] text-[var(--text-heading)] rounded-full transition-all"
             >
               <FiX size={20} />
             </button>
 
             <div className="overflow-y-auto custom-scrollbar flex-1">
-              <div className="relative w-full aspect-video bg-[#121212] shrink-0">
+              <div className="relative w-full aspect-video bg-[var(--background)] shrink-0">
                 <Image
                   src={selectedProject.image}
                   alt={selectedProject.title}
                   fill
                   className="object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/40 to-transparent" />
 
                 <div className="absolute bottom-0 left-0 right-0 p-5 md:p-8 flex flex-col gap-2">
                   <div className="flex flex-col items-start gap-2">
                     <span className="px-3 py-1 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-[10px] md:text-xs font-bold uppercase tracking-wider rounded-full">
                       {selectedProject.category}
                     </span>
-                    <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                    <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-heading)] leading-tight">
                       {selectedProject.title}
                     </h2>
                   </div>
@@ -130,13 +130,13 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                     </a>
                   )}
 
-                  <p className="text-gray-300 leading-relaxed text-sm md:text-base border-l-2 border-white/10 pl-4">
+                  <p className="text-[var(--text-body)] leading-relaxed text-sm md:text-base border-l-2 border-[var(--border-subtle)] pl-4">
                     {selectedProject.desc}
                   </p>
                 </div>
 
-                <div className="bg-[#1E1E1E] p-4 rounded-xl border border-white/5">
-                  <h4 className="text-gray-500 font-bold text-xs uppercase mb-3 tracking-wider flex items-center gap-2">
+                <div className="bg-[var(--surface)] p-4 rounded-xl border border-[var(--border-subtle)]">
+                  <h4 className="text-[var(--text-muted)] font-bold text-xs uppercase mb-3 tracking-wider flex items-center gap-2">
                     <FiZap className="text-yellow-500" />
                     {t.home.featured.box_tech_title}
                   </h4>
@@ -144,7 +144,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                     {selectedProject.tech.map((tech, i) => (
                       <div
                         key={i}
-                        className="flex items-center gap-1.5 text-xs text-gray-300 bg-black/40 px-3 py-1.5 rounded-lg border border-white/5"
+                        className="flex items-center gap-1.5 text-xs text-[var(--text-body)] bg-[var(--border-subtle)] px-3 py-1.5 rounded-lg border border-[var(--border-subtle)]"
                       >
                         {getTechIcon(tech)}
                         <span>{tech}</span>
@@ -153,16 +153,16 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 border-t border-white/5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 border-t border-[var(--border-subtle)]">
                   <div>
-                    <h3 className="text-base font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <h3 className="text-base font-bold text-[var(--text-heading)] uppercase tracking-wider mb-4 flex items-center gap-2">
                       {t.projects.modal.features}
                     </h3>
                     <ul className="space-y-3">
                       {selectedProject.features.map((feature, i) => (
                         <li
                           key={i}
-                          className="flex items-start gap-3 text-sm text-gray-400"
+                          className="flex items-start gap-3 text-sm text-[var(--text-body)]"
                         >
                           <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-300 flex-shrink-0" />
                           <span className="leading-relaxed">{feature}</span>
@@ -172,14 +172,14 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                   </div>
 
                   <div>
-                    <h3 className="text-base font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <h3 className="text-base font-bold text-[var(--text-heading)] uppercase tracking-wider mb-4 flex items-center gap-2">
                       {t.projects.modal.outcomes}
                     </h3>
                     <ul className="space-y-3">
                       {selectedProject.outcomes.map((outcome, i) => (
                         <li
                           key={i}
-                          className="flex items-start gap-3 text-sm text-gray-400"
+                          className="flex items-start gap-3 text-sm text-[var(--text-body)]"
                         >
                           <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
                           <span className="leading-relaxed">{outcome}</span>

@@ -15,24 +15,22 @@ const AnimatedTag: React.FC<AnimatedTagProps> = ({
   return (
     <div className={`inline-flex items-center gap-2 ${className}`}>
       <motion.div
-        className="relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border text-sm font-medium shadow-sm cursor-default overflow-hidden"
+        className="relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--border-subtle)] border border-[var(--border-subtle)] text-sm font-medium shadow-sm cursor-default overflow-hidden text-[var(--text-body)]"
         initial="hovered"
         whileHover="idle"
         whileTap={{ scale: 0.98 }}
         variants={{
           hovered: {
-            color: "#c1c6cc",
-            borderColor: "rgba(193, 198, 204, 0.3)",
+            borderColor: "var(--border-hover)",
           },
           idle: {
-            color: "#959aa3",
-            borderColor: "rgba(255, 255, 255, 0.1)",
+            borderColor: "var(--border-subtle)",
           },
         }}
         transition={{ duration: 0.3 }}
       >
         <motion.div
-          className="absolute inset-0 -left-20 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+          className="absolute inset-0 -left-20 -skew-x-12 bg-gradient-to-r from-transparent via-[var(--spotlight)] to-transparent"
           variants={{
             hovered: { x: "140%" },
             idle: {

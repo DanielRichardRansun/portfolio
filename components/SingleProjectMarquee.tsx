@@ -7,7 +7,7 @@ import Image from "next/image";
 // Generate array of 15 images
 const images = Array.from(
   { length: 15 },
-  (_, i) => `/images/porto/porto${i + 1}.jpg`
+  (_, i) => `/images/porto/porto${i + 1}.jpg`,
 );
 
 const SingleProjectMarquee = ({ className = "" }: { className?: string }) => {
@@ -16,8 +16,8 @@ const SingleProjectMarquee = ({ className = "" }: { className?: string }) => {
       className={`relative w-full h-full overflow-hidden select-none pointer-events-none ${className}`}
     >
       {/* Gradient Atas & Bawah agar terlihat fading halus */}
-      <div className="absolute inset-x-0 top-0 h-20 z-10 bg-gradient-to-b from-[#1E1E1E] to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-20 z-10 bg-gradient-to-t from-[#1E1E1E] to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-20 z-10 bg-gradient-to-b from-[var(--surface)] to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-20 z-10 bg-gradient-to-t from-[var(--surface)] to-transparent" />
 
       {/* Container Animasi */}
       <motion.div

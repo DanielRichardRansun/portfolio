@@ -80,17 +80,21 @@ export default function Contact() {
         className="max-w-4xl pt-4"
       >
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-3 bg-[#1E1E1E] border border-white/10 rounded-full text-white">
+          <div className="p-3 bg-[var(--surface)] border border-[var(--border-subtle)] rounded-full text-[var(--text-heading)]">
             <FiMail size={20} />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-white">{t.contact.title}</h1>
-            <p className="text-gray-500 text-sm">{t.contact.subtitle}</p>
+            <h1 className="text-2xl font-bold text-[var(--text-heading)]">
+              {t.contact.title}
+            </h1>
+            <p className="text-[var(--text-muted)] text-sm">
+              {t.contact.subtitle}
+            </p>
           </div>
         </div>
       </motion.section>
 
-      <div className="w-full h-px bg-white/5" />
+      <div className="w-full h-px bg-[var(--border-subtle)]" />
 
       <motion.div
         initial="hidden"
@@ -181,7 +185,7 @@ export default function Contact() {
           target="_blank"
           variants={fadeInUp}
           whileHover={{ y: -5 }}
-          className="group relative overflow-hidden bg-gradient-to-br from-[#333333] to-[#000000] rounded-2xl p-6 min-h-[160px] flex flex-col justify-between border border-white/10"
+          className="group relative overflow-hidden bg-gradient-to-br from-[#333333] to-[#000000] rounded-2xl p-6 min-h-[160px] flex flex-col justify-between border border-[var(--border-subtle)]"
         >
           <div className="absolute right-4 top-4 opacity-20 group-hover:opacity-40 transition-opacity text-white">
             <SiGithub size={80} />
@@ -209,7 +213,7 @@ export default function Contact() {
         viewport={{ once: true }}
         className="pt-8"
       >
-        <h2 className="text-lg font-bold text-white mb-6 border-l-4 border-white/20 pl-4">
+        <h2 className="text-lg font-bold text-[var(--text-heading)] mb-6 border-l-4 border-[var(--border-hover)] pl-4">
           {t.contact.form.title}
         </h2>
 
@@ -222,16 +226,16 @@ export default function Contact() {
             <div className="flex justify-center mb-4 text-green-500">
               <FiCheckCircle size={48} />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">
+            <h3 className="text-2xl font-bold text-[var(--text-heading)] mb-2">
               Message Sent!
             </h3>
-            <p className="text-gray-400">
+            <p className="text-[var(--text-body)]">
               Thank you for reaching out. I'll get back to you soon at{" "}
               <b>{formData.email}</b>.
             </p>
             <button
               onClick={() => setStatus("idle")}
-              className="mt-6 px-6 py-2 bg-[#1E1E1E] text-white text-sm font-bold rounded-lg hover:bg-white/10 transition-colors"
+              className="mt-6 px-6 py-2 bg-[var(--surface)] text-[var(--text-heading)] text-sm font-bold rounded-lg hover:bg-[var(--surface-hover)] transition-colors cursor-pointer"
             >
               Send another message
             </button>
@@ -240,11 +244,11 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-xs text-gray-400 ml-1">
+                <label className="text-xs text-[var(--text-muted)] ml-1">
                   {t.contact.form.name}
                 </label>
                 <div className="relative">
-                  <FiUser className="absolute left-4 top-3.5 text-gray-500" />
+                  <FiUser className="absolute left-4 top-3.5 text-[var(--text-muted)]" />
                   <input
                     type="text"
                     name="name"
@@ -252,17 +256,17 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     disabled={status === "submitting"}
-                    className="w-full bg-[#1E1E1E] border border-white/5 rounded-xl py-3 pl-10 pr-4 text-white focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm disabled:opacity-50"
+                    className="w-full bg-[var(--surface)] border border-[var(--border-subtle)] rounded-xl py-3 pl-10 pr-4 text-[var(--text-heading)] focus:border-[var(--border-hover)] focus:outline-none focus:ring-1 focus:ring-[var(--border-hover)] transition-all text-sm disabled:opacity-50"
                     placeholder="John Doe"
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-xs text-gray-400 ml-1">
+                <label className="text-xs text-[var(--text-muted)] ml-1">
                   {t.contact.form.email}
                 </label>
                 <div className="relative">
-                  <FiMail className="absolute left-4 top-3.5 text-gray-500" />
+                  <FiMail className="absolute left-4 top-3.5 text-[var(--text-muted)]" />
                   <input
                     type="email"
                     name="email"
@@ -270,7 +274,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     disabled={status === "submitting"}
-                    className="w-full bg-[#1E1E1E] border border-white/5 rounded-xl py-3 pl-10 pr-4 text-white focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm disabled:opacity-50"
+                    className="w-full bg-[var(--surface)] border border-[var(--border-subtle)] rounded-xl py-3 pl-10 pr-4 text-[var(--text-heading)] focus:border-[var(--border-hover)] focus:outline-none focus:ring-1 focus:ring-[var(--border-hover)] transition-all text-sm disabled:opacity-50"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -278,11 +282,11 @@ export default function Contact() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs text-gray-400 ml-1">
+              <label className="text-xs text-[var(--text-muted)] ml-1">
                 {t.contact.form.message}
               </label>
               <div className="relative">
-                <FiMessageSquare className="absolute left-4 top-3.5 text-gray-500" />
+                <FiMessageSquare className="absolute left-4 top-3.5 text-[var(--text-muted)]" />
                 <textarea
                   name="message"
                   value={formData.message}
@@ -290,7 +294,7 @@ export default function Contact() {
                   required
                   rows={5}
                   disabled={status === "submitting"}
-                  className="w-full bg-[#1E1E1E] border border-white/5 rounded-xl py-3 pl-10 pr-4 text-white focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm resize-none disabled:opacity-50"
+                  className="w-full bg-[var(--surface)] border border-[var(--border-subtle)] rounded-xl py-3 pl-10 pr-4 text-[var(--text-heading)] focus:border-[var(--border-hover)] focus:outline-none focus:ring-1 focus:ring-[var(--border-hover)] transition-all text-sm resize-none disabled:opacity-50"
                   placeholder="Hello, I'd like to talk about..."
                 />
               </div>
