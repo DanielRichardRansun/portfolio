@@ -23,7 +23,8 @@ const CareerPulse = () => {
     <div className="w-full h-full flex items-center justify-center relative select-none pointer-events-none">
       <svg
         viewBox="0 0 400 200"
-        className="w-full h-full text-white/10 drop-shadow-lg"
+        className="w-full h-full drop-shadow-lg"
+        style={{ color: "var(--border-hover)" }}
         fill="none"
         preserveAspectRatio="xMidYMid meet"
       >

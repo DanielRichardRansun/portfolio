@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import {
   FiLayout,
@@ -59,6 +60,8 @@ const aboutImages = [
 
 export default function Home() {
   const { t } = useLanguage();
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -283,7 +286,7 @@ export default function Home() {
 
           {/* 4. CONTACT */}
           <Link href="/contact" className="contents">
-            <SpotlightCard className="col-span-1 rounded-3xl p-6 group relative overflow-hidden min-h-[240px] flex flex-col gap-2 bg-gradient-to-br from-[var(--surface)] to-[var(--surface-alt)] hover:border-green-500/30">
+            <SpotlightCard className="col-span-1 rounded-3xl p-6 group relative overflow-hidden min-h-[240px] flex flex-col gap-2 bg-gradient-to-br from-[var(--surface)] to-[var(--surface-alt)] hover:border-[var(--border-hover)]">
               <div className="flex justify-between items-start relative z-20">
                 <div>
                   <h3 className="font-bold text-[var(--text-heading)] text-xl transition-colors">
@@ -339,10 +342,26 @@ export default function Home() {
                 className="bg-[var(--surface)] border border-[var(--border-subtle)] rounded-lg p-2 flex items-center gap-3 hover:border-[var(--border-hover)] hover:bg-[var(--surface-hover)] transition-colors group cursor-default"
               >
                 <div
-                  className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${skill.bg}`}
+                  className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${
+                    skill.color === "#ffffff"
+                      ? isDark
+                        ? "bg-white/10"
+                        : "bg-black/10"
+                      : skill.bg
+                  }`}
                 >
                   {IconComponent && (
-                    <IconComponent size={24} style={{ color: skill.color }} />
+                    <IconComponent
+                      size={24}
+                      style={{
+                        color:
+                          skill.color === "#ffffff"
+                            ? isDark
+                              ? "#ffffff"
+                              : "#1a1a2e"
+                            : skill.color,
+                      }}
+                    />
                   )}
                 </div>
                 <div className="flex flex-col overflow-hidden">

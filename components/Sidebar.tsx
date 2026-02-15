@@ -54,6 +54,15 @@ export default function Sidebar() {
 
   const isDark = theme === "dark";
 
+  // Toggle theme with synchronized transition
+  const handleThemeToggle = () => {
+    document.documentElement.classList.add("theme-switching");
+    setTheme(isDark ? "light" : "dark");
+    setTimeout(() => {
+      document.documentElement.classList.remove("theme-switching");
+    }, 600);
+  };
+
   return (
     <>
       <aside className="hidden lg:flex w-[280px] sticky top-0 h-screen flex-col px-6 py-10 overflow-y-auto z-50 border-r border-[var(--border-subtle)] bg-background">
@@ -109,9 +118,9 @@ export default function Sidebar() {
           <div className="flex items-center bg-[var(--surface)] rounded-full p-1 border border-[var(--border-subtle)]">
             <button
               onClick={() => setLanguage("EN")}
-              className={`px-3 py-1 rounded-full text-[10px] font-bold transition-all ${
+              className={`px-3 py-1 rounded-full text-[10px] font-bold transition-all cursor-pointer ${
                 language === "EN"
-                  ? "bg-primary text-white shadow-md"
+                  ? `bg-primary shadow-md ${isDark ? "text-black" : "text-white"}`
                   : "text-[var(--text-muted)] hover:text-[var(--text-heading)]"
               }`}
             >
@@ -119,9 +128,9 @@ export default function Sidebar() {
             </button>
             <button
               onClick={() => setLanguage("ID")}
-              className={`px-3 py-1 rounded-full text-[10px] font-bold transition-all ${
+              className={`px-3 py-1 rounded-full text-[10px] font-bold transition-all cursor-pointer ${
                 language === "ID"
-                  ? "bg-primary text-white shadow-md"
+                  ? `bg-primary shadow-md ${isDark ? "text-black" : "text-white"}`
                   : "text-[var(--text-muted)] hover:text-[var(--text-heading)]"
               }`}
             >
@@ -130,7 +139,7 @@ export default function Sidebar() {
           </div>
 
           <button
-            onClick={() => setTheme(isDark ? "light" : "dark")}
+            onClick={handleThemeToggle}
             className="w-8 h-8 flex items-center justify-center rounded-full bg-[var(--surface)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--surface-hover)] transition-colors cursor-pointer"
           >
             {isDark ? <FiSun size={14} /> : <FiMoon size={14} />}
@@ -181,7 +190,9 @@ export default function Sidebar() {
             className="group relative flex items-center justify-center w-full py-3 overflow-hidden rounded-full border border-primary font-semibold transition-all duration-300 hover:shadow-[0_0_15px_rgba(34,197,94,0.3)] bg-transparent"
           >
             <span className="absolute left-0 top-0 h-full w-[120%] -translate-x-[120%] -skew-x-40 bg-primary transition-transform duration-500 ease-out group-hover:-translate-x-2"></span>
-            <span className="relative z-10 flex items-center gap-2 text-primary transition-colors duration-300 group-hover:text-black">
+            <span
+              className={`relative z-10 flex items-center gap-2 text-primary transition-colors duration-300 ${isDark ? "group-hover:text-black" : "group-hover:text-white"}`}
+            >
               <FiDownload
                 size={18}
                 className="transition-transform duration-300 group-hover:scale-110"
@@ -355,9 +366,9 @@ export default function Sidebar() {
               <div className="flex">
                 <button
                   onClick={() => setLanguage("EN")}
-                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                     language === "EN"
-                      ? "bg-primary text-white"
+                      ? `bg-primary ${isDark ? "text-black" : "text-white"}`
                       : "text-[var(--text-muted)]"
                   }`}
                 >
@@ -365,9 +376,9 @@ export default function Sidebar() {
                 </button>
                 <button
                   onClick={() => setLanguage("ID")}
-                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                     language === "ID"
-                      ? "bg-primary text-white"
+                      ? `bg-primary ${isDark ? "text-black" : "text-white"}`
                       : "text-[var(--text-muted)]"
                   }`}
                 >
@@ -376,7 +387,7 @@ export default function Sidebar() {
               </div>
               <div className="w-px h-4 bg-[var(--border-subtle)] mx-1"></div>
               <button
-                onClick={() => setTheme(isDark ? "light" : "dark")}
+                onClick={handleThemeToggle}
                 className="w-8 h-8 flex items-center justify-center rounded-full text-[var(--text-muted)] hover:text-[var(--text-heading)] cursor-pointer"
               >
                 {isDark ? <FiSun size={16} /> : <FiMoon size={16} />}

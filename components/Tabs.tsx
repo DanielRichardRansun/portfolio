@@ -27,18 +27,19 @@ const TabsGlassy: React.FC<TabsProps> = ({ panels, className = "" }) => {
             <button
               key={panel.id}
               onClick={() => setActiveTab(panel.id)}
-              className="relative px-6 py-3 rounded-lg text-sm font-semibold outline-none"
+              className={`relative px-6 py-3 rounded-lg text-sm font-semibold outline-none cursor-pointer transition-all duration-300 ${
+                !isActive
+                  ? "hover:bg-[var(--surface)] hover:border-[var(--border-subtle)] border border-transparent"
+                  : "border border-transparent"
+              }`}
             >
               {/* Background Effect */}
-              {isActive ? (
+              {isActive && (
                 <motion.div
                   layoutId="activeGlass"
                   className="absolute inset-0 bg-[var(--spotlight)] border border-[var(--border-hover)] rounded-lg backdrop-blur-md"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
-              ) : (
-                // Hover effect untuk yang tidak aktif
-                <div className="absolute inset-0 bg-transparent hover:bg-[var(--border-subtle)] border border-transparent hover:border-[var(--border-subtle)] rounded-lg transition-all duration-300" />
               )}
 
               {/* Text */}

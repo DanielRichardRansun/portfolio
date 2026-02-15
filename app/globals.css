@@ -104,25 +104,27 @@ body {
   font-family: var(--font-poppins), sans-serif;
 }
 
-/* Smooth transition for all theme-switching elements */
-*,
-*::before,
-*::after {
+/*
+  Theme transition: applied temporarily via JS when toggling theme.
+  Uses !important to override Tailwind's transition-* utilities (150ms)
+  so ALL elements (background, text, borders, etc.) switch at the same speed.
+*/
+.theme-switching,
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
   transition:
-    background-color 0.35s ease,
-    color 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease,
-    fill 0.35s ease,
-    stroke 0.35s ease;
+    background-color 0.5s ease,
+    color 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease,
+    fill 0.5s ease,
+    stroke 0.5s ease,
+    opacity 0.5s ease !important;
 }
-
-/* Exclude elements where transition causes jank */
-[class*="animate"],
-[class*="transition"],
-img,
-video {
-  transition: none;
+.theme-switching img,
+.theme-switching video {
+  transition: none !important;
 }
 
 ::-webkit-scrollbar {
