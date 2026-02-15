@@ -17,6 +17,7 @@ import {
   FiSun,
   FiX,
   FiMenu,
+  FiExternalLink,
 } from "react-icons/fi";
 import PixelTransition from "./PixelTransition";
 
@@ -54,13 +55,17 @@ export default function Sidebar() {
 
   const isDark = theme === "dark";
 
-  // Toggle theme with synchronized transition
   const handleThemeToggle = () => {
-    document.documentElement.classList.add("theme-switching");
+    // 1. Force global transition class
+    document.documentElement.classList.add("theme-transitioning");
+
+    // 2. Change theme
     setTheme(isDark ? "light" : "dark");
+
+    // 3. Remove class after transition completes (matching CSS duration)
     setTimeout(() => {
-      document.documentElement.classList.remove("theme-switching");
-    }, 600);
+      document.documentElement.classList.remove("theme-transitioning");
+    }, 500);
   };
 
   return (
@@ -193,7 +198,7 @@ export default function Sidebar() {
             <span
               className={`relative z-10 flex items-center gap-2 text-primary transition-colors duration-300 ${isDark ? "group-hover:text-black" : "group-hover:text-white"}`}
             >
-              <FiDownload
+              <FiExternalLink
                 size={18}
                 className="transition-transform duration-300 group-hover:scale-110"
               />
@@ -237,11 +242,11 @@ export default function Sidebar() {
                   <p
                     style={{
                       fontWeight: 900,
-                      fontSize: "0.8rem",
+                      fontSize: "0.5rem",
                       color: isDark ? "#ffffff" : "#1a1a2e",
                     }}
                   >
-                    D
+                    Hello!
                   </p>
                 </div>
               }
@@ -252,10 +257,10 @@ export default function Sidebar() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-bold text-[var(--text-heading)] leading-none">
+            <span className="text-[14px] font-bold text-[var(--text-heading)] leading-none">
               Daniel Richard R.
             </span>
-            <span className="text-[10px] text-[var(--text-muted)]">
+            <span className="text-[11px] text-[var(--text-muted)]">
               Software Engineer
             </span>
           </div>
@@ -401,7 +406,7 @@ export default function Sidebar() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center gap-2 text-primary font-bold text-sm hover:underline underline-offset-4 decoration-primary"
             >
-              <FiDownload />
+              <FiExternalLink />
               {t.sidebar.download}
             </a>
 

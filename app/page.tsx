@@ -9,7 +9,7 @@ import {
   FiBriefcase,
   FiMail,
   FiArrowRight,
-  FiDownload,
+  FiExternalLink,
   FiMapPin,
   FiTerminal,
 } from "react-icons/fi";
@@ -146,8 +146,8 @@ export default function Home() {
           />
 
           <HoverIconLabel
-            icon={<FiDownload size={20} />}
-            label={t.sidebar.download || "Download CV"}
+            icon={<FiExternalLink size={20} />}
+            label={t.sidebar.download || "Open Resume"}
             href="https://www.canva.com/design/DAGxujweTzY/gzcOn7n6hELOZxBdxkgfDw/view?utm_content=DAGxujweTzY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb93f5e6498"
             target="_blank"
             rel="noopener noreferrer"
@@ -286,7 +286,7 @@ export default function Home() {
 
           {/* 4. CONTACT */}
           <Link href="/contact" className="contents">
-            <SpotlightCard className="col-span-1 rounded-3xl p-6 group relative overflow-hidden min-h-[240px] flex flex-col gap-2 bg-gradient-to-br from-[var(--surface)] to-[var(--surface-alt)] hover:border-[var(--border-hover)]">
+            <SpotlightCard className="col-span-1 rounded-3xl p-6 group relative overflow-hidden min-h-[240px] flex flex-col gap-2 bg-[var(--surface)] hover:border-[var(--border-hover)]">
               <div className="flex justify-between items-start relative z-20">
                 <div>
                   <h3 className="font-bold text-[var(--text-heading)] text-xl transition-colors">

@@ -5,7 +5,7 @@ export const en = {
     career: "Career",
     projects: "Projects",
     contact: "Contact",
-    download: "Download CV",
+    download: "Open Resume",
     footer: "© 2026 Daniel Richard R.",
   },
   home: {

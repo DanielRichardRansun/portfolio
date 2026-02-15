@@ -104,29 +104,6 @@ body {
   font-family: var(--font-poppins), sans-serif;
 }
 
-/*
-  Theme transition: applied temporarily via JS when toggling theme.
-  Uses !important to override Tailwind's transition-* utilities (150ms)
-  so ALL elements (background, text, borders, etc.) switch at the same speed.
-*/
-.theme-switching,
-.theme-switching *,
-.theme-switching *::before,
-.theme-switching *::after {
-  transition:
-    background-color 0.5s ease,
-    color 0.5s ease,
-    border-color 0.5s ease,
-    box-shadow 0.5s ease,
-    fill 0.5s ease,
-    stroke 0.5s ease,
-    opacity 0.5s ease !important;
-}
-.theme-switching img,
-.theme-switching video {
-  transition: none !important;
-}
-
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -223,4 +200,14 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* UNIVERSAL THEME TRANSITION
+   Forces ALL elements to change together when .theme-transitioning is active */
+.theme-transitioning,
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-delay: 0s !important;
 }

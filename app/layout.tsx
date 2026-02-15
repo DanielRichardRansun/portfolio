@@ -46,6 +46,8 @@ export default function RootLayout({
           attribute="data-theme"
           defaultTheme="dark"
           enableSystem={false}
+          enableColorScheme={false}
+          disableTransitionOnChange={false}
         >
           <LanguageProvider>
             <InitialLoader />
