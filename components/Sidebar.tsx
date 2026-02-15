@@ -111,7 +111,7 @@ export default function Sidebar() {
               onClick={() => setLanguage("EN")}
               className={`px-3 py-1 rounded-full text-[10px] font-bold transition-all ${
                 language === "EN"
-                  ? "bg-primary text-black shadow-md"
+                  ? "bg-primary text-white shadow-md"
                   : "text-[var(--text-muted)] hover:text-[var(--text-heading)]"
               }`}
             >
@@ -121,7 +121,7 @@ export default function Sidebar() {
               onClick={() => setLanguage("ID")}
               className={`px-3 py-1 rounded-full text-[10px] font-bold transition-all ${
                 language === "ID"
-                  ? "bg-primary text-black shadow-md"
+                  ? "bg-primary text-white shadow-md"
                   : "text-[var(--text-muted)] hover:text-[var(--text-heading)]"
               }`}
             >
@@ -147,8 +147,8 @@ export default function Sidebar() {
                 className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group relative overflow-hidden
                   ${
                     isActive
-                      ? "bg-[var(--surface)] text-[var(--text-heading)] font-medium shadow-inner"
-                      : "text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--border-subtle)]"
+                      ? "bg-[var(--surface)] text-[var(--text-heading)] font-medium border border-[var(--border-hover)] shadow-sm"
+                      : "text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--surface)]"
                   }
                 `}
               >
@@ -334,8 +334,8 @@ export default function Sidebar() {
                   className={`flex items-center justify-center gap-3 px-6 py-3 rounded-xl transition-all duration-300 border
                   ${
                     isActive
-                      ? "bg-[var(--border-subtle)] border-[var(--border-subtle)] text-[var(--text-heading)] shadow-lg scale-105"
-                      : "bg-transparent border-transparent text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--border-subtle)]"
+                      ? "bg-[var(--surface)] border-[var(--border-hover)] text-[var(--text-heading)] shadow-lg scale-105"
+                      : "bg-transparent border-transparent text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--surface)]"
                   }
                   `}
                 >
@@ -357,7 +357,7 @@ export default function Sidebar() {
                   onClick={() => setLanguage("EN")}
                   className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
                     language === "EN"
-                      ? "bg-primary text-black"
+                      ? "bg-primary text-white"
                       : "text-[var(--text-muted)]"
                   }`}
                 >
@@ -367,7 +367,7 @@ export default function Sidebar() {
                   onClick={() => setLanguage("ID")}
                   className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
                     language === "ID"
-                      ? "bg-primary text-black"
+                      ? "bg-primary text-white"
                       : "text-[var(--text-muted)]"
                   }`}
                 >

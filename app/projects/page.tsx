@@ -199,7 +199,6 @@ export default function Projects() {
                           alt={project.title}
                           className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent opacity-80" />
                       </div>
 
                       {/* CONTENT PREVIEW */}
@@ -277,7 +276,6 @@ export default function Projects() {
                           alt={project.title}
                           className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent opacity-80" />
                       </div>
 
                       <SpotlightCard className="p-6 relative">
