@@ -20,6 +20,7 @@ import {
   FiExternalLink,
 } from "react-icons/fi";
 import PixelTransition from "./PixelTransition";
+import { useThemeTransition } from "@/context/ThemeTransitionContext";
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -53,19 +54,13 @@ export default function Sidebar() {
 
   if (!mounted) return null;
 
+  const { triggerTransition } = useThemeTransition();
   const isDark = theme === "dark";
 
   const handleThemeToggle = () => {
-    // 1. Force global transition class
-    document.documentElement.classList.add("theme-transitioning");
-
-    // 2. Change theme
-    setTheme(isDark ? "light" : "dark");
-
-    // 3. Remove class after transition completes (matching CSS duration)
-    setTimeout(() => {
-      document.documentElement.classList.remove("theme-transitioning");
-    }, 500);
+    triggerTransition(() => {
+      setTheme(isDark ? "light" : "dark");
+    });
   };
 
   return (

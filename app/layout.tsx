@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Sidebar from "@/components/Sidebar";
 import InitialLoader from "@/components/InitialLoader";
+import ThemeTransition from "@/components/ThemeTransition";
+import { ThemeTransitionProvider } from "@/context/ThemeTransitionContext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -49,16 +51,19 @@ export default function RootLayout({
           enableColorScheme={false}
           disableTransitionOnChange={false}
         >
-          <LanguageProvider>
-            <InitialLoader />
-            <div className="max-w-screen-xl mx-auto flex min-h-screen">
-              <Sidebar />
+          <ThemeTransitionProvider>
+            <LanguageProvider>
+              <InitialLoader />
+              <ThemeTransition />
+              <div className="max-w-screen-xl mx-auto flex min-h-screen">
+                <Sidebar />
 
-              <main className="flex-1 min-w-0 transition-all duration-300 lg:pt-0 pt-16">
-                {children}
-              </main>
-            </div>
-          </LanguageProvider>
+                <main className="flex-1 min-w-0 transition-all duration-300 lg:pt-0 pt-16">
+                  {children}
+                </main>
+              </div>
+            </LanguageProvider>
+          </ThemeTransitionProvider>
         </ThemeProvider>
       </body>
     </html>
