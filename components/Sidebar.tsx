@@ -71,7 +71,7 @@ export default function Sidebar() {
             <PixelTransition
               firstContent={
                 <Image
-                  src="/profile.jpg"
+                  src={isDark ? "/profile-dark.jpg" : "/profile-light.jpg"}
                   alt="Profile"
                   width={112}
                   height={112}
@@ -217,7 +217,7 @@ export default function Sidebar() {
             <PixelTransition
               firstContent={
                 <Image
-                  src="/profile.jpg"
+                  src={isDark ? "/profile-dark.jpg" : "/profile-light.jpg"}
                   alt="Profile"
                   width={36}
                   height={36}
@@ -292,7 +292,7 @@ export default function Sidebar() {
               <PixelTransition
                 firstContent={
                   <Image
-                    src="/profile.jpg"
+                    src={isDark ? "/profile-dark.jpg" : "/profile-light.jpg"}
                     alt="Profile"
                     width={80}
                     height={80}

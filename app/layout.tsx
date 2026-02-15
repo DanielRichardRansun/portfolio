@@ -15,6 +15,21 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Daniel Richard | Portfolio",
   description: "Personal Portfolio of Daniel Richard Ransun",
+  icons: {
+    icon: "/logo.jpg",
+    apple: "/logo.jpg",
+  },
+  openGraph: {
+    title: "Richard | Portfolio",
+    description: "Personal Portfolio of Daniel Richard Ransun",
+    images: [{ url: "/logo.jpg", width: 1080, height: 1080 }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Richard | Portfolio",
+    description: "Personal Portfolio of Daniel Richard Ransun",
+    images: ["/logo.jpg"],
+  },
 };
 
 export default function RootLayout({
