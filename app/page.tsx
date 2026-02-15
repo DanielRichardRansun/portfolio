@@ -25,6 +25,12 @@ import {
   SiWordpress,
   SiInstagram,
   SiLinkedin,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiBootstrap,
+  SiTailwindcss,
+  SiPhp,
 } from "react-icons/si";
 import { FaWix } from "react-icons/fa";
 
@@ -50,6 +56,12 @@ const skillIcons = {
   SiPostgresql: SiPostgresql,
   SiGithub: SiGithub,
   SiFigma: SiFigma,
+  SiHtml5: SiHtml5,
+  SiCss3: SiCss3,
+  SiJavascript: SiJavascript,
+  SiBootstrap: SiBootstrap,
+  SiTailwindcss: SiTailwindcss,
+  SiPhp: SiPhp,
 };
 
 const aboutImages = [
@@ -58,10 +70,18 @@ const aboutImages = [
   "/images/home_about/image3.jpg",
 ];
 
+import { useState, useEffect } from "react";
+
 export default function Home() {
   const { t } = useLanguage();
   const { theme } = useTheme();
-  const isDark = theme === "dark";
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? theme === "dark" : true; // Default to dark since defaultTheme="dark"
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -99,7 +119,7 @@ export default function Home() {
         <div className="flex flex-wrap items-center gap-3 mb-6">
           <AnimatedTag>
             <FiTerminal className="text-[var(--text-body)]" />{" "}
-            <span>Software Engineer & CMS Developer</span>
+            <span>Full stack Web Developer</span>
           </AnimatedTag>
 
           <span className="hidden md:block text-[var(--text-muted)]">•</span>

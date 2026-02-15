@@ -38,7 +38,7 @@ const ContactChat = () => {
       >
         <div className="flex flex-col gap-1 items-end">
           {/* Bubble (Warna Hijau/Accent) */}
-          <div className="bg-green-500/20 backdrop-blur-sm border border-green-500/20 px-3 py-2 rounded-2xl rounded-tr-sm text-xs text-green-700 dark:text-green-100 shadow-sm">
+          <div className="bg-green-500/20 backdrop-blur-sm border border-green-500/20 px-3 py-2 rounded-2xl rounded-tr-sm text-xs text-green-700 dark:text-white shadow-sm">
             {t.contact.chat.reply_message}
           </div>
           {/* Timestamp & Read Receipt */}

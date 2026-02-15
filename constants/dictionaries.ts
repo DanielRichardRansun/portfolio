@@ -12,7 +12,7 @@ export const en = {
     hero: {
       greeting: "Hi, I'm Daniel Richard Ransun",
       location: "Based in Surabaya, Indonesia 🇮🇩",
-      desc: "Professional Web Developer & Technology Specialist with experience in front-end and back-end development, CMS platforms, and mobile applications. Skilled in developing and maintaining websites for both local and international clients or companies, with a strong foundation in technology and AI-driven solutions.",
+      desc: "Full Stack Web Developer focused on building useful and impactful web systems that solve real problems. Successfully launched 15+ production-ready projects used by global users. Experienced in Laravel, React, WordPress, Wix, and other web technologies, with strong expertise in SEO optimization and deployment setup.",
       btn_project: "See My Work",
       btn_contact: "Contact Me",
     },
@@ -36,6 +36,34 @@ export const en = {
       subtitle: "My professional toolbox.",
       items: [
         {
+          name: "HTML",
+          desc: "Markup Language",
+          icon: "SiHtml5",
+          color: "#E34F26",
+          bg: "bg-[#E34F26]/10",
+        },
+        {
+          name: "CSS",
+          desc: "Style Sheet",
+          icon: "SiCss3",
+          color: "#1572B6",
+          bg: "bg-[#1572B6]/10",
+        },
+        {
+          name: "JavaScript",
+          desc: "Program Language",
+          icon: "SiJavascript",
+          color: "#F7DF1E",
+          bg: "bg-[#F7DF1E]/10",
+        },
+        {
+          name: "PHP",
+          desc: "Server-side Scripting",
+          icon: "SiPhp",
+          color: "#777BB4",
+          bg: "bg-[#777BB4]/10",
+        },
+        {
           name: "Laravel",
           desc: "PHP Framework",
           icon: "SiLaravel",
@@ -48,6 +76,20 @@ export const en = {
           icon: "SiReact",
           color: "#61DAFB",
           bg: "bg-[#61DAFB]/10",
+        },
+        {
+          name: "Bootstrap",
+          desc: "CSS Framework",
+          icon: "SiBootstrap",
+          color: "#7952B3",
+          bg: "bg-[#7952B3]/10",
+        },
+        {
+          name: "Tailwind",
+          desc: "Utility-first CSS",
+          icon: "SiTailwindcss",
+          color: "#06B6D4",
+          bg: "bg-[#06B6D4]/10",
         },
         {
           name: "Next.js",
@@ -112,9 +154,9 @@ export const en = {
     title: "About",
     subtitle: "A brief introduction to who I am.",
     story: {
-      p1: "Hello! I'm Daniel Richard, a passionate developer based in Jambi. My journey in tech started with a curiosity about how things work on the internet, which quickly turned into a career in Fullstack Development.",
-      p2: "I specialize in building robust applications using Next.js and Laravel. I believe in writing clean, maintainable code and designing user interfaces that are intuitive and accessible.",
-      p3: "When I'm not coding, I'm likely exploring new technologies, contributing to open-source projects, or sharing my knowledge with the community.",
+      p1: "I am a Full Stack Web Developer passionate about building digital solutions that are not only functional, but truly useful and impactful. I have experience developing and maintaining web applications and websites for corporate and global environments, serving thousands of users worldwide.",
+      p2: "I am skilled in custom coding using Laravel and React, with a strong foundation in HTML, CSS, JavaScript, and other web technologies. I also work with website builders such as WordPress and Wix. In addition, I manage SEO optimization and technical setup, including hosting, domain and DNS configuration, business email setup, and production deployment.",
+      p3: "Creating useful digital solutions is not just my profession, but something I genuinely enjoy and feel happy doing. I like to learn new things, stay updated with new technologies, and continuously improving my problem-solving skills. I also have a foundation in AI and use it to support my development process and improve efficiency, while maintaining strong hands-on coding skills. I communicate effectively in both spoken and written English.",
     },
     certifications: {
       title: "Certifications",
@@ -630,7 +672,7 @@ export const id = {
     hero: {
       greeting: "Hai, Saya Daniel Richard Ransun",
       location: "Berbasis di Surabaya, Indonesia 🇮🇩",
-      desc: "Pengembang Web Profesional & Spesialis Teknologi dengan pengalaman dalam pengembangan front-end dan back-end, platform CMS, dan aplikasi seluler. Terampil dalam mengembangkan dan memelihara situs web untuk klien atau perusahaan lokal dan internasional, dengan dasar yang kuat dalam teknologi dan solusi berbasis AI.",
+      desc: "Full Stack Web Developer yang berfokus membangun sistem web yang berguna dan berdampak untuk menyelesaikan masalah nyata. Telah sukses meluncurkan 15+ proyek siap produksi yang digunakan oleh pengguna global. Berpengalaman dalam Laravel, React, WordPress, Wix, dan teknologi web lainnya, dengan keahlian kuat dalam optimasi SEO dan pengaturan deployment.",
       btn_project: "Lihat Karya",
       btn_contact: "Email Saya",
     },
@@ -654,6 +696,34 @@ export const id = {
       subtitle: "Alat profesional saya.",
       items: [
         {
+          name: "HTML",
+          desc: "Markup Language",
+          icon: "SiHtml5",
+          color: "#E34F26",
+          bg: "bg-[#E34F26]/10",
+        },
+        {
+          name: "CSS",
+          desc: "Style Sheet",
+          icon: "SiCss3",
+          color: "#1572B6",
+          bg: "bg-[#1572B6]/10",
+        },
+        {
+          name: "JavaScript",
+          desc: "Bahasa Pemrograman",
+          icon: "SiJavascript",
+          color: "#F7DF1E",
+          bg: "bg-[#F7DF1E]/10",
+        },
+        {
+          name: "PHP",
+          desc: "Server-side Scripting",
+          icon: "SiPhp",
+          color: "#777BB4",
+          bg: "bg-[#777BB4]/10",
+        },
+        {
           name: "Laravel",
           desc: "Framework PHP",
           icon: "SiLaravel",
@@ -666,6 +736,20 @@ export const id = {
           icon: "SiReact",
           color: "#61DAFB",
           bg: "bg-[#61DAFB]/10",
+        },
+        {
+          name: "Bootstrap",
+          desc: "Framework CSS",
+          icon: "SiBootstrap",
+          color: "#7952B3",
+          bg: "bg-[#7952B3]/10",
+        },
+        {
+          name: "Tailwind",
+          desc: "Utility-first CSS",
+          icon: "SiTailwindcss",
+          color: "#06B6D4",
+          bg: "bg-[#06B6D4]/10",
         },
         {
           name: "Next.js",
@@ -730,9 +814,9 @@ export const id = {
     title: "Tentang",
     subtitle: "Perkenalan singkat tentang siapa saya.",
     story: {
-      p1: "Halo! Saya Daniel Richard, seorang pengembang yang bersemangat berbasis di Jambi. Perjalanan saya di dunia teknologi dimulai dari rasa ingin tahu tentang bagaimana internet bekerja, yang kemudian berkembang menjadi karir di Fullstack Development.",
-      p2: "Saya berspesialisasi dalam membangun aplikasi tangguh menggunakan Next.js dan Laravel. Saya percaya pada penulisan kode yang bersih dan mudah dipelihara serta merancang antarmuka pengguna yang intuitif.",
-      p3: "Ketika tidak sedang coding, saya mungkin sedang mengeksplorasi teknologi baru, berkontribusi pada proyek open-source, atau berbagi pengetahuan dengan komunitas.",
+      p1: "Saya adalah Full Stack Web Developer yang bersemangat membangun solusi digital yang tidak hanya fungsional, tetapi juga benar-benar berguna dan berdampak. Saya berpengalaman mengembangkan dan memelihara aplikasi web serta situs web untuk lingkungan korporat dan global, melayani ribuan pengguna di seluruh dunia.",
+      p2: "Saya terampil dalam custom coding menggunakan Laravel dan React, dengan fondasi yang kuat dalam HTML, CSS, JavaScript, dan teknologi web lainnya. Saya juga bekerja dengan website builder seperti WordPress dan Wix. Selain itu, saya mengelola optimasi SEO dan pengaturan teknis, termasuk konfigurasi hosting, domain dan DNS, pengaturan email bisnis, serta deployment produksi.",
+      p3: "Menciptakan solusi digital yang berguna bukan hanya profesi saya, tetapi sesuatu yang benar-benar saya nikmati dan membuat saya bahagia. Saya suka mempelajari hal-hal baru, mengikuti perkembangan teknologi, dan terus meningkatkan kemampuan pemecahan masalah saya. Saya juga memiliki dasar-dasar AI dan menggunakannya untuk mendukung proses pengembangan serta meningkatkan efisiensi, sambil tetap mempertahankan keterampilan coding praktis yang kuat. Saya dapat berkomunikasi secara efektif dalam bahasa Inggris, baik lisan maupun tulisan.",
     },
     certifications: {
       title: "Sertifikasi",

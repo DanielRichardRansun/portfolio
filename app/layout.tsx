@@ -45,7 +45,7 @@ export default function RootLayout({
         className={`${poppins.variable} antialiased bg-background text-foreground overflow-x-hidden`}
       >
         <ThemeProvider
-          attribute="data-theme"
+          attribute="class"
           defaultTheme="dark"
           enableSystem={false}
           enableColorScheme={false}
