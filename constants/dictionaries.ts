@@ -197,7 +197,7 @@ export const en = {
           name: "Oracle Java SE Programmer",
           issuer: "Oracle",
           date: "Aug 2024",
-          image: "/images/certificate/cert-6.jpg",
+          image: "/images/certificate/cert-6.JPG",
         },
         {
           name: "Cisco Networking Academy",
@@ -857,7 +857,7 @@ export const id = {
           name: "Oracle Java SE Programmer",
           issuer: "Oracle",
           date: "Agu 2024",
-          image: "/images/certificate/cert-6.jpg",
+          image: "/images/certificate/cert-6.JPG",
         },
         {
           name: "Cisco Networking Academy",
