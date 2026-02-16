@@ -7,7 +7,7 @@ import Image from "next/image";
 // Generate array of 15 images based on your file structure
 const images = Array.from(
   { length: 14 },
-  (_, i) => `/images/porto/porto${i + 2}.jpg`,
+  (_, i) => `/images/porto/porto${i + 2}.jpg`, //dimulai dari porto2.jpg
 );
 
 // Bagi gambar menjadi 2 kolom untuk efek visual yang dinamis
@@ -37,14 +37,14 @@ const MarqueeColumn = ({
       {[...images, ...images].map((src, index) => (
         <div
           key={index}
-          className="relative w-full aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0"
+          className="relative w-full aspect-video rounded-lg overflow-hidden flex-shrink-0 shadow-lg border border-[var(--border-subtle)]"
         >
           <Image
             src={src}
             alt="Project Preview"
             fill
             className="object-cover opacity-100 transition-all duration-500 grayscale-[30%] hover:grayscale-0 brightness-75 hover:brightness-100"
-            sizes="(max-width: 768px) 100px, 200px"
+            sizes="(max-width: 768px) 100vw, 300px"
           />
         </div>
       ))}

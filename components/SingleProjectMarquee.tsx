@@ -4,10 +4,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-// Generate array of 15 images
+// Generate array of 14 images starting from porto2
 const images = Array.from(
-  { length: 15 },
-  (_, i) => `/images/porto/porto${i + 1}.jpg`,
+  { length: 14 },
+  (_, i) => `/images/porto/porto${i + 2}.jpg`,
 );
 
 const SingleProjectMarquee = ({ className = "" }: { className?: string }) => {
@@ -21,11 +21,11 @@ const SingleProjectMarquee = ({ className = "" }: { className?: string }) => {
 
       {/* Container Animasi */}
       <motion.div
-        className="flex flex-col gap-4 w-full px-6"
-        // Mulai dari 0, bergerak ke atas sampai -50% (setengah dari total duplikasi)
-        animate={{ y: ["0%", "-50%"] }}
+        className="flex flex-col gap-4 w-full px-4"
+        initial={{ y: "0%" }}
+        animate={{ y: "-50%" }}
         transition={{
-          duration: 60, // Atur kecepatan di sini (makin besar = makin lambat)
+          duration: 40, // Sedikit lebih cepat agar terasa dinamis
           repeat: Infinity,
           ease: "linear",
         }}
@@ -34,14 +34,15 @@ const SingleProjectMarquee = ({ className = "" }: { className?: string }) => {
         {[...images, ...images].map((src, index) => (
           <div
             key={index}
-            className="relative w-full aspect-[4/3] rounded-xl overflow-hidden flex-shrink-0"
+            className="relative w-full aspect-video rounded-xl overflow-hidden flex-shrink-0"
           >
             <Image
               src={src}
               alt="Project Preview"
               fill
-              className="object-cover opacity-80 hover:opacity-100 transition-all duration-500 grayscale-[50%] hover:grayscale-0"
+              className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 grayscale-[50%] group-hover:grayscale-0 shadow-2xl"
               sizes="(max-width: 768px) 100vw, 400px"
+              priority={index < 4}
             />
           </div>
         ))}
