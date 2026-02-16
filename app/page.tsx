@@ -44,7 +44,6 @@ import Stack from "@/components/Stack";
 import ContactChat from "@/components/ContactChat";
 import CareerPulse from "@/components/CareerPulse";
 
-// Icons for Skills
 const skillIcons = {
   SiLaravel: SiLaravel,
   SiReact: SiReact,
@@ -81,7 +80,7 @@ export default function Home() {
     setMounted(true);
   }, []);
 
-  const isDark = mounted ? theme === "dark" : true; // Default to dark since defaultTheme="dark"
+  const isDark = mounted ? theme === "dark" : true; // Default dark
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
