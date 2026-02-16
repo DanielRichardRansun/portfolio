@@ -6,8 +6,8 @@ import Image from "next/image";
 
 // Generate array of 15 images based on your file structure
 const images = Array.from(
-  { length: 15 },
-  (_, i) => `/images/porto/porto${i + 1}.jpg`,
+  { length: 14 },
+  (_, i) => `/images/porto/porto${i + 2}.jpg`,
 );
 
 // Bagi gambar menjadi 2 kolom untuk efek visual yang dinamis
