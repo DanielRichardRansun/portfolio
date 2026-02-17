@@ -1,6 +1,6 @@
 export const en = {
   sidebar: {
-    home: "Home",
+    home: "Homee",
     about: "About",
     career: "Career",
     projects: "Projects",
