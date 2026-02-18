@@ -172,12 +172,14 @@ export default function Projects() {
                       {/* BADGES */}
                       {project.badge && (
                         <div
-                          className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg
+                          className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg flex items-center gap-1.5
                             ${
                               project.badge === "Featured" ||
                               project.badge === "Unggulan" ||
                               project.badge === "Favorite" ||
-                              project.badge === "Favorit"
+                              project.badge === "Favorit" ||
+                              project.badge === "Latest" ||
+                              project.badge === "Terbaru"
                                 ? `${isDark ? "text-black" : "text-white"}`
                                 : "text-black"
                             }
@@ -193,12 +195,26 @@ export default function Projects() {
                                 ? "bg-yellow-500"
                                 : ""
                             }
+                            ${
+                              project.badge === "Latest" ||
+                              project.badge === "Terbaru"
+                                ? "bg-emerald-500"
+                                : ""
+                            }
                         `}
                         >
                           {project.badge === "Favorite" ||
                           project.badge === "Favorit" ? (
-                            <FiStar className="inline mb-[2px] mr-1" />
+                            <FiStar className="inline mb-[2px]" />
                           ) : null}
+                          {/* {project.badge === "Featured" ||
+                          project.badge === "Unggulan" ? (
+                            <FiLayers className="inline mb-[2px]" />
+                          ) : null}
+                          {project.badge === "Latest" ||
+                          project.badge === "Terbaru" ? (
+                            <FiZap className="inline mb-[2px]" />
+                          ) : null} */}
                           {project.badge}
                         </div>
                       )}
@@ -258,12 +274,14 @@ export default function Projects() {
                       {/* BADGES */}
                       {project.badge && (
                         <div
-                          className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg
+                          className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg flex items-center gap-1.5
                             ${
                               project.badge === "Featured" ||
                               project.badge === "Unggulan" ||
                               project.badge === "Favorite" ||
-                              project.badge === "Favorit"
+                              project.badge === "Favorit" ||
+                              project.badge === "Latest" ||
+                              project.badge === "Terbaru"
                                 ? `${isDark ? "text-black" : "text-white"}`
                                 : "text-black"
                             }
@@ -279,11 +297,17 @@ export default function Projects() {
                                 ? "bg-yellow-500"
                                 : ""
                             }
+                            ${
+                              project.badge === "Latest" ||
+                              project.badge === "Terbaru"
+                                ? "bg-emerald-500"
+                                : ""
+                            }
                         `}
                         >
                           {project.badge === "Favorite" ||
                           project.badge === "Favorit" ? (
-                            <FiStar className="inline mb-[2px] mr-1" />
+                            <FiStar className="inline mb-[2px]" />
                           ) : null}
                           {project.badge}
                         </div>
