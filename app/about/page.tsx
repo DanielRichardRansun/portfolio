@@ -54,9 +54,24 @@ export default function About() {
         </div>
 
         <div className="space-y-6 text-[var(--text-body)] leading-relaxed text-sm md:text-base border-l-2 border-[var(--border-subtle)] pl-6">
-          <p>{t.about.story.p1}</p>
-          <p>{t.about.story.p2}</p>
-          <p>{t.about.story.p3}</p>
+          {t.about.story.map((paragraph: string, i: number) => (
+            <p key={i}>
+              {paragraph
+                .split(/(\*\*.*?\*\*)/)
+                .map((part: string, j: number) =>
+                  part.startsWith("**") && part.endsWith("**") ? (
+                    <strong
+                      key={j}
+                      className="text-[var(--text-heading)] font-semibold"
+                    >
+                      {part.slice(2, -2)}
+                    </strong>
+                  ) : (
+                    <span key={j}>{part}</span>
+                  ),
+                )}
+            </p>
+          ))}
         </div>
       </motion.section>
 
