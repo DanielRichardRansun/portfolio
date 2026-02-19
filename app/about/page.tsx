@@ -111,7 +111,7 @@ export default function About() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {certificatesToShow.map((cert, index) => (
                   <motion.div
-                    key={index}
+                    key={cert.name}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
@@ -126,7 +126,11 @@ export default function About() {
                     }}
                   >
                     <div className="relative w-full h-60 bg-black/20 sm:h-50 md:h-50 shrink-0">
-                      <BlurImage src={cert.image} alt={cert.name} />
+                      <BlurImage
+                        src={cert.image}
+                        alt={cert.name}
+                        priority={index < 3}
+                      />
                     </div>
 
                     <SpotlightCard className="h-full border-t-0 rounded-t-none">
