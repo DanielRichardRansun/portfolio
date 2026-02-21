@@ -182,7 +182,7 @@ export const en = {
           name: "Responsive Web Design",
           issuer: "FreeCodeCamp",
           date: "Jan 2026",
-          image: "/images/certificate/cert-6.jpg",
+          image: "/images/certificate/cert-6.JPG",
         },
         {
           name: "SOLID Programming Principles",
@@ -877,7 +877,7 @@ export const id = {
           name: "Desain Web Responsif",
           issuer: "FreeCodeCamp",
           date: "Jan 2026",
-          image: "/images/certificate/cert-6.jpg",
+          image: "/images/certificate/cert-6.JPG",
         },
         {
           name: "Belajar Prinsip Pemrograman SOLID",
