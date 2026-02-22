@@ -358,7 +358,7 @@ export const en = {
     ],
   },
   projects: {
-    title: "Selected projects",
+    title: "Selected Projects",
     subtitle:
       "A showcase of my work, ranging from web apps to company profiles.",
     tabs: {
@@ -1054,7 +1054,7 @@ export const id = {
     ],
   },
   projects: {
-    title: "Proyek terpilih",
+    title: "Proyek Terpilih",
     subtitle:
       "Kumpulan karya saya, mulai dari aplikasi web hingga profil perusahaan.",
     tabs: {
