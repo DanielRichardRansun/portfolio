@@ -11,17 +11,17 @@ export default function InitialLoader() {
     // Simulasi loading: Cepat di awal, melambat di akhir
     let current = 0;
     const interval = setInterval(() => {
-      // Logika acak biar terasa seperti loading beneran
-      const increment = Math.floor(Math.random() * 10) + 1;
+      // Logika acak biar terasa seperti loading beneran - Dibuat lebih cepat
+      const increment = Math.floor(Math.random() * 15) + 5;
       current += increment;
 
       if (current >= 100) {
         current = 100;
         clearInterval(interval);
-        setTimeout(() => setComplete(true), 500); // Delay dikit pas 100
+        setTimeout(() => setComplete(true), 300); // Delay dikurangi pas 100
       }
       setCount(current);
-    }, 100);
+    }, 50); // Interval lebih rapat
 
     return () => clearInterval(interval);
   }, []);
@@ -34,7 +34,7 @@ export default function InitialLoader() {
           exit={{
             opacity: 0,
             filter: "blur(20px)", // Efek exit nge-blur keren
-            transition: { duration: 0.8, ease: "easeInOut" },
+            transition: { duration: 0.5, ease: "easeInOut" },
           }}
         >
           <div className="relative flex flex-col items-center">
