@@ -28,7 +28,9 @@ const BlurImage = ({
           ${
             isLoading
               ? "scale-110 blur-xl grayscale opacity-0"
-              : "scale-100 blur-0 grayscale-0 opacity-80 group-hover:opacity-100"
+              : // Membuat awal-awal agak gelap lalu dihover baru terang
+                // : "scale-100 blur-0 grayscale-0 opacity-80 group-hover:opacity-100"
+                "scale-100 blur-0 grayscale-0 opacity-100"
           }
         `}
         onLoad={() => setLoading(false)}

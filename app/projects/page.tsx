@@ -317,7 +317,7 @@ export default function Projects() {
                         <BlurImage
                           src={project.image}
                           alt={project.title}
-                          className="object-cover transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                          className="object-cover transition-transform duration-500"
                         />
                       </div>
 
