@@ -470,8 +470,8 @@ export const en = {
         id: 5,
         title: "HoopTourney",
         category: "Sports App",
-        image: "/images/porto/porto5.jpg",
-        liveUrl: "https://ransite.com",
+        image: "/images/porto/portofolio3a.png",
+        liveUrl: "https://hooptourney.vercel.app/",
         tech: ["Laravel", "Bootstrap", "PHP"],
         desc: "A web platform designed to manage basketball tournaments, connecting organizers, teams, and players in one integrated system.",
         features: [
@@ -1166,8 +1166,8 @@ export const id = {
         id: 5,
         title: "HoopTourney",
         category: "Sports App",
-        image: "/images/porto/porto5.jpg",
-        liveUrl: "https://ransite.com",
+        image: "/images/porto/portofolio3a.png",
+        liveUrl: "https://hooptourney.vercel.app/",
         tech: ["Laravel", "Bootstrap", "PHP"],
         desc: "A web platform designed to manage basketball tournaments, connecting organizers, teams, and players in one integrated system.",
         features: [
