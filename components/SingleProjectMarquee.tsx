@@ -5,10 +5,16 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 // Generate array of 14 images starting from porto2
-const images = Array.from(
-  { length: 14 },
-  (_, i) => `/images/porto/porto${i + 2}.jpg`,
-);
+// List of all images in /images/porto
+const images = [
+  "/images/porto/AppleRebrand.png",
+  "/images/porto/GyisJudging.png",
+  "/images/porto/HoopTourney.png",
+  "/images/porto/ICIAApp.jpg",
+  "/images/porto/ICIAJudgeing.png",
+  "/images/porto/Ransite.png",
+  "/images/porto/Siw.png",
+];
 
 const SingleProjectMarquee = ({ className = "" }: { className?: string }) => {
   return (
@@ -25,7 +31,7 @@ const SingleProjectMarquee = ({ className = "" }: { className?: string }) => {
         initial={{ y: "0%" }}
         animate={{ y: "-50%" }}
         transition={{
-          duration: 40, // Sedikit lebih cepat agar terasa dinamis
+          duration: 20, // Sedikit lebih cepat agar terasa dinamis
           repeat: Infinity,
           ease: "linear",
         }}
