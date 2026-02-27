@@ -11,6 +11,7 @@ const images = [
   "/images/porto/GyisJudging.png",
   "/images/porto/HoopTourney.png",
   "/images/porto/ICIAApp.jpg",
+  "/images/porto/MyPortfolio.png",
   "/images/porto/ICIAJudgeing.png",
   "/images/porto/Ransite.png",
   "/images/porto/Siw.png",
