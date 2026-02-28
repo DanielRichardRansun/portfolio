@@ -698,8 +698,8 @@ export const en = {
   chatbot: {
     title: "AI Assistant",
     greeting:
-      "Hi there! 👋 I'm Daniel's AI assistant. Ask me anything about his skills, projects, career, or how to get in touch!",
-    placeholder: "Ask me anything about Daniel...",
+      "Hi there! 👋 I'm Richard's AI assistant. Ask me anything about his skills, projects, career, or how to get in touch!",
+    placeholder: "Ask me anything about Richard...",
     error: "Sorry, something went wrong. Please try again.",
     tooltip: "Chat with AI",
   },
