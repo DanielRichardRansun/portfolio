@@ -195,7 +195,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* 1. PROJECTS*/}
-          <SpotlightCard className="col-span-1 md:row-span-2 rounded-3xl p-0 relative overflow-hidden group min-h-[320px] md:min-h-full">
+          <SpotlightCard className="col-span-1 md:row-span-2 rounded-3xl p-0 relative overflow-hidden group min-h-[340px] md:min-h-full">
             <Link href="/projects" className="absolute inset-0 z-30" />
 
             <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-100 transition-all duration-700 filter blur-[1px] group-hover:blur-0">
