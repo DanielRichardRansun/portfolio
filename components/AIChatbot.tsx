@@ -21,19 +21,23 @@ function getTime() {
 
 // Simple markdown parser for AI responses
 function parseMarkdown(text: string): string {
-  return (
-    text
-      // Bold: **text**
-      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-      // Italic: *text*
-      .replace(/\*(.+?)\*/g, "<em>$1</em>")
-      // Bullet lists: lines starting with - or *
-      .replace(/^[\-\*]\s+(.+)$/gm, "<li>$1</li>")
-      // Wrap consecutive <li> in <ul>
-      .replace(/((?:<li>.*<\/li>\n?)+)/g, "<ul>$1</ul>")
-      // Line breaks
-      .replace(/\n/g, "<br />")
-  );
+  let html = text
+    // Bold: **text**
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    // Italic: *text*
+    .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    // Bullet lists: lines starting with - or *
+    .replace(/^[\-\*]\s+(.+)$/gm, "<li>$1</li>")
+    // Wrap consecutive <li> in <ul>
+    .replace(/((?:<li>.*<\/li>\n)+)/g, "<ul>$1</ul>")
+    // Line breaks (but not inside or immediately after tags that already handle breaks)
+    .replace(/\n/g, "<br />");
+
+  // Final cleanup: remove <br /> that are inside <ul> or after </ul>
+  return html
+    .replace(/<ul><br \/>/g, "<ul>")
+    .replace(/<\/li><br \/>/g, "<\/li>")
+    .replace(/<\/ul><br \/>/g, "<\/ul>");
 }
 
 export default function AIChatbot() {
