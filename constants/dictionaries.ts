@@ -280,6 +280,7 @@ export const en = {
     impacts: "Impacts & Achievements",
     items: [
       {
+        shortTitle: "Full-Stack",
         role: "Full-Stack Web Developer",
         company: "PT Muda Karya Kriya",
         date: "Feb 2025 - Present",
@@ -300,6 +301,7 @@ export const en = {
         ],
       },
       {
+        shortTitle: "Web-Dev Intern",
         role: "Web Developer Intern",
         company: "PT Muda Karya Kriya",
         date: "Sep 2024 - Jan 2025",
@@ -320,6 +322,7 @@ export const en = {
         ],
       },
       {
+        shortTitle: "Lecturer Assistant",
         role: "Assistant Lecturer - Native Mobile Programming",
         company: "Surabaya University",
         date: "Sep 2024 - Dec 2024",
@@ -338,6 +341,7 @@ export const en = {
         ],
       },
       {
+        shortTitle: "Volunteer",
         role: "Multimedia & Inforkom Church Service",
         company: "GPIB Cahaya Anugerah",
         date: "Jul 2020 - Present",
@@ -976,6 +980,7 @@ export const id = {
     impacts: "Dampak & Pencapaian",
     items: [
       {
+        shortTitle: "Full-Stack",
         role: "Full-Stack Web Developer",
         company: "PT Muda Karya Kriya",
         date: "Feb 2025 - Sekarang",
@@ -996,6 +1001,7 @@ export const id = {
         ],
       },
       {
+        shortTitle: "Magang Web-Dev",
         role: "Web Developer Intern",
         company: "PT Muda Karya Kriya",
         date: "Sep 2024 - Jan 2025",
@@ -1016,6 +1022,7 @@ export const id = {
         ],
       },
       {
+        shortTitle: "Asisten Dosen",
         role: "Asisten Dosen - Native Mobile Programming",
         company: "Universitas Surabaya",
         date: "Sep 2024 - Des 2024",
@@ -1034,6 +1041,7 @@ export const id = {
         ],
       },
       {
+        shortTitle: "Sukarelawan",
         role: "Multimedia & Inforkom Church Service",
         company: "GPIB Cahaya Anugerah",
         date: "Jul 2020 - Sekarang",
