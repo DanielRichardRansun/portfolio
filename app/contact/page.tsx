@@ -109,7 +109,7 @@ export default function Contact() {
           whileHover={{ y: -5 }}
           className="group relative overflow-hidden bg-gradient-to-br from-[#D44638] to-[#B23121] rounded-2xl p-6 min-h-[160px] flex flex-col justify-between"
         >
-          <div className="absolute right-4 top-4 opacity-20 group-hover:opacity-40 transition-opacity">
+          <div className="absolute right-4 top-4 opacity-20 group-hover:opacity-40 transition-all duration-500 group-hover:rotate-[15deg] group-hover:scale-110">
             <SiGmail size={80} />
           </div>
           <div>
@@ -135,7 +135,7 @@ export default function Contact() {
           whileHover={{ y: -5 }}
           className="group relative overflow-hidden bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] rounded-2xl p-6 min-h-[160px] flex flex-col justify-between"
         >
-          <div className="absolute right-4 top-4 opacity-20 group-hover:opacity-40 transition-opacity">
+          <div className="absolute right-4 top-4 opacity-20 group-hover:opacity-40 transition-all duration-500 group-hover:rotate-[15deg] group-hover:scale-110">
             <SiInstagram size={80} />
           </div>
           <div>
@@ -161,7 +161,7 @@ export default function Contact() {
           whileHover={{ y: -5 }}
           className="group relative overflow-hidden bg-gradient-to-br from-[#0077B5] to-[#005582] rounded-2xl p-6 min-h-[160px] flex flex-col justify-between"
         >
-          <div className="absolute right-4 top-4 opacity-20 group-hover:opacity-40 transition-opacity">
+          <div className="absolute right-4 top-4 opacity-20 group-hover:opacity-40 transition-all duration-500 group-hover:rotate-[15deg] group-hover:scale-110">
             <SiLinkedin size={80} />
           </div>
           <div>
@@ -187,7 +187,7 @@ export default function Contact() {
           whileHover={{ y: -5 }}
           className="group relative overflow-hidden bg-gradient-to-br from-[#333333] to-[#000000] rounded-2xl p-6 min-h-[160px] flex flex-col justify-between border border-[var(--border-subtle)]"
         >
-          <div className="absolute right-4 top-4 opacity-20 group-hover:opacity-40 transition-opacity text-white">
+          <div className="absolute right-4 top-4 opacity-20 group-hover:opacity-40 transition-all duration-500 group-hover:rotate-[15deg] group-hover:scale-110 text-white">
             <SiGithub size={80} />
           </div>
           <div>
