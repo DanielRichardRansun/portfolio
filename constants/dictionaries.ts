@@ -403,7 +403,7 @@ export const en = {
         title: "My Portfolio",
         category: "Personal Website",
         image: "/images/porto/MyPortfolio.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://danielrichardransun.vercel.app/",
         tech: ["React", "Next.js", "Tailwind"],
         desc: "A modern interactive personal website built with React to showcase professional experience and attract HR and potential clients.",
         features: [
@@ -427,7 +427,7 @@ export const en = {
         title: "Judging Website",
         category: "Management System",
         image: "/images/porto/ICIAJudgeing.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://icia-judgingform.krya.global/",
         tech: ["Laravel", "PHP", "MySQL"],
         desc: "A web-based judging management system designed to streamline scoring and certification processes for international competitions.",
         features: [
@@ -452,7 +452,7 @@ export const en = {
         title: "Apple GSAP web",
         category: "Animation Demo",
         image: "/images/porto/AppleRebrand.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://macbook-landingpage-gsap.vercel.app/",
         tech: ["React", "GSAP", "Three.js"],
         desc: "An animated landing page inspired by Apple’s website, built using React and GSAP to explore advanced animation techniques.",
         features: [
@@ -499,7 +499,7 @@ export const en = {
         title: "GYIS Admin System",
         category: "Admin System",
         image: "/images/porto/GyisJudging.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://gyis-judgingform.krya.global/",
         tech: ["Laravel", "Bootstrap", "PHP"],
         desc: "An event administration and judging platform built for GYIS Singapore competition management.",
         features: [
@@ -523,7 +523,7 @@ export const en = {
         title: "Startup Innovation Wknd",
         category: "Event Landing",
         image: "/images/porto/Siw.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "http://siw.icia.global/",
         tech: ["HTML", "CSS", "JavaScript"],
         desc: "A responsive landing page developed to promote Startup Innovation Weekend 2026 Phnom Penh, Cambodia.",
         features: [
@@ -1103,7 +1103,7 @@ export const id = {
         title: "My Portfolio",
         category: "Personal Website",
         image: "/images/porto/MyPortfolio.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://danielrichardransun.vercel.app/",
         tech: ["React", "Next.js", "Tailwind"],
         desc: "A modern interactive personal website built with React to showcase professional experience and attract HR and potential clients.",
         features: [
@@ -1127,7 +1127,7 @@ export const id = {
         title: "Judging Website",
         category: "Management System",
         image: "/images/porto/ICIAJudgeing.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://icia-judgingform.krya.global/",
         tech: ["Laravel", "PHP", "MySQL"],
         desc: "A web-based judging management system designed to streamline scoring and certification processes for international competitions.",
         features: [
@@ -1152,7 +1152,7 @@ export const id = {
         title: "Apple GSAP web",
         category: "Animation Demo",
         image: "/images/porto/AppleRebrand.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://macbook-landingpage-gsap.vercel.app/",
         tech: ["React", "GSAP", "Three.js"],
         desc: "An animated landing page inspired by Apple’s website, built using React and GSAP to explore advanced animation techniques.",
         features: [
@@ -1199,7 +1199,7 @@ export const id = {
         title: "GYIS Admin System",
         category: "Admin System",
         image: "/images/porto/GyisJudging.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://gyis-judgingform.krya.global/",
         tech: ["Laravel", "Bootstrap", "PHP"],
         desc: "An event administration and judging platform built for GYIS Singapore competition management.",
         features: [
@@ -1223,7 +1223,7 @@ export const id = {
         title: "Startup Innovation Wknd",
         category: "Event Landing",
         image: "/images/porto/Siw.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "http://siw.icia.global/",
         tech: ["HTML", "CSS", "JavaScript"],
         desc: "A responsive landing page developed to promote Startup Innovation Weekend 2026 Phnom Penh, Cambodia.",
         features: [
