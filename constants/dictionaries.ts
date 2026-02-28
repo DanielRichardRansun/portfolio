@@ -569,7 +569,7 @@ export const en = {
         title: "Mocraft",
         category: "Company Profile",
         image: "/images/porto/Mocraft.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://mocraft3d.com/",
         tech: ["Wordpress", "Elementor"],
         desc: "A company profile website for a 3D printing service business designed to enhance credibility and multi-country reach.",
         features: [
@@ -591,7 +591,7 @@ export const en = {
         title: "Akusila",
         category: "E-Commerce",
         image: "/images/porto/Akusila.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://akusila.com/",
         tech: ["Wordpress", "WooCommerce", "Elementor"],
         desc: "A simple and elegant e-commerce website selling traditional jute bags.",
         features: [
@@ -613,7 +613,7 @@ export const en = {
         title: "Krya Global",
         category: "Company Profile",
         image: "/images/porto/KryaGlobal.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://krya.global/",
         tech: ["Wordpress", "Elementor"],
         desc: "A company profile website for an educational company with 5 different brands identity websites.",
         features: [
@@ -636,7 +636,7 @@ export const en = {
         title: "ICIA Global",
         category: "Organization Website",
         image: "/images/porto/ICIA_Global.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://www.icia.global/",
         tech: ["Wordpress", "Elementor"],
         desc: "Official website for an international innovation competition platform.",
         features: [
@@ -1269,7 +1269,7 @@ export const id = {
         title: "Mocraft",
         category: "Company Profile",
         image: "/images/porto/Mocraft.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://mocraft3d.com/",
         tech: ["Wordpress", "Elementor"],
         desc: "A company profile website for a 3D printing service business designed to enhance credibility and multi-country reach.",
         features: [
@@ -1291,7 +1291,7 @@ export const id = {
         title: "Akusila",
         category: "E-Commerce",
         image: "/images/porto/Akusila.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://akusila.com/",
         tech: ["Wordpress", "WooCommerce", "Elementor"],
         desc: "A simple and elegant e-commerce website selling traditional jute bags.",
         features: [
@@ -1313,7 +1313,7 @@ export const id = {
         title: "Krya Global",
         category: "Company Profile",
         image: "/images/porto/KryaGlobal.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://krya.global/",
         tech: ["Wordpress", "Elementor"],
         desc: "A company profile website for an educational company with 5 different brands identity websites.",
         features: [
@@ -1336,7 +1336,7 @@ export const id = {
         title: "ICIA Global",
         category: "Organization Website",
         image: "/images/porto/ICIA_Global.png",
-        liveUrl: "https://ransite.com",
+        liveUrl: "https://www.icia.global/",
         tech: ["Wordpress", "Elementor"],
         desc: "Official website for an international innovation competition platform.",
         features: [
