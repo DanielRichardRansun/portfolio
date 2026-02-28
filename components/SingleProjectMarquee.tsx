@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";  
+import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -15,6 +15,10 @@ const images = [
   "/images/porto/ICIAJudgeing.png",
   "/images/porto/Ransite.png",
   "/images/porto/Siw.png",
+  "/images/porto/Akusila.png",
+  "/images/porto/ICIA_Global.png",
+  "/images/porto/KryaGlobal.png",
+  "/images/porto/Mocraft.png",
 ];
 
 const SingleProjectMarquee = ({ className = "" }: { className?: string }) => {
