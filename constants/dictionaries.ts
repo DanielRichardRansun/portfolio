@@ -695,6 +695,14 @@ export const en = {
       timestamp_2: "10:25 AM",
     },
   },
+  chatbot: {
+    title: "AI Assistant",
+    greeting:
+      "Hi there! 👋 I'm Daniel's AI assistant. Ask me anything about his skills, projects, career, or how to get in touch!",
+    placeholder: "Ask me anything about Daniel...",
+    error: "Sorry, something went wrong. Please try again.",
+    tooltip: "Chat with AI",
+  },
 };
 
 export const id = {
@@ -1394,5 +1402,13 @@ export const id = {
       timestamp_1: "10:23 AM",
       timestamp_2: "10:25 AM",
     },
+  },
+  chatbot: {
+    title: "Asisten AI",
+    greeting:
+      "Halo! 👋 Saya asisten AI Daniel. Tanyakan apa saja tentang keahlian, proyek, karir, atau cara menghubungi Daniel!",
+    placeholder: "Tanyakan apa saja tentang Daniel...",
+    error: "Maaf, terjadi kesalahan. Silakan coba lagi.",
+    tooltip: "Chat dengan AI",
   },
 };

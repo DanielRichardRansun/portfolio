@@ -7,6 +7,7 @@ import Sidebar from "@/components/Sidebar";
 import InitialLoader from "@/components/InitialLoader";
 import ThemeTransition from "@/components/ThemeTransition";
 import { ThemeTransitionProvider } from "@/context/ThemeTransitionContext";
+import AIChatbot from "@/components/AIChatbot";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export default function RootLayout({
                   {children}
                 </main>
               </div>
+              <AIChatbot />
             </LanguageProvider>
           </ThemeTransitionProvider>
         </ThemeProvider>
