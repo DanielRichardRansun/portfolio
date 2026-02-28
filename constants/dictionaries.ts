@@ -476,7 +476,7 @@ export const en = {
         category: "Sports App",
         image: "/images/porto/HoopTourney.png",
         liveUrl: "https://hooptourney.vercel.app/",
-        tech: ["Laravel", "Bootstrap", "PHP"],
+        tech: ["Laravel", "Tailwind", "PHP"],
         desc: "A web platform designed to manage basketball tournaments, connecting organizers, teams, and players in one integrated system.",
         features: [
           "Visual tournament bracket system",
@@ -500,7 +500,7 @@ export const en = {
         category: "Admin System",
         image: "/images/porto/GyisJudging.png",
         liveUrl: "https://gyis-judgingform.krya.global/",
-        tech: ["Laravel", "Bootstrap", "PHP"],
+        tech: ["Laravel", "Tailwind", "PHP"],
         desc: "An event administration and judging platform built for GYIS Singapore competition management.",
         features: [
           "Participant data management",
@@ -637,7 +637,7 @@ export const en = {
         category: "Organization Website",
         image: "/images/porto/ICIA_Global.png",
         liveUrl: "https://www.icia.global/",
-        tech: ["Wordpress", "Elementor"],
+        tech: ["Wix Studio"],
         desc: "Official website for an international innovation competition platform.",
         features: [
           "Event information management",
@@ -1176,7 +1176,7 @@ export const id = {
         category: "Sports App",
         image: "/images/porto/HoopTourney.png",
         liveUrl: "https://hooptourney.vercel.app/",
-        tech: ["Laravel", "Bootstrap", "PHP"],
+        tech: ["Laravel", "Tailwind", "PHP"],
         desc: "A web platform designed to manage basketball tournaments, connecting organizers, teams, and players in one integrated system.",
         features: [
           "Visual tournament bracket system",
@@ -1200,7 +1200,7 @@ export const id = {
         category: "Admin System",
         image: "/images/porto/GyisJudging.png",
         liveUrl: "https://gyis-judgingform.krya.global/",
-        tech: ["Laravel", "Bootstrap", "PHP"],
+        tech: ["Laravel", "Tailwind", "PHP"],
         desc: "An event administration and judging platform built for GYIS Singapore competition management.",
         features: [
           "Participant data management",
@@ -1337,7 +1337,7 @@ export const id = {
         category: "Organization Website",
         image: "/images/porto/ICIA_Global.png",
         liveUrl: "https://www.icia.global/",
-        tech: ["Wordpress", "Elementor"],
+        tech: ["Wix Studio"],
         desc: "Official website for an international innovation competition platform.",
         features: [
           "Event information management",

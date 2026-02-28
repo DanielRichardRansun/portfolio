@@ -29,6 +29,7 @@ import {
   SiCss3,
   SiJavascript,
 } from "react-icons/si";
+import { FaWix } from "react-icons/fa";
 
 import SpotlightCard from "@/components/SpotlightCard";
 import Tabs from "@/components/Tabs";
@@ -68,6 +69,8 @@ export default function Projects() {
         return <SiNextdotjs className="text-[var(--text-heading)]" />;
       case "wordpress":
         return <SiWordpress className="text-blue-500" />;
+      case "wix studio":
+        return <FaWix className="text-blue-500" />;
       case "elementor":
         return <SiElementor className="text-pink-600" />;
       case "woocommerce":
@@ -112,7 +115,7 @@ export default function Projects() {
 
   const cmsProjects = t.projects.items.filter((project: Project) =>
     project.tech.some((tech) =>
-      ["wordpress", "wix", "elementor", "woocommerce"].includes(
+      ["wordpress", "wix studio", "elementor", "woocommerce"].includes(
         tech.toLowerCase(),
       ),
     ),
