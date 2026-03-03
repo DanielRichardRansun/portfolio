@@ -45,12 +45,21 @@ function parseMarkdown(text: string): string {
 export default function AIChatbot() {
   const { t, language } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [hasGreeted, setHasGreeted] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Sync with initial loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 1500); // Wait for initial loading animation (usually 1-1.5s)
+    return () => clearTimeout(timer);
+  }, []);
 
   const chatbot = t.chatbot;
 
@@ -144,198 +153,212 @@ export default function AIChatbot() {
   };
 
   return (
-    <>
-      {/* Floating Toggle Button */}
-      <motion.button
-        className="chatbot-toggle"
-        onClick={() => setIsOpen(!isOpen)}
-        whileTap={{ scale: 0.9 }}
-        aria-label={chatbot.tooltip}
-      >
-        <AnimatePresence mode="wait">
-          {isOpen ? (
-            <motion.span
-              key="close"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <FiX size={24} />
-            </motion.span>
-          ) : (
-            <motion.span
-              key="chat"
-              initial={{ rotate: 90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: -90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <FiMessageCircle size={24} />
-            </motion.span>
-          )}
-        </AnimatePresence>
-      </motion.button>
-
-      {/* Chat Panel */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="chatbot-panel"
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
+    <AnimatePresence>
+      {isVisible && (
+        <>
+          {/* Floating Toggle Button */}
+          <motion.button
+            className="chatbot-toggle"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            onClick={() => setIsOpen(!isOpen)}
+            whileTap={{ scale: 0.9 }}
+            aria-label={chatbot.tooltip}
           >
-            {/* Header */}
-            <div className="chatbot-header">
-              <div className="chatbot-header-info">
-                <div className="chatbot-avatar">
-                  <Image
-                    src="/ai-bot.png"
-                    alt="AI Bot"
-                    width={44}
-                    height={44}
-                    className="object-cover"
-                  />
-                </div>
-                <div className="chatbot-header-text">
-                  <h3>{chatbot.title}</h3>
-                  <span>
-                    <span className="online-dot" />
-                    Online
-                  </span>
-                </div>
-              </div>
-              <button
-                className="chatbot-close"
-                onClick={() => setIsOpen(false)}
-                aria-label="Close chat"
-              >
-                <FiX size={16} />
-              </button>
-            </div>
-
-            {/* Messages */}
-            <div className="chatbot-messages">
-              {messages.map((msg, i) => (
-                <div key={i} className={`chatbot-message ${msg.role}`}>
-                  {msg.role === "assistant" ? (
-                    <div
-                      className="bubble"
-                      dangerouslySetInnerHTML={{
-                        __html: parseMarkdown(msg.content),
-                      }}
-                    />
-                  ) : (
-                    <div className="bubble">{msg.content}</div>
-                  )}
-                  <span className="timestamp">{msg.timestamp}</span>
-                </div>
-              ))}
-
-              {isLoading && (
-                <div className="chatbot-message assistant">
-                  <div className="typing-indicator">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                </div>
+            <AnimatePresence mode="wait">
+              {isOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <FiX size={24} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="chat"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <FiMessageCircle size={24} />
+                </motion.span>
               )}
+            </AnimatePresence>
+          </motion.button>
 
-              <div ref={messagesEndRef} />
-            </div>
-
-            {/* Suggested Questions Moved Here */}
-            {messages.length === 1 && !isLoading && chatbot.suggestions && (
-              <div className="chatbot-suggestions-container">
-                {chatbot.suggestions.map((suggestion: string, i: number) => (
-                  <button
-                    key={i}
-                    className="suggestion-item"
-                    onClick={() => {
-                      setInput(suggestion);
-                      const sendSuggestion = async () => {
-                        if (isLoading) return;
-                        const userMsg: Message = {
-                          role: "user",
-                          content: suggestion,
-                          timestamp: getTime(),
-                        };
-                        const updatedMessages = [...messages, userMsg];
-                        setMessages(updatedMessages);
-                        setInput("");
-                        setIsLoading(true);
-
-                        try {
-                          const res = await fetch("/api/chat", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({
-                              messages: updatedMessages.map((m) => ({
-                                role: m.role,
-                                content: m.content,
-                              })),
-                              language,
-                            }),
-                          });
-                          const data = await res.json();
-                          if (data.error) throw new Error(data.error);
-                          setMessages((prev) => [
-                            ...prev,
-                            {
-                              role: "assistant",
-                              content: data.reply,
-                              timestamp: getTime(),
-                            },
-                          ]);
-                        } catch {
-                          setMessages((prev) => [
-                            ...prev,
-                            {
-                              role: "assistant",
-                              content: chatbot.error,
-                              timestamp: getTime(),
-                            },
-                          ]);
-                        } finally {
-                          setIsLoading(false);
-                        }
-                      };
-                      sendSuggestion();
-                    }}
-                  >
-                    <span>{suggestion}</span>
-                    <FiArrowUpRight size={16} className="suggestion-icon" />
-                  </button>
-                ))}
-              </div>
-            )}
-
-            {/* Input */}
-            <div className="chatbot-input-area">
-              <input
-                ref={inputRef}
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                placeholder={chatbot.placeholder}
-                disabled={isLoading}
-              />
-              <button
-                className="chatbot-send"
-                onClick={sendMessage}
-                disabled={!input.trim() || isLoading}
-                aria-label="Send message"
+          {/* Chat Panel */}
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                className="chatbot-panel"
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
               >
-                <FiSend size={18} />
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+                {/* Header */}
+                <div className="chatbot-header">
+                  <div className="chatbot-header-info">
+                    <div className="chatbot-avatar">
+                      <Image
+                        src="/ai-bot.png"
+                        alt="AI Bot"
+                        width={44}
+                        height={44}
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="chatbot-header-text">
+                      <h3>{chatbot.title}</h3>
+                      <span>
+                        <span className="online-dot" />
+                        Online
+                      </span>
+                    </div>
+                  </div>
+                  <button
+                    className="chatbot-close"
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Close chat"
+                  >
+                    <FiX size={16} />
+                  </button>
+                </div>
+
+                {/* Messages */}
+                <div className="chatbot-messages">
+                  {messages.map((msg, i) => (
+                    <div key={i} className={`chatbot-message ${msg.role}`}>
+                      {msg.role === "assistant" ? (
+                        <div
+                          className="bubble"
+                          dangerouslySetInnerHTML={{
+                            __html: parseMarkdown(msg.content),
+                          }}
+                        />
+                      ) : (
+                        <div className="bubble">{msg.content}</div>
+                      )}
+                      <span className="timestamp">{msg.timestamp}</span>
+                    </div>
+                  ))}
+
+                  {isLoading && (
+                    <div className="chatbot-message assistant">
+                      <div className="typing-indicator">
+                        <span />
+                        <span />
+                        <span />
+                      </div>
+                    </div>
+                  )}
+
+                  <div ref={messagesEndRef} />
+                </div>
+
+                {/* Suggested Questions Moved Here */}
+                {messages.length === 1 && !isLoading && chatbot.suggestions && (
+                  <div className="chatbot-suggestions-container">
+                    {chatbot.suggestions.map(
+                      (suggestion: string, i: number) => (
+                        <button
+                          key={i}
+                          className="suggestion-item"
+                          onClick={() => {
+                            setInput(suggestion);
+                            const sendSuggestion = async () => {
+                              if (isLoading) return;
+                              const userMsg: Message = {
+                                role: "user",
+                                content: suggestion,
+                                timestamp: getTime(),
+                              };
+                              const updatedMessages = [...messages, userMsg];
+                              setMessages(updatedMessages);
+                              setInput("");
+                              setIsLoading(true);
+
+                              try {
+                                const res = await fetch("/api/chat", {
+                                  method: "POST",
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                  },
+                                  body: JSON.stringify({
+                                    messages: updatedMessages.map((m) => ({
+                                      role: m.role,
+                                      content: m.content,
+                                    })),
+                                    language,
+                                  }),
+                                });
+                                const data = await res.json();
+                                if (data.error) throw new Error(data.error);
+                                setMessages((prev) => [
+                                  ...prev,
+                                  {
+                                    role: "assistant",
+                                    content: data.reply,
+                                    timestamp: getTime(),
+                                  },
+                                ]);
+                              } catch {
+                                setMessages((prev) => [
+                                  ...prev,
+                                  {
+                                    role: "assistant",
+                                    content: chatbot.error,
+                                    timestamp: getTime(),
+                                  },
+                                ]);
+                              } finally {
+                                setIsLoading(false);
+                              }
+                            };
+                            sendSuggestion();
+                          }}
+                        >
+                          <span>{suggestion}</span>
+                          <FiArrowUpRight
+                            size={16}
+                            className="suggestion-icon"
+                          />
+                        </button>
+                      ),
+                    )}
+                  </div>
+                )}
+
+                {/* Input */}
+                <div className="chatbot-input-area">
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    placeholder={chatbot.placeholder}
+                    disabled={isLoading}
+                  />
+                  <button
+                    className="chatbot-send"
+                    onClick={sendMessage}
+                    disabled={!input.trim() || isLoading}
+                    aria-label="Send message"
+                  >
+                    <FiSend size={18} />
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </>
+      )}
+    </AnimatePresence>
   );
 }
