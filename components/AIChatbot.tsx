@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiMessageCircle, FiX, FiSend } from "react-icons/fi";
+import { FiMessageCircle, FiX, FiSend, FiArrowUpRight } from "react-icons/fi";
 import { useLanguage } from "@/context/LanguageContext";
 import "./AIChatbot.css";
 
@@ -236,73 +236,6 @@ export default function AIChatbot() {
                 </div>
               ))}
 
-              {/* Suggested Questions */}
-              {messages.length === 1 && !isLoading && chatbot.suggestions && (
-                <div className="chatbot-suggestions">
-                  {chatbot.suggestions.map((suggestion: string, i: number) => (
-                    <button
-                      key={i}
-                      className="suggestion-chip"
-                      onClick={() => {
-                        setInput(suggestion);
-                        // Using a timeout to ensure state is updated before sending
-                        // or just calling sendMessage with the suggestion directly
-                        const sendSuggestion = async () => {
-                          if (isLoading) return;
-                          const userMsg: Message = {
-                            role: "user",
-                            content: suggestion,
-                            timestamp: getTime(),
-                          };
-                          const updatedMessages = [...messages, userMsg];
-                          setMessages(updatedMessages);
-                          setInput("");
-                          setIsLoading(true);
-
-                          try {
-                            const res = await fetch("/api/chat", {
-                              method: "POST",
-                              headers: { "Content-Type": "application/json" },
-                              body: JSON.stringify({
-                                messages: updatedMessages.map((m) => ({
-                                  role: m.role,
-                                  content: m.content,
-                                })),
-                                language,
-                              }),
-                            });
-                            const data = await res.json();
-                            if (data.error) throw new Error(data.error);
-                            setMessages((prev) => [
-                              ...prev,
-                              {
-                                role: "assistant",
-                                content: data.reply,
-                                timestamp: getTime(),
-                              },
-                            ]);
-                          } catch {
-                            setMessages((prev) => [
-                              ...prev,
-                              {
-                                role: "assistant",
-                                content: chatbot.error,
-                                timestamp: getTime(),
-                              },
-                            ]);
-                          } finally {
-                            setIsLoading(false);
-                          }
-                        };
-                        sendSuggestion();
-                      }}
-                    >
-                      {suggestion}
-                    </button>
-                  ))}
-                </div>
-              )}
-
               {isLoading && (
                 <div className="chatbot-message assistant">
                   <div className="typing-indicator">
@@ -315,6 +248,72 @@ export default function AIChatbot() {
 
               <div ref={messagesEndRef} />
             </div>
+
+            {/* Suggested Questions Moved Here */}
+            {messages.length === 1 && !isLoading && chatbot.suggestions && (
+              <div className="chatbot-suggestions-container">
+                {chatbot.suggestions.map((suggestion: string, i: number) => (
+                  <button
+                    key={i}
+                    className="suggestion-item"
+                    onClick={() => {
+                      setInput(suggestion);
+                      const sendSuggestion = async () => {
+                        if (isLoading) return;
+                        const userMsg: Message = {
+                          role: "user",
+                          content: suggestion,
+                          timestamp: getTime(),
+                        };
+                        const updatedMessages = [...messages, userMsg];
+                        setMessages(updatedMessages);
+                        setInput("");
+                        setIsLoading(true);
+
+                        try {
+                          const res = await fetch("/api/chat", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                              messages: updatedMessages.map((m) => ({
+                                role: m.role,
+                                content: m.content,
+                              })),
+                              language,
+                            }),
+                          });
+                          const data = await res.json();
+                          if (data.error) throw new Error(data.error);
+                          setMessages((prev) => [
+                            ...prev,
+                            {
+                              role: "assistant",
+                              content: data.reply,
+                              timestamp: getTime(),
+                            },
+                          ]);
+                        } catch {
+                          setMessages((prev) => [
+                            ...prev,
+                            {
+                              role: "assistant",
+                              content: chatbot.error,
+                              timestamp: getTime(),
+                            },
+                          ]);
+                        } finally {
+                          setIsLoading(false);
+                        }
+                      };
+                      sendSuggestion();
+                    }}
+                  >
+                    <span>{suggestion}</span>
+                    <FiArrowUpRight size={16} className="suggestion-icon" />
+                  </button>
+                ))}
+              </div>
+            )}
 
             {/* Input */}
             <div className="chatbot-input-area">
