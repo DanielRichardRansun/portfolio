@@ -322,6 +322,27 @@ export const en = {
         ],
       },
       {
+        shortTitle: "Freelance",
+        role: "Freelance Web Developer",
+        company: "Ransite Official",
+        date: "Nov 2024 - Present",
+        type: "Freelance",
+        logo: "/images/logo/ransite.png",
+        desc: "Providing freelance web development services for business and e-commerce clients.",
+        responsibilities: [
+          "Developed and delivered 3+ business and e-commerce websites.",
+          "Built websites using WordPress and custom coding based on client needs.",
+          "Handled full website setup: hosting, domain, DNS, SEO, testing, and maintenance.",
+          "Managed client communication, requirement analysis, and project execution.",
+        ],
+        impacts: [
+          "Successfully launched 3+ active websites for real clients.",
+          "Improved WordPress and custom coding skills through real-world projects.",
+          "Helped clients establish professional and functional online presence.",
+          "Built repeat-client trust through clear communication and reliable delivery.",
+        ],
+      },
+      {
         shortTitle: "Lecturer Assistant",
         role: "Assistant Lecturer - Native Mobile Programming",
         company: "Surabaya University",
@@ -427,7 +448,7 @@ export const en = {
         title: "Judging Website",
         category: "Management System",
         image: "/images/porto/ICIAJudgeing.png",
-        liveUrl: "https://icia-judgingform.krya.global/",
+        liveUrl: "https://judge.icia.global/",
         tech: ["Laravel", "PHP", "MySQL"],
         desc: "A web-based judging management system designed to streamline scoring and certification processes for international competitions.",
         features: [
@@ -1030,6 +1051,27 @@ export const id = {
         ],
       },
       {
+        shortTitle: "Freelance",
+        role: "Freelance Web Developer",
+        company: "Ransite Official",
+        date: "Nov 2024 - Sekarang",
+        type: "Freelance",
+        logo: "/images/logo/ransite.png",
+        desc: "Menyediakan layanan pengembangan website freelance untuk klien bisnis dan e-commerce.",
+        responsibilities: [
+          "Mengembangkan dan meluncurkan 3+ situs web bisnis dan e-commerce.",
+          "Membangun situs web menggunakan WordPress dan custom coding sesuai kebutuhan klien.",
+          "Menangani setup website lengkap: hosting, domain, DNS, SEO, testing, dan maintenance.",
+          "Mengelola komunikasi klien, analisis kebutuhan, dan eksekusi proyek.",
+        ],
+        impacts: [
+          "Berhasil meluncurkan 3+ situs web aktif untuk klien nyata.",
+          "Meningkatkan keterampilan WordPress dan custom coding melalui proyek nyata.",
+          "Membantu klien membangun kehadiran online yang profesional dan fungsional.",
+          "Membangun kepercayaan klien melalui komunikasi yang jelas dan pengiriman yang andal.",
+        ],
+      },
+      {
         shortTitle: "Asisten Dosen",
         role: "Asisten Dosen - Native Mobile Programming",
         company: "Universitas Surabaya",
@@ -1135,7 +1177,7 @@ export const id = {
         title: "Judging Website",
         category: "Sistem Manajemen",
         image: "/images/porto/ICIAJudgeing.png",
-        liveUrl: "https://icia-judgingform.krya.global/",
+        liveUrl: "https://judge.icia.global/",
         tech: ["Laravel", "PHP", "MySQL"],
         desc: "Sistem manajemen penilaian berbasis web yang dirancang untuk menyederhanakan proses penilaian dan sertifikasi untuk kompetisi internasional.",
         features: [
