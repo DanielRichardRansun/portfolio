@@ -6,6 +6,8 @@ import { FiMessageCircle, FiX, FiSend } from "react-icons/fi";
 import { useLanguage } from "@/context/LanguageContext";
 import "./AIChatbot.css";
 
+import Image from "next/image";
+
 interface Message {
   role: "user" | "assistant";
   content: string;
@@ -190,7 +192,15 @@ export default function AIChatbot() {
             {/* Header */}
             <div className="chatbot-header">
               <div className="chatbot-header-info">
-                <div className="chatbot-avatar">🤖</div>
+                <div className="chatbot-avatar">
+                  <Image
+                    src="/ai-bot.png"
+                    alt="AI Bot"
+                    width={40}
+                    height={40}
+                    className="object-cover"
+                  />
+                </div>
                 <div className="chatbot-header-text">
                   <h3>{chatbot.title}</h3>
                   <span>
