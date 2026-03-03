@@ -196,8 +196,8 @@ export default function AIChatbot() {
                   <Image
                     src="/ai-bot.png"
                     alt="AI Bot"
-                    width={40}
-                    height={40}
+                    width={44}
+                    height={44}
                     className="object-cover"
                   />
                 </div>
@@ -235,6 +235,73 @@ export default function AIChatbot() {
                   <span className="timestamp">{msg.timestamp}</span>
                 </div>
               ))}
+
+              {/* Suggested Questions */}
+              {messages.length === 1 && !isLoading && chatbot.suggestions && (
+                <div className="chatbot-suggestions">
+                  {chatbot.suggestions.map((suggestion: string, i: number) => (
+                    <button
+                      key={i}
+                      className="suggestion-chip"
+                      onClick={() => {
+                        setInput(suggestion);
+                        // Using a timeout to ensure state is updated before sending
+                        // or just calling sendMessage with the suggestion directly
+                        const sendSuggestion = async () => {
+                          if (isLoading) return;
+                          const userMsg: Message = {
+                            role: "user",
+                            content: suggestion,
+                            timestamp: getTime(),
+                          };
+                          const updatedMessages = [...messages, userMsg];
+                          setMessages(updatedMessages);
+                          setInput("");
+                          setIsLoading(true);
+
+                          try {
+                            const res = await fetch("/api/chat", {
+                              method: "POST",
+                              headers: { "Content-Type": "application/json" },
+                              body: JSON.stringify({
+                                messages: updatedMessages.map((m) => ({
+                                  role: m.role,
+                                  content: m.content,
+                                })),
+                                language,
+                              }),
+                            });
+                            const data = await res.json();
+                            if (data.error) throw new Error(data.error);
+                            setMessages((prev) => [
+                              ...prev,
+                              {
+                                role: "assistant",
+                                content: data.reply,
+                                timestamp: getTime(),
+                              },
+                            ]);
+                          } catch {
+                            setMessages((prev) => [
+                              ...prev,
+                              {
+                                role: "assistant",
+                                content: chatbot.error,
+                                timestamp: getTime(),
+                              },
+                            ]);
+                          } finally {
+                            setIsLoading(false);
+                          }
+                        };
+                        sendSuggestion();
+                      }}
+                    >
+                      {suggestion}
+                    </button>
+                  ))}
+                </div>
+              )}
 
               {isLoading && (
                 <div className="chatbot-message assistant">
