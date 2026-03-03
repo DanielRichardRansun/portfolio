@@ -13,34 +13,27 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(var(--primary-rgb, 13, 148, 136), 0.2);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .chatbot-toggle:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.25);
+  transform: scale(1.15);
+  box-shadow: 0 8px 30px rgba(var(--primary-rgb, 13, 148, 136), 0.3);
   border-color: var(--primary);
+  color: var(--primary);
 }
 
-.chatbot-toggle .pulse-ring {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 2px solid var(--primary);
-  animation: chatbot-pulse 2s ease-out infinite;
-  pointer-events: none;
+.chatbot-toggle:hover span {
+  animation: icon-bounce 0.5s ease infinite alternate;
 }
 
-@keyframes chatbot-pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
+@keyframes icon-bounce {
+  from {
+    transform: translateY(0) rotate(0deg);
   }
-  100% {
-    transform: scale(1.6);
-    opacity: 0;
+  to {
+    transform: translateY(-3px) rotate(10deg);
   }
 }
 

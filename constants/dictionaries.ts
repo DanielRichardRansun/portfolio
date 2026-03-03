@@ -719,7 +719,7 @@ export const en = {
   chatbot: {
     title: "Ribot",
     greeting:
-      "Hi there! 👋 I'm Ribot (Richard AI Chatbot). Ask me anything about his skills, projects, career, or how to get in touch!",
+      "Hi there! 👋 I'm Ribot (Richard Chatbot). Ask me anything about his skills, projects, career, or how to get in touch!",
     placeholder: "Ask me anything about Richard...",
     error: "Sorry, something went wrong. Please try again.",
     tooltip: "Chat with Ribot",
@@ -1453,7 +1453,7 @@ export const id = {
   chatbot: {
     title: "Ribot (AI Chatbot)",
     greeting:
-      "Halo! 👋 Saya Ribot (Richard AI Chatbot). Tanyakan apa saja tentang keahlian, proyek, karir, atau cara menghubungi Richard!",
+      "Halo! 👋 Saya Ribot (Richard Chatbot). Tanyakan apa saja tentang keahlian, proyek, karir, atau cara menghubungi Richard!",
     placeholder: "Tanyakan apa saja tentang Richard...",
     error: "Maaf, terjadi kesalahan. Silakan coba lagi.",
     tooltip: "Chat dengan Ribot",
