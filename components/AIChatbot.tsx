@@ -28,6 +28,11 @@ function parseMarkdown(text: string): string {
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     // Italic: *text*
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    // Links: [text](url)
+    .replace(
+      /\[([^\]]+)\]\(([^)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>',
+    )
     // Bullet lists: lines starting with - or *
     .replace(/^[\-\*]\s+(.+)$/gm, "<li>$1</li>")
     // Wrap consecutive <li> in <ul>

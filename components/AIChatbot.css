@@ -226,6 +226,23 @@
   margin-top: 6px;
 }
 
+.chatbot-message .bubble a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.chatbot-message.user .bubble a {
+  color: var(--primary-foreground);
+}
+
+.chatbot-message .bubble a:hover {
+  opacity: 0.8;
+  text-decoration-thickness: 2px;
+}
+
 .chatbot-message .timestamp {
   font-size: 10px;
   color: var(--text-muted);
