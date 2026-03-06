@@ -85,7 +85,7 @@ CMS Projects:
 === CONTACT ===
 - Email: richardgtwp@gmail.com
 - Instagram: @danielrichardr_
-- LinkedIn: https://www.linkedin.com/in/daniel-richard-ransun-991216272/
+- LinkedIn: https://www.linkedin.com/in/danielrichardr/
 - GitHub: https://github.com/danielrichardransun
 - Resume: Available on Canva (link on portfolio site)
 - Website Development Services: https://ransite.com

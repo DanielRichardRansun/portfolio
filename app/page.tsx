@@ -151,7 +151,7 @@ export default function Home() {
           <HoverIconLabel
             icon={<SiLinkedin size={20} />}
             label="LinkedIn"
-            href="https://www.linkedin.com/in/daniel-richard-ransun-991216272/"
+            href="https://www.linkedin.com/in/danielrichardr/"
             target="_blank"
             rel="noopener noreferrer"
           />

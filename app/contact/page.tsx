@@ -155,7 +155,7 @@ export default function Contact() {
         </motion.a>
 
         <motion.a
-          href="https://www.linkedin.com/in/daniel-richard-ransun-991216272/"
+          href="https://www.linkedin.com/in/danielrichardr/"
           target="_blank"
           variants={fadeInUp}
           whileHover={{ y: -5 }}
