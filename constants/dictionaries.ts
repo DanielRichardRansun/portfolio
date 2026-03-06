@@ -282,7 +282,7 @@ export const en = {
       {
         shortTitle: "Full-Stack",
         role: "Full-Stack Web Developer",
-        company: "PT Muda Karya Kriya",
+        company: "PT Muda Karya Krya",
         date: "Feb 2025 - Present",
         type: "Full-time",
         logo: "/images/logo/krya.png",
@@ -303,7 +303,7 @@ export const en = {
       {
         shortTitle: "Web-Dev Intern",
         role: "Web Developer Intern",
-        company: "PT Muda Karya Kriya",
+        company: "PT Muda Karya Krya",
         date: "Sep 2024 - Jan 2025",
         type: "Internship",
         logo: "/images/logo/krya.png",
@@ -363,7 +363,7 @@ export const en = {
       },
       {
         shortTitle: "Volunteer",
-        role: "Multimedia & Inforkom Church Service",
+        role: "Multimedia & Inforkom Service",
         company: "GPIB Cahaya Anugerah",
         date: "Jul 2020 - Present",
         type: "Volunteering",
@@ -1016,7 +1016,7 @@ export const id = {
       {
         shortTitle: "Full-Stack",
         role: "Full-Stack Web Developer",
-        company: "PT Muda Karya Kriya",
+        company: "PT Muda Karya Krya",
         date: "Feb 2025 - Sekarang",
         type: "Penuh waktu",
         logo: "/images/logo/krya.png",
@@ -1037,7 +1037,7 @@ export const id = {
       {
         shortTitle: "Magang Web-Dev",
         role: "Web Developer Intern",
-        company: "PT Muda Karya Kriya",
+        company: "PT Muda Karya Krya",
         date: "Sep 2024 - Jan 2025",
         type: "Magang",
         logo: "/images/logo/krya.png",
@@ -1097,7 +1097,7 @@ export const id = {
       },
       {
         shortTitle: "Sukarelawan",
-        role: "Multimedia & Inforkom Church Service",
+        role: "Multimedia & Inforkom Service",
         company: "GPIB Cahaya Anugerah",
         date: "Jul 2020 - Sekarang",
         type: "Sukarelawan",

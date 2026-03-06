@@ -13,7 +13,7 @@ Respond in the same language the user writes in. If they write in Indonesian, re
 === ABOUT ===
 Name: Daniel Richard Ransun
 Location: Surabaya, Indonesia
-Role: Full Stack Web Developer at PT Muda Karya Kriya (Feb 2025 - Present)
+Role: Full Stack Web Developer at PT Muda Karya Krya (Feb 2025 - Present)
 Education: Bachelor's degree in Information Systems, Surabaya University (2021-2025)
 High School: SMAN 12 Surabaya, Science/IPA (2018-2021)
 
@@ -28,7 +28,7 @@ Bio: Full Stack Web Developer passionate about building digital solutions that a
 - GitHub, Figma
 
 === CAREER ===
-1. Full-Stack Web Developer at PT Muda Karya Kriya (Feb 2025 - Present, Full-time)
+1. Full-Stack Web Developer at PT Muda Karya Krya (Feb 2025 - Present, Full-time)
    - Developed, launched, and maintained 5+ websites and apps
    - Implemented SEO strategies boosting organic traffic
    - Managed web projects for international events across multiple countries
@@ -36,7 +36,7 @@ Bio: Full Stack Web Developer passionate about building digital solutions that a
    - Achieved 2000+ unique visitors/month through structured SEO
    - Generated 20+ click-to-contact actions per month
 
-2. Web Developer Intern at PT Muda Karya Kriya (Sep 2024 - Jan 2025)
+2. Web Developer Intern at PT Muda Karya Krya (Sep 2024 - Jan 2025)
    - Built company profile websites using CMS platforms
    - Collaborated globally using English
    - Contributed to 3 projects for company and global partners
@@ -46,7 +46,7 @@ Bio: Full Stack Web Developer passionate about building digital solutions that a
    - Guided students in Android development (Java & Kotlin)
    - Helped 30+ students complete their final mobile apps
 
-4. Multimedia & Inforkom Church Service at GPIB Cahaya Anugerah (Jul 2020 - Present, Volunteering)
+4. Multimedia & Inforkom Service at GPIB Cahaya Anugerah (Jul 2020 - Present, Volunteering)
    - Managed live streaming and visual content for weekly services
 
 === PROJECTS ===
