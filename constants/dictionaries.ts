@@ -402,7 +402,7 @@ export const en = {
         category: "Competition Web App",
         image: "/images/porto/ICIAApp.jpg",
         liveUrl: "https://app.icia.global",
-        tech: ["Laravel", "PHP", "MySQL"],
+        tech: ["Laravel", "PHP", "MySQL", "Hostinger", "GitHub"],
         desc: "A global event management platform supporting international innovation competitions.",
         features: [
           "Attendance QR Scan System",
@@ -425,7 +425,7 @@ export const en = {
         category: "Personal Website",
         image: "/images/porto/MyPortfolio.png",
         liveUrl: "https://danielrichardransun.vercel.app/",
-        tech: ["React", "Next.js", "Tailwind"],
+        tech: ["React", "Next.js", "Tailwind", "Vercel", "GitHub"],
         desc: "A modern interactive personal website built with React to showcase professional experience and attract HR and potential clients.",
         features: [
           "Interactive UI with smooth animations",
@@ -449,7 +449,7 @@ export const en = {
         category: "Management System",
         image: "/images/porto/ICIAJudgeing.png",
         liveUrl: "https://judge.icia.global/",
-        tech: ["Laravel", "PHP", "MySQL"],
+        tech: ["Laravel", "PHP", "MySQL", "Hostinger", "GitHub"],
         desc: "A web-based judging management system designed to streamline scoring and certification processes for international competitions.",
         features: [
           "Automated score calculation",
@@ -474,7 +474,7 @@ export const en = {
         category: "Animation Demo",
         image: "/images/porto/AppleRebrand.png",
         liveUrl: "https://macbook-landingpage-gsap.vercel.app/",
-        tech: ["React", "GSAP", "Three.js"],
+        tech: ["React", "GSAP", "Three.js", "Vercel", "GitHub"],
         desc: "An animated landing page inspired by Apple’s website, built using React and GSAP to explore advanced animation techniques.",
         features: [
           "Scroll-based animations",
@@ -497,7 +497,7 @@ export const en = {
         category: "Sports Website",
         image: "/images/porto/HoopTourney.png",
         liveUrl: "https://hooptourney.vercel.app/",
-        tech: ["Laravel", "Tailwind", "PHP"],
+        tech: ["Laravel", "Tailwind", "PHP", "Supabase", "Vercel", "GitHub"],
         desc: "A web platform designed to manage basketball tournaments, connecting organizers, teams, and players in one integrated system.",
         features: [
           "Visual tournament bracket system",
@@ -521,7 +521,7 @@ export const en = {
         category: "Management System",
         image: "/images/porto/GyisJudging.png",
         liveUrl: "https://gyis-judgingform.krya.global/",
-        tech: ["Laravel", "Tailwind", "PHP"],
+        tech: ["Laravel", "Tailwind", "PHP", "Hostinger", "GitHub"],
         desc: "An event administration and judging platform built for GYIS Singapore competition management.",
         features: [
           "Participant data management",
@@ -545,7 +545,7 @@ export const en = {
         category: "Landing Page",
         image: "/images/porto/Siw.png",
         liveUrl: "http://siw.icia.global/",
-        tech: ["HTML", "CSS", "JavaScript"],
+        tech: ["HTML", "CSS", "JavaScript", "GitHub"],
         desc: "A responsive landing page developed to promote Startup Innovation Weekend 2026 Phnom Penh, Cambodia.",
         features: [
           "Event information sections",
@@ -568,7 +568,7 @@ export const en = {
         category: "Service Website",
         image: "/images/porto/Ransite.png",
         liveUrl: "https://ransite.com",
-        tech: ["HTML", "CSS", "JavaScript"],
+        tech: ["HTML", "CSS", "JavaScript", "cPanel", "GitHub"],
         desc: "A professional landing page promoting website development services.",
         features: [
           "Service showcase & pricing structure",
@@ -591,7 +591,7 @@ export const en = {
         category: "Company Profile",
         image: "/images/porto/Mocraft.png",
         liveUrl: "https://mocraft3d.com/",
-        tech: ["Wordpress", "Elementor"],
+        tech: ["Wordpress", "Elementor", "Hostinger"],
         desc: "A company profile website for a 3D printing service business designed to enhance credibility and multi-country reach.",
         features: [
           "Multi-language support (ID / DE / EN)",
@@ -613,7 +613,7 @@ export const en = {
         category: "E-Commerce",
         image: "/images/porto/Akusila.png",
         liveUrl: "https://akusila.com/",
-        tech: ["Wordpress", "WooCommerce", "Elementor"],
+        tech: ["Wordpress", "WooCommerce", "Elementor", "Hostinger"],
         desc: "A simple and elegant e-commerce website selling traditional jute bags.",
         features: [
           "Product catalog management",
@@ -635,7 +635,7 @@ export const en = {
         category: "Company Profile",
         image: "/images/porto/KryaGlobal.png",
         liveUrl: "https://krya.global/",
-        tech: ["Wordpress", "Elementor"],
+        tech: ["Wordpress", "Elementor", "Hostinger"],
         desc: "A company profile website for an educational company with 5 different brands identity websites.",
         features: [
           "Blog management system",
@@ -658,7 +658,7 @@ export const en = {
         category: "Competition Website",
         image: "/images/porto/ICIA_Global.png",
         liveUrl: "https://www.icia.global/",
-        tech: ["Wix Studio"],
+        tech: ["Wix Studio", "Hostinger"],
         desc: "Official website for an international innovation competition platform.",
         features: [
           "Event information management",
@@ -1136,7 +1136,7 @@ export const id = {
         category: "Aplikasi Web Kompetisi",
         image: "/images/porto/ICIAApp.jpg",
         liveUrl: "https://app.icia.global",
-        tech: ["Laravel", "PHP", "MySQL"],
+        tech: ["Laravel", "PHP", "MySQL", "Hostinger", "GitHub"],
         desc: "Platform manajemen event global yang mendukung kompetisi inovasi internasional.",
         features: [
           "Sistem Scan QR Kehadiran",
@@ -1159,7 +1159,7 @@ export const id = {
         category: "Website Pribadi",
         image: "/images/porto/MyPortfolio.png",
         liveUrl: "https://danielrichardransun.vercel.app/",
-        tech: ["React", "Next.js", "Tailwind"],
+        tech: ["React", "Next.js", "Tailwind", "Vercel", "GitHub"],
         desc: "Website pribadi interaktif modern yang dibangun dengan React untuk menampilkan pengalaman profesional dan menarik HR serta klien potensial.",
         features: [
           "UI Interaktif dengan animasi halus",
@@ -1183,7 +1183,7 @@ export const id = {
         category: "Sistem Manajemen",
         image: "/images/porto/ICIAJudgeing.png",
         liveUrl: "https://judge.icia.global/",
-        tech: ["Laravel", "PHP", "MySQL"],
+        tech: ["Laravel", "PHP", "MySQL", "Hostinger", "GitHub"],
         desc: "Sistem manajemen penilaian berbasis web yang dirancang untuk menyederhanakan proses penilaian dan sertifikasi untuk kompetisi internasional.",
         features: [
           "Perhitungan skor otomatis",
@@ -1208,7 +1208,7 @@ export const id = {
         category: "Animation Demo",
         image: "/images/porto/AppleRebrand.png",
         liveUrl: "https://macbook-landingpage-gsap.vercel.app/",
-        tech: ["React", "GSAP", "Three.js"],
+        tech: ["React", "GSAP", "Three.js", "Vercel", "GitHub"],
         desc: "An animated landing page inspired by Apple’s website, built using React and GSAP to explore advanced animation techniques.",
         features: [
           "Scroll-based animations",
@@ -1231,7 +1231,7 @@ export const id = {
         category: "Website Olahraga",
         image: "/images/porto/HoopTourney.png",
         liveUrl: "https://hooptourney.vercel.app/",
-        tech: ["Laravel", "Tailwind", "PHP"],
+        tech: ["Laravel", "Tailwind", "PHP", "Supabase", "Vercel", "GitHub"],
         desc: "Platform web yang dirancang untuk mengelola turnamen basket, menghubungkan penyelenggara, tim, dan pemain dalam satu sistem terintegrasi.",
         features: [
           "Sistem bagan turnamen visual",
@@ -1255,7 +1255,7 @@ export const id = {
         category: "Sistem Manajemen",
         image: "/images/porto/GyisJudging.png",
         liveUrl: "https://gyis-judgingform.krya.global/",
-        tech: ["Laravel", "Tailwind", "PHP"],
+        tech: ["Laravel", "Tailwind", "PHP", "Hostinger", "GitHub"],
         desc: "Platform administrasi event dan penilaian yang dibangun untuk manajemen kompetisi GYIS Singapura.",
         features: [
           "Manajemen data peserta",
@@ -1279,7 +1279,7 @@ export const id = {
         category: "Landing Page",
         image: "/images/porto/Siw.png",
         liveUrl: "http://siw.icia.global/",
-        tech: ["HTML", "CSS", "JavaScript"],
+        tech: ["HTML", "CSS", "JavaScript", "GitHub"],
         desc: "Landing page responsif yang dikembangkan untuk mempromosikan Startup Innovation Weekend 2026 Phnom Penh, Kamboja.",
         features: [
           "Bagian informasi event",
@@ -1302,7 +1302,7 @@ export const id = {
         category: "Website Layanan",
         image: "/images/porto/Ransite.png",
         liveUrl: "https://ransite.com",
-        tech: ["HTML", "CSS", "JavaScript"],
+        tech: ["HTML", "CSS", "JavaScript", "cPanel", "GitHub"],
         desc: "Landing page profesional yang mempromosikan layanan pengembangan website.",
         features: [
           "Showcase layanan & struktur harga",
@@ -1325,7 +1325,7 @@ export const id = {
         category: "Profil Perusahaan",
         image: "/images/porto/Mocraft.png",
         liveUrl: "https://mocraft3d.com/",
-        tech: ["Wordpress", "Elementor"],
+        tech: ["Wordpress", "Elementor", "Hostinger"],
         desc: "Website profil perusahaan untuk bisnis layanan 3D printing yang dirancang untuk meningkatkan kredibilitas dan jangkauan multi-negara.",
         features: [
           "Dukungan multi-bahasa (ID / DE / EN)",
@@ -1347,7 +1347,7 @@ export const id = {
         category: "E-Commerce",
         image: "/images/porto/Akusila.png",
         liveUrl: "https://akusila.com/",
-        tech: ["Wordpress", "WooCommerce", "Elementor"],
+        tech: ["Wordpress", "WooCommerce", "Elementor", "Hostinger"],
         desc: "Website e-commerce yang sederhana dan elegan yang menjual tas goni tradisional.",
         features: [
           "Manajemen katalog produk",
@@ -1369,7 +1369,7 @@ export const id = {
         category: "Profil Perusahaan",
         image: "/images/porto/KryaGlobal.png",
         liveUrl: "https://krya.global/",
-        tech: ["Wordpress", "Elementor"],
+        tech: ["Wordpress", "Elementor", "Hostinger"],
         desc: "Website profil perusahaan untuk perusahaan pendidikan dengan 5 identitas brand website yang berbeda.",
         features: [
           "Sistem manajemen blog",
@@ -1392,7 +1392,7 @@ export const id = {
         category: "Website Kompetisi",
         image: "/images/porto/ICIA_Global.png",
         liveUrl: "https://www.icia.global/",
-        tech: ["Wix Studio"],
+        tech: ["Wix Studio", "Hostinger"],
         desc: "Website resmi untuk platform kompetisi inovasi internasional.",
         features: [
           "Manajemen informasi event",

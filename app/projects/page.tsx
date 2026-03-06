@@ -28,6 +28,11 @@ import {
   SiHtml5,
   SiCss3,
   SiJavascript,
+  SiGithub,
+  SiVercel,
+  SiSupabase,
+  SiHostinger,
+  SiCpanel,
 } from "react-icons/si";
 import { FaWix } from "react-icons/fa";
 
@@ -89,6 +94,16 @@ export default function Projects() {
         return <SiCss3 className="text-blue-500" />;
       case "javascript":
         return <SiJavascript className="text-yellow-400" />;
+      case "hostinger":
+        return <SiHostinger className="text-purple-600" />;
+      case "github":
+        return <SiGithub className="text-[var(--text-heading)]" />;
+      case "vercel":
+        return <SiVercel className="text-[var(--text-heading)]" />;
+      case "supabase":
+        return <SiSupabase className="text-[#3ECF8E]" />;
+      case "cpanel":
+        return <SiCpanel className="text-[#FF6C2C]" />;
       default:
         return <FiZap className="text-[var(--text-muted)]" />;
     }
