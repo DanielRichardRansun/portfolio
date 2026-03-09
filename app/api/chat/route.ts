@@ -134,11 +134,12 @@ export async function POST(request: NextRequest) {
       PORTFOLIO_CONTEXT +
       `\n\nThe user's current language preference is: ${language === "ID" ? "Indonesian" : "English"}. Default to this language unless they write in a different one.`;
 
-    const modelNames = ["gemini-3-flash-preview"];
+    const modelNames = ["gemini-3-flash-preview", "gemini-2.5-flash"];
     let lastError: any = null;
 
     for (const modelName of modelNames) {
       try {
+        console.log(`Attempting to generate response with ${modelName}...`);
         const model = genAI.getGenerativeModel({
           model: modelName,
           systemInstruction: systemPrompt,
@@ -153,40 +154,35 @@ export async function POST(request: NextRequest) {
         });
 
         const result = await chat.sendMessage(lastMessage);
-        const responseText = result.response.text().trim();
+        const response = await result.response;
+        const responseText = response.text().trim();
 
         if (responseText) {
+          console.log(`Success with ${modelName}`);
           return NextResponse.json({ reply: responseText });
         }
       } catch (err: any) {
         lastError = err;
-        // Check for 429 quota errors
-        if (err?.status === 429 || err?.message?.includes("429")) {
-          console.warn(`Quota limit on ${modelName}, trying next model...`);
-          continue;
-        }
-        // Check for 404/Not Found or other issues
         console.error(`Error with ${modelName}:`, err?.message || err);
+
+        // Try next model if this one fails
         continue;
       }
     }
 
-    // All models failed
-    if (lastError?.status === 429 || lastError?.message?.includes("429")) {
-      return NextResponse.json(
-        {
-          error:
-            "I'm receiving too many requests right now. Please wait a few seconds and try again! 🙏",
-        },
-        { status: 429 },
-      );
-    }
+    // If all models failed, provide detailed error
+    const errorMessage =
+      lastError?.message || "All Gemini models failed to respond.";
+    console.error("Gemini API Ultimate Failure:", errorMessage);
 
-    throw lastError || new Error("Failed to get response from AI");
-  } catch (error: any) {
-    console.error("Gemini API Error:", error?.message || error);
     return NextResponse.json(
       { error: "Failed to get response from AI" },
+      { status: 500 },
+    );
+  } catch (error: any) {
+    console.error("Global Route Error:", error?.message || error);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
       { status: 500 },
     );
   }
