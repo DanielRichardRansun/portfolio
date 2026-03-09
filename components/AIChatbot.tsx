@@ -23,28 +23,61 @@ function getTime() {
 
 // Simple markdown parser for AI responses
 function parseMarkdown(text: string): string {
+  if (!text) return "";
+
+  // 1. Bold & Italic
   let html = text
-    // Bold: **text**
+    .trim()
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-    // Italic: *text*
-    .replace(/\*(.+?)\*/g, "<em>$1</em>")
-    // Links: [text](url)
+    .replace(/\*(.+?)\*/g, "<em>$1</em>");
+
+  // 2. Links (Standard Markdown [text](url) and Auto-link raw URLs)
+  html = html
     .replace(
       /\[([^\]]+)\]\(([^)]+)\)/g,
       '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>',
     )
-    // Bullet lists: lines starting with - or *
-    .replace(/^[\-\*]\s+(.+)$/gm, "<li>$1</li>")
-    // Wrap consecutive <li> in <ul>
-    .replace(/((?:<li>.*<\/li>\n)+)/g, "<ul>$1</ul>")
-    // Line breaks (but not inside or immediately after tags that already handle breaks)
-    .replace(/\n/g, "<br />");
+    .replace(
+      /(?<!href=")(?<!">)(https?:\/\/[^\s<]+)/g,
+      '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>',
+    );
 
-  // Final cleanup: remove <br /> that are inside <ul> or after </ul>
-  return html
+  // 3. Lists and Line Breaks
+  const lines = html.split("\n");
+  const processed = [];
+  let inList = false;
+
+  for (let line of lines) {
+    const trimmedLine = line.trim();
+    if (/^[\-\*]\s+/.test(trimmedLine)) {
+      if (!inList) {
+        processed.push("<ul>");
+        inList = true;
+      }
+      processed.push(`<li>${trimmedLine.replace(/^[\-\*]\s+/, "")}</li>`);
+    } else {
+      if (inList) {
+        processed.push("</ul>");
+        inList = false;
+      }
+      if (trimmedLine) {
+        processed.push(trimmedLine);
+      } else if (
+        processed.length > 0 &&
+        processed[processed.length - 1] !== "<br />"
+      ) {
+        processed.push("<br />");
+      }
+    }
+  }
+  if (inList) processed.push("</ul>");
+
+  return processed
+    .join("")
+    .replace(/<li><br \/>/g, "<li>")
+    .replace(/<\/li><br \/>/g, "</li>")
     .replace(/<ul><br \/>/g, "<ul>")
-    .replace(/<\/li><br \/>/g, "<\/li>")
-    .replace(/<\/ul><br \/>/g, "<\/ul>");
+    .replace(/<\/ul><br \/>/g, "</ul>");
 }
 
 export default function AIChatbot() {
