@@ -209,10 +209,10 @@ export const en = {
           image: "/images/certificate/cert-4.jpg",
         },
         {
-          name: "Introduction to Financial Literacy",
+          name: "Starting Programming with Python",
           issuer: "Dicoding Academy",
-          date: "Jan 2026",
-          image: "/images/certificate/cert-5.jpg",
+          date: "May 2026",
+          image: "/images/certificate/cert-15.jpg",
         },
         {
           name: "PCAP: Programming Essentials in Python",
@@ -985,10 +985,10 @@ export const id = {
           image: "/images/certificate/cert-4.jpg",
         },
         {
-          name: "Pengantar Literasi Keuangan",
+          name: "Memulai Pemrograman Dengan Python",
           issuer: "Dicoding Academy",
-          date: "Jan 2026",
-          image: "/images/certificate/cert-5.jpg",
+          date: "Mei 2026",
+          image: "/images/certificate/cert-15.jpg",
         },
         {
           name: "PCAP: Dasar-Dasar Pemrograman Python",

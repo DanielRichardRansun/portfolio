@@ -86,7 +86,7 @@ CMS Projects:
 - Starting Programming with C (Dicoding Academy, Jan 2026)
 - Starting Programming with Java (Dicoding Academy, Jan 2026)
 - Basic Project Management (Dicoding Academy, Jan 2026)
-- Introduction to Financial Literacy (Dicoding Academy, Jan 2026)
+- Starting Programming with Python (Dicoding Academy, May 2026)
 - PCAP: Programming Essentials in Python (Cisco & OpenEDG, May 2023)
 - Student Challenge Winner Software Engineering (Ubaya, Feb 2023)
 - Introduction to GitHub Copilot (Microsoft, Jan 2026)
