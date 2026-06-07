@@ -198,10 +198,18 @@
   font-style: italic;
 }
 
-.chatbot-message .bubble ul {
+.chatbot-message .bubble ul,
+.chatbot-message .bubble ol {
   margin: 6px 0;
   padding-left: 20px;
+}
+
+.chatbot-message .bubble ul {
   list-style: disc;
+}
+
+.chatbot-message .bubble ol {
+  list-style: decimal;
 }
 
 .chatbot-message .bubble li {

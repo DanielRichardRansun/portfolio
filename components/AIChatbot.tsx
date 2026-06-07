@@ -45,39 +45,65 @@ function parseMarkdown(text: string): string {
   // 3. Lists and Line Breaks
   const lines = html.split("\n");
   const processed = [];
-  let inList = false;
+  let currentListType: "ul" | "ol" | null = null;
 
   for (let line of lines) {
     const trimmedLine = line.trim();
-    if (/^[\-\*]\s+/.test(trimmedLine)) {
-      if (!inList) {
-        processed.push("<ul>");
-        inList = true;
+    if (!trimmedLine) {
+      if (currentListType) {
+        processed.push(`</${currentListType}>`);
+        currentListType = null;
       }
-      processed.push(`<li>${trimmedLine.replace(/^[\-\*]\s+/, "")}</li>`);
-    } else {
-      if (inList) {
-        processed.push("</ul>");
-        inList = false;
-      }
-      if (trimmedLine) {
-        processed.push(trimmedLine);
-      } else if (
+      if (
         processed.length > 0 &&
         processed[processed.length - 1] !== "<br />"
       ) {
         processed.push("<br />");
       }
+      continue;
+    }
+
+    const isUnordered = /^[\-\*]\s+/.test(trimmedLine);
+    const isOrdered = /^\d+\.\s+/.test(trimmedLine);
+
+    if (isUnordered) {
+      if (currentListType !== "ul") {
+        if (currentListType) {
+          processed.push(`</${currentListType}>`);
+        }
+        processed.push("<ul>");
+        currentListType = "ul";
+      }
+      processed.push(`<li>${trimmedLine.replace(/^[\-\*]\s+/, "")}</li>`);
+    } else if (isOrdered) {
+      if (currentListType !== "ol") {
+        if (currentListType) {
+          processed.push(`</${currentListType}>`);
+        }
+        processed.push("<ol>");
+        currentListType = "ol";
+      }
+      processed.push(`<li>${trimmedLine.replace(/^\d+\.\s+/, "")}</li>`);
+    } else {
+      if (currentListType) {
+        processed.push(`</${currentListType}>`);
+        currentListType = null;
+      }
+      processed.push(`<div>${trimmedLine}</div>`);
     }
   }
-  if (inList) processed.push("</ul>");
+  if (currentListType) {
+    processed.push(`</${currentListType}>`);
+  }
 
   return processed
     .join("")
     .replace(/<li><br \/>/g, "<li>")
     .replace(/<\/li><br \/>/g, "</li>")
     .replace(/<ul><br \/>/g, "<ul>")
-    .replace(/<\/ul><br \/>/g, "</ul>");
+    .replace(/<\/ul><br \/>/g, "</ul>")
+    .replace(/<ol><br \/>/g, "<ol>")
+    .replace(/<\/ol><br \/>/g, "</ol>");
 }
 
 export default function AIChatbot() {
