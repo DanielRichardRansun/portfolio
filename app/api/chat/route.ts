@@ -36,17 +36,27 @@ Bio: Full Stack Web Developer passionate about building digital solutions that a
    - Achieved 2000+ unique visitors/month through structured SEO
    - Generated 20+ click-to-contact actions per month
 
-2. Web Developer Intern at PT Muda Karya Krya (Sep 2024 - Jan 2025)
+2. Freelance Website Maintenance & Tech Support at Billstone Official (Apr 2026 - Jul 2026, Freelance)
+   - Optimized website speed and loading performance
+   - Migrated website to VPS hosting, including domain and database configuration
+   - Performed routine website maintenance, security updates, and bug fixing
+   - Developed landing pages and content to support business growth
+   - Reduced average page load times from 40+ seconds to 5-seconds average
+   - Completed full website migration to VPS with zero downtime
+   - Perform routine maintenance for website stability and content updates
+   - Improved user engagement on e-commerce platform
+
+3. Web Developer Intern at PT Muda Karya Krya (Sep 2024 - Jan 2025)
    - Built company profile websites using CMS platforms
    - Collaborated globally using English
    - Contributed to 3 projects for company and global partners
    - Worked with clients from 5+ countries
 
-3. Assistant Lecturer - Native Mobile Programming at Surabaya University (Sep 2024 - Dec 2024, Part-time)
+4. Assistant Lecturer - Native Mobile Programming at Surabaya University (Sep 2024 - Dec 2024, Part-time)
    - Guided students in Android development (Java & Kotlin)
    - Helped 30+ students complete their final mobile apps
 
-4. Multimedia & Inforkom Service at GPIB Cahaya Anugerah (Jul 2020 - Present, Volunteering)
+5. Multimedia & Inforkom Service at GPIB Cahaya Anugerah (Jul 2020 - Present, Volunteering)
    - Managed live streaming and visual content for weekly services
 
 === PROJECTS ===
@@ -61,10 +71,11 @@ Coding Projects:
 8. Ransite - Professional website development services landing page (HTML, CSS, JS). Generated 5+ orders. Live: https://ransite.com
 
 CMS Projects:
-9. Mocraft - 3D printing company profile, multi-language ID/DE/EN (WordPress, Elementor). Live: https://mocraft3d.com/
+9. Mocraft - 3D printing company profile, multi-language ID/DE/EN (WordPress, Elementor). Live: https://mocraft3d.com/ [Latest]
 10. Akusila - Traditional jute bags e-commerce (WordPress, WooCommerce). Live: https://akusila.com/
 11. Krya Global - Educational company profile with 5 brand websites (WordPress, Elementor). 500+ monthly visitors. Live: https://krya.global/
 12. ICIA Global - International innovation competition website (Wix Studio). 1000+ monthly visitors. Live: https://www.icia.global/
+13. Billstone Private Vault - Premium landing page for bespoke luxury vault systems (WordPress, Elementor, WooCommerce). Live: https://billstoneofficial.com/private-vault/
 
 === CERTIFICATIONS ===
 - On-Page SEO and AI Search Essentials (Semrush Academy, Mar 2026)
