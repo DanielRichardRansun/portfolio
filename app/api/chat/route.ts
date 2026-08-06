@@ -36,7 +36,7 @@ Bio: Full Stack Web Developer passionate about building digital solutions that a
    - Achieved 2000+ unique visitors/month through structured SEO
    - Generated 20+ click-to-contact actions per month
 
-2. Freelance Website Maintenance & Tech Support at Billstone Official (Apr 2026 - Jul 2026, Freelance)
+2. Freelance Website Maintenance & Tech Support at Billstone Official (Apr 2026 - Jan 2027, Freelance)
    - Optimized website speed and loading performance
    - Migrated website to VPS hosting, including domain and database configuration
    - Performed routine website maintenance, security updates, and bug fixing
